@@ -1,3 +1,10 @@
 <?php
 
-  require_once('templates/templates.html');
+  require_once('templates/template.html');
+
+
+
+
+
+
+?>

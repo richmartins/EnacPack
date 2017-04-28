@@ -1,0 +1,22 @@
+@charset "UTF-8";
+
+body {
+  text-align: center;
+  padding: 0;
+}
+
+.header{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.headItm {
+  order: <integer>;
+  margin: 10px 90px;
+}
+
+.headItm h1 {
+  margin: 0;
+}
