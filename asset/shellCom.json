@@ -1,0 +1,379 @@
+{
+  "shell":[
+    {
+      "selection1":" #!/bin/bash
+
+                    mkdir ~/getmacapps_temp
+                    cd ~/getmacapps_temp
+
+                    # Installing Chrome
+                    curl -L -O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\"
+                    hdiutil mount -nobrowse googlechrome.dmg
+                    cp -R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications
+                    hdiutil unmount \"/Volumes/Google Chrome\"
+                    rm googlechrome.dmg
+
+                    # Installing Firefox
+                    curl -L -o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\"
+                    hdiutil mount -nobrowse Firefox.dmg
+                    cp -R \"/Volumes/Firefox/Firefox.app\" /Applications
+                    hdiutil unmount \"/Volumes/Firefox\"
+                    rm Firefox.dmg
+
+                    # Installing Opera
+                    curl -L -o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\"
+                    yes | hdiutil mount -nobrowse Opera.dmg > /dev/null
+                    cp -R \"/Volumes/Opera/Opera.app\" /Applications
+                    hdiutil unmount \"/Volumes/Opera\"
+                    rm Opera.dmg
+
+                    # Installing Handbrake
+                    curl -L -o HandBrake.dmg \"https://handbrake.fr/rotation.php?file=HandBrake-1.0.7.dmg\"
+                    hdiutil mount -nobrowse HandBrake.dmg -mountpoint /Volumes/HandBrake
+                    cp -R \"/Volumes/HandBrake/HandBrake.app\" /Applications
+                    hdiutil unmount \"/Volumes/HandBrake\"
+                    rm HandBrake.dmg
+
+                    # Installing Spotify
+                    curl -L -O \"http://download.spotify.com/Spotify.dmg\"
+                    hdiutil mount -nobrowse Spotify.dmg
+                    cp -R \"/Volumes/Spotify/Spotify.app\" /Applications
+                    hdiutil unmount \"/Volumes/Spotify\"
+                    rm Spotify.dmg
+
+                    # Installing VLC Player
+                    curl -L -o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\"
+                    hdiutil mount -nobrowse vlc.dmg -mountpoint /Volumes/vlc
+                    cp -R \"/Volumes/vlc/VLC.app\" /Applications
+                    hdiutil unmount \"/Volumes/vlc\"
+                    rm vlc.dmg
+
+                    # Installing Transmission
+                    curl -L -o Transmission.dmg \"https://github.com/transmission/transmission-releases/raw/master/Transmission-2.92.dmg\"
+                    hdiutil mount -nobrowse Transmission.dmg
+                    cp -R \"/Volumes/Transmission/Transmission.app\" /Applications
+                    hdiutil unmount \"/Volumes/Transmission\"
+                    rm Transmission.dmg
+
+                    # Installing Skype
+                    curl -L -O \"http://www.skype.com/go/getskype-macosx.dmg\"
+                    hdiutil mount -nobrowse getskype-macosx.dmg
+                    cp -R \"/Volumes/Skype/Skype.app\" /Applications
+                    hdiutil unmount \"/Volumes/Skype\"
+                    rm getskype-macosx.dmg
+
+                    # Installing Adium
+                    curl -L -o Adium.dmg \"https://adiumx.cachefly.net/Adium_1.5.10.4.dmg\"
+                    hdiutil mount -nobrowse Adium.dmg -mountpoint /Volumes/Adium
+                    cp -R \"/Volumes/Adium/Adium.app\" /Applications
+                    hdiutil unmount \"/Volumes/Adium\"
+                    rm Adium.dmg
+
+                    # Installing Dropbox
+                    curl -L -o Dropbox.dmg \"https://www.dropbox.com/download?plat=mac&type=full\"
+                    hdiutil mount -nobrowse Dropbox.dmg
+                    cp -R \"/Volumes/Dropbox Installer/Dropbox.app\" /Applications
+                    hdiutil unmount \"/Volumes/Dropbox Installer\"
+                    rm Dropbox.dmg
+
+                    # Installing Google Drive
+                    curl -L -O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\"
+                    hdiutil mount -nobrowse installgoogledrive.dmg
+                    cp -R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications
+                    hdiutil unmount \"/Volumes/Install Google Drive\"
+                    rm installgoogledrive.dmg
+
+                    # Installing caffeine
+                    curl -L -o Caffeine.zip \"http://download.lightheadsw.com/download.php?software=caffeine\"
+                    unzip Caffeine.zip
+                    mv Caffeine.app /Applications
+                    rm Caffeine.zip
+
+                    # Installing Sublime Text 3 Beta
+                    curl -L -o \"Sublime Text 3.dmg\" \"https://download.sublimetext.com/Sublime%20Text%20Build%203126.dmg\"
+                    hdiutil mount -nobrowse \"Sublime Text 3.dmg\"
+                    cp -R \"/Volumes/Sublime Text/Sublime Text.app\" /Applications
+                    hdiutil unmount \"/Volumes/Sublime Text/Sublime Text.app\"
+                    rm \"Sublime Text 3.dmg\"
+
+                    # Installing Sublime Text 2
+                    echo \"Installing Sublime Text 2\"
+                    curl -L -o \"Sublime Text 2.0.2.dmg\" \"http://c758482.r82.cf2.rackcdn.com/Sublime%20Text%202.0.2.dmg\"
+                    hdiutil mount -nobrowse \"Sublime Text 2.0.2.dmg\"
+                    cp -R \"/Volumes/Sublime Text 2/Sublime Text 2.app\" /Applications
+                    hdiutil unmount \"/Volumes/Sublime Text 2/Sublime Text 2.app\"
+                    rm \"Sublime Text 2.0.2.dmg\"
+
+                    # Installing iterm2
+                    curl -L -o iTerm2.zip \"https://iterm2.com/downloads/stable/latest\"
+                    unzip iTerm2.zip
+                    mv iTerm.app /Applications
+                    rm iTerm2.zip
+
+                    # Installing Sequel Pro
+                    curl -L -o sequel-pro.dmg \"https://github.com/sequelpro/sequelpro/releases/download/release-1.1.2/sequel-pro-1.1.2.dmg\"
+                    hdiutil mount -nobrowse sequel-pro.dmg
+                    cp -R \"/Volumes/Sequel Pro 1.1.2/Sequel Pro.app\" /Applications
+                    hdiutil unmount \"/Volumes/Sequel Pro 1.1.2\"
+                    rm sequel-pro.dmg
+
+                    # Installing Source Tree
+                    curl -L -o SourceTree.zip \"https://downloads.atlassian.com/software/sourcetree/SourceTree_2.5c.zip\"
+                    unzip SourceTree.zip
+                    mv SourceTree.app /Applications
+                    rm SourceTree.zip
+
+                    # Installing FileZilla
+                    curl -L -o Filezilla.app.tar.bz2 \"http://sourceforge.net/projects/filezilla/files/FileZilla_Client/3.25.1/FileZilla_3.25.1_macosx-x86.app.tar.bz2/download\"
+                    tar -zxvf Filezilla.app.tar.bz2
+                    mv FileZilla.app /Applications
+                    rm Filezilla.app.tar.bz2
+
+                    # Installing GitHub
+                    curl -L -o mac_GitHub.zip \"https://central.github.com/mac/latest\"
+                    unzip mac_GitHub.zip
+                    mv GitHub.app /Applications
+                    rm mac_GitHub.zip
+
+                    # Installing flux
+                    curl -L -O \"https://justgetflux.com/mac/Flux.zip\"
+                    unzip Flux.zip
+                    mv Flux.app /Applications
+                    rm Flux.zip
+
+                    # Installing LibreOffice
+                    curl -L -o LibreOffice.dmg \"http://download.documentfoundation.org/libreoffice/stable/5.3.2/mac/x86_64/LibreOffice_5.3.2_MacOS_x86-64.dmg\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\"
+                    hdiutil mount -nobrowse LibreOffice.dmg
+                    cp -R \"/Volumes/LibreOffice/LibreOffice.app\" /Applications
+                    hdiutil unmount \"/Volumes/LibreOffice\"
+                    rm LibreOffice.dmg
+
+                    # Installing OpenOffice
+                    curl -L -o OpenOffice.dmg \"https://downloads.sourceforge.net/project/openofficeorg.mirror/4.1.3/binaries/en-US/Apache_OpenOffice_4.1.3_MacOS_x86-64_install_en-US.dmg\"
+                    hdiutil mount -nobrowse OpenOffice.dmg
+                    cp -R \"/Volumes/OpenOffice/OpenOffice.app\" /Applications
+                    hdiutil unmount \"/Volumes/OpenOffice\"
+                    rm OpenOffice.dmg
+
+                    # Installing Steam
+                    curl -L -O \"http://media.steampowered.com/client/installer/steam.dmg\"
+                    yes | hdiutil mount -nobrowse steam.dmg -nobrowse > /dev/null
+                    cp -R \"/Volumes/Steam/Steam.app\" /Applications
+                    hdiutil unmount \"/Volumes/Steam\"
+                    rm steam.dmg
+
+                    # Installing Cyberduck
+                    curl -L -o Cyberduck.zip \"https://update.cyberduck.io/Cyberduck-5.4.4.23962.zip\"
+                    unzip Cyberduck.zip
+                    mv Cyberduck.app /Applications
+                    rm Cyberduck.zip
+
+                    # Installing Grand Persepective
+                    curl -L -o GrandPerspective.dmg \"https://downloads.sourceforge.net/project/grandperspectiv/grandperspective/1.9.1/GrandPerspective-1_9_1.dmg\"
+                    hdiutil mount -nobrowse GrandPerspective.dmg
+                    cp -R \"/Volumes/GrandPerspective 1.9.1/GrandPerspective.app\" /Applications
+                    hdiutil unmount \"/Volumes/GrandPerspective 1.9.1\"
+                    rm GrandPerspective.dmg
+
+                    # Installing Coconut Battery
+                    curl -L -o coconutBattery.zip \"http://coconut-flavour.com/downloads/coconutBattery_3.6.zip\"
+                    unzip coconutBattery.zip
+                    mv \"coconutBattery.app\" /Applications
+                    rm coconutBattery.zip
+
+                    # Installing Gimp
+                    curl -L -o gimp.dmg \"https://download.gimp.org/mirror/pub/gimp/v2.8/osx/gimp-2.8.20-x86_64.dmg\"
+                    hdiutil mount -nobrowse gimp.dmg
+                    cp -R \"/Volumes/Gimp 2.8.20/GIMP.app\" /Applications
+                    hdiutil unmount \"/Volumes/Gimp 2.8.20\"
+                    rm gimp.dmg
+
+                    # Installing CodeKit
+                    curl -L -O \"https://codekitapp.com/binaries/codekit.zip\"
+                    unzip codekit.zip
+                    mv \"CodeKit.app\" /Applications
+                    rm codekit.zip
+
+                    # Installing 1Password
+                    curl -L -o 1Password.zip \"https://d13itkw33a7sus.cloudfront.net/dist/1P/mac4/1Password-6.0.2.zip\"
+                    unzip 1Password.zip
+                    mv \"1Password 6.app\" /Applications
+                    rm 1Password.zip
+
+                    # Installing Transmit
+                    curl -L -o Transmit.zip \"http://download.panic.com/transmit/Transmit%204.4.12.zip\"
+                    unzip Transmit.zip
+                    mv \"Transmit.app\" /Applications
+                    rm Transmit.zip
+
+                    # Installing Tower
+                    curl -L -o tower.zip \"http://www.git-tower.com/download\"
+                    unzip tower.zip
+                    mv \"Tower.app\" /Applications
+                    rm tower.zip
+
+                    # Installing Last.fm Scrobbler
+                    curl -L -o Last.fm.zip \"http://www.last.fm/download/mac\"
+                    unzip Last.fm.zip
+                    mv \"Last.fm.app\" /Applications
+                    rm Last.fm.zip
+
+                    # Installing TinyGrab
+                    curl -L -o TinyGrab.dmg \"http://bit.ly/weXCIz\"
+                    hdiutil mount -nobrowse TinyGrab.dmg
+                    cp -R \"/Volumes/TinyGrab/TinyGrab.app\" /Applications
+                    hdiutil unmount \"/Volumes/TinyGrab\"
+                    rm TinyGrab.dmg
+
+                    # Installing Alfred
+                    curl -L -o alfred.dmg \"https://cachefly.alfredapp.com/Alfred_3.3.2_818.dmg\"
+                    hdiutil mount -nobrowse alfred.dmg
+                    cp -R \"/Volumes/Alfred/Alfred 3.app\" /Applications
+                    rm alfred.dmg
+
+                    # Installing Postgres.app
+                    curl -L -o postgres.dmg \"https://github.com/PostgresApp/PostgresApp/releases/download/v2.0.2/Postgres-2.0.2.dmg\"
+                    hdiutil mount -nobrowse postgres.dmg
+                    cp -R \"/Volumes/Postgres/Postgres.app\" /Applications
+                    rm postgres.dmg
+
+                    # Installing Skim
+                    curl -L -o Skim.dmg \"https://sourceforge.net/projects/skim-app/files/Skim/Skim-1.4.29/Skim-1.4.29.dmg/download\"
+                    hdiutil mount -nobrowse Skim.dmg
+                    cp -R \"/Volumes/Skim/Skim.app\" /Applications
+                    hdiutil unmount \"/Volumes/Skim\"
+                    rm Skim.dmg
+
+                    # Installing quicksilver
+                    curl -L -o Quicksilver.dmg \"https://qs0.qsapp.com/plugins/download.php\"
+                    hdiutil mount -nobrowse Quicksilver.dmg
+                    cp -R \"/Volumes/Quicksilver/Quicksilver.app\" /Applications
+                    hdiutil unmount \"/Volumes/Quicksilver\"
+                    rm Quicksilver.dmg
+
+                    # Installing Notational Velocity
+                    curl -L -O \"http://notational.net/NotationalVelocity.zip\"
+                    unzip NotationalVelocity.zip
+                    mv \"Notational Velocity.app\" /Applications
+                    rm NotationalVelocity.zip
+
+                    # Installing Carbon Copy Cloner
+                    curl -L -o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\"
+                    unzip ccc.zip
+                    mv \"Carbon Copy Cloner.app\" /Applications
+                    rm ccc.zip
+
+                    # Installing Skitch
+                    curl -L -o Skitch.zip \"http://evernote.com/download/get.php?file=SkitchMac\"
+                    unzip Skitch.zip
+                    mv \"Skitch.app\" /Applications
+                    rm Skitch.zip
+
+                    # Installing Evernote
+                    curl -L -o Evernote.dmg \"http://evernote.com/download/get.php?file=EvernoteMac\"
+                    yes | hdiutil mount -nobrowse Evernote.dmg -nobrowse > /dev/null
+                    cp -R \"/Volumes/Evernote/Evernote.app\" /Applications
+                    hdiutil unmount \"/Volumes/Evernote\"
+                    rm Evernote.dmg
+
+                    # Installing NetNewsWire
+                    curl -L -o NetNewsWire.zip \"https://updates.blackpixel.com/latest?app=nnw\"
+                    unzip NetNewsWire.zip
+                    mv \"NetNewsWire.app\" /Applications
+                    rm NetNewsWire.zip
+
+                    # Installing The Unarchiver
+                    curl -L -o TheUnarchiver.zip \"http://unarchiver.c3.cx/downloads/TheUnarchiver3.11.1.zip\"
+                    unzip TheUnarchiver.zip
+                    mv \"The Unarchiver.app\" /Applications
+                    rm TheUnarchiver.zip
+
+                    # Installing Path Finder 7
+                    curl -L -o PathFinder7.zip \"http://get.cocoatech.com/PF7.zip\"
+                    unzip PathFinder7.zip
+                    mv \"Path Finder.app\" /Applications
+                    rm PathFinder7.zip
+
+                    # Installing unison 2
+                    curl -L -o Unison.zip \"http://download.panic.com/unison/Unison%202.2.zip\"
+                    unzip Unison.zip
+                    mv \"Unison.app\" /Applications
+                    rm Unison.zip
+
+                    # Installing Coda
+                    curl -L -o Coda.zip \"https://download.panic.com/coda/Coda%202.6.3.zip\"
+                    unzip Coda.zip
+                    mv \"Coda 2.app\" /Applications
+                    rm Coda.zip
+
+                    # Installing Thunderbird
+                    curl -L -o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\"
+                    hdiutil mount -nobrowse Thunderbird.dmg
+                    cp -R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications
+                    hdiutil unmount \"/Volumes/Thunderbird\"
+                    rm Thunderbird.dmg
+
+                    # Installing Inkscape
+                    curl -L -o Inkscape.dmg \"https://inkscape.org/en/gallery/item/4034/Inkscape-0.91-1-x11-10.5-i386_1.dmg\"
+                    hdiutil mount -nobrowse Inkscape.dmg -nobrowse
+                    cp -R \"/Volumes/Inkscape/Inkscape.app\" /Applications
+                    hdiutil unmount \"/Volumes/Inkscape\"
+                    rm Inkscape.dmg
+
+                    # Installing BBEdit
+                    curl -L -o BBEdit.dmg \"https://s3.amazonaws.com/BBSW-download/BBEdit_11.6.5.dmg\"
+                    hdiutil mount -nobrowse BBEdit.dmg
+                    cp -R \"/Volumes/BBEdit 11.6.5/BBEdit.app\" /Applications
+                    hdiutil unmount \"/Volumes/BBEdit 11.6.5\"
+                    rm BBEdit.dmg
+
+                    # Installing aText
+                    curl -L -o aText.dmg \"http://www.trankynam.com/atext/downloads/aText.dmg\"
+                    hdiutil mount -nobrowse aText.dmg -nobrowse
+                    cp -R \"/Volumes/aText/aText.app\" /Applications
+                    hdiutil unmount \"/Volumes/aText\"
+                    rm aText.dmg
+
+                    # Installing Plex Media Server
+                    curl -L -o PlexMediaServer.zip \"https://downloads.plex.tv/plex-media-server/1.5.5.3634-995f1dead/PlexMediaServer-1.5.5.3634-995f1dead-OSX.zip\"
+                    unzip PlexMediaServer.zip
+                    mv \"Plex Media Server.app\" /Applications
+                    rm PlexMediaServer.zip
+
+                    # Installing Calibre
+                    curl -L -o calibre.dmg \"http://code.calibre-ebook.com/dist/osx\"
+                    hdiutil mount -nobrowse calibre.dmg -nobrowse -mountpoint /Volumes/calibre/
+                    cp -R \"/Volumes/calibre/calibre.app\" /Applications
+                    hdiutil unmount \"/Volumes/calibre\"
+                    rm calibre.dmg
+
+                    # Installing KeePassX
+                    # Install KeePassX
+                    curl -L -o KeepassX.dmg \"https://www.keepassx.org/releases/2.0.3/KeePassX-2.0.3.dmg\"
+                    hdiutil mount -nobrowse KeepassX.dmg -mountpoint /Volumes/KeepassX/
+                    cp -R \"/Volumes/KeepassX/KeePassX.app\" /Applications
+                    hdiutil unmount \"/Volumes/KeepassX\"
+                    rm KeepassX.dmg
+
+                    # Installing Keka
+                    curl -L -o Keka.dmg \"http://download.kekaosx.com/\"
+                    hdiutil mount -nobrowse Keka.dmg
+                    cp -R \"/Volumes/Keka/Keka.app\" /Applications
+                    hdiutil unmount \"/Volumes/Keka\"
+                    rm Keka.dmg
+
+                    # Installing Kodi
+                    curl -L -o kodi.dmg \"http://mirrors.kodi.tv/releases/osx/x86_64/kodi-17.1-Krypton-x86_64.dmg\"
+                    hdiutil mount -nobrowse kodi.dmg
+                    cp -R \"/Volumes/Kodi/Kodi.app\" /Applications
+                    hdiutil unmount \"/Volumes/Kodi\"
+                    rm kodi.dmg "
+
+        ,"selection2":"s"
+
+    }
+  ]
+}
+{
+  "Apps":
+}

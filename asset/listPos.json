@@ -1,0 +1,8 @@
+foos : [
+    {
+        "prop1":"selection1",
+        "prop2":"selection2",
+        "prop3":"selection3",
+        "prop4":"selection4"
+    }
+]

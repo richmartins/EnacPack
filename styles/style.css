@@ -9,12 +9,13 @@ body {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .headItm {
   order: <integer>;
   margin: 10px 90px;
+  align-self: flex-end;
 }
 
 .headItm h1 {
