@@ -15,4 +15,12 @@
     }
   }
 
+
+  function drop_down_html(){
+    $html = require_once('template/template.html');
+
+    $buttonR = '<input type=radio name=button' . $idButton . ' />'
+
+  }
+
 ?>

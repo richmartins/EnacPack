@@ -11,18 +11,18 @@
         "Google_drive":8,
         "CCC":9,
         "Thunderbird":10,
-        "ENACdrive":11,
+        "ENACdrive":11
     }
-}
-
+},
 {
-  "shell":[{
-      "0":" #!/bin/bash
+  "shell":
+    [{
+    "0":" #!/bin/bash
 
           mkdir ~/EnacPack_temp
           cd ~/EnacPack_temp",
 
-      "1":"# Installing Chrome
+    "1":"# Installing Chrome
                     curl -L -O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\"
                     hdiutil mount -nobrowse googlechrome.dmg
                     cp -R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications
