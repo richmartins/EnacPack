@@ -1,0 +1,16 @@
+{
+  "Apps": {
+    "Chrome": 1,
+    "Firefox": 2,
+    "Opera": 3,
+    "Spotify": 4,
+    "VLC": 5,
+    "Skype": 6,
+    "Dropbox": 7,
+    "Google_drive": 8,
+    "CCC": 9,
+    "Thunderbird": 10,
+    "ENACdrive": 11
+
+  }
+}

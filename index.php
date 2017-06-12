@@ -4,7 +4,9 @@
 
 
   $data  = file_get_contents('./asset/shellCom.json', FILE_USE_INCLUDE_PATH);
-  $json = json_decode($data, TRUE);
+
+  $json = json_decode($data);
+  echo $json;
   foreach ($json->{'shell'} as $key => $value) {
     if(!is_array($value)){
       echo $key . '=>' . $value . '<br/>';
@@ -13,14 +15,6 @@
         echo $key . '=>' . $value . '<br />';
       }
     }
-  }
-
-
-  function drop_down_html(){
-    $html = require_once('template/template.html');
-
-    $buttonR = '<input type=radio name=button' . $idButton . ' />'
-
   }
 
 ?>
