@@ -2,7 +2,7 @@
   "command": [
     {
     "id":0,
-    "shell": "#!/bin/bash\nmkdir~/EnacPack_temp\ncd~/EnacPack_temp"
+    "shell": "#!/bin/bash\n mkdir~/EnacPack_temp\n cd~/EnacPack_temp\n"
   },
     {
        "id":1,

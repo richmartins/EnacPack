@@ -7,8 +7,14 @@
 
   $json = json_decode($data);
 
-  foreach ($json->command as $shell) {
-    
+
+  foreach ($json->command as $shellcom) {
+    if(strpos($shellcom->shell, "\n") !== FALSE){
+      echo '<br />';
+    }
+
+    echo $shellcom->shell . "<br />";
+
   }
 
 ?>
