@@ -1,108 +1,52 @@
 {
-  "command": {
-      "0": {
-        "shell":"#!/bin/bash
-
-                 mkdir~/EnacPack_temp
-                 cd~/EnacPack_temp"
-      },
-
-      "1": {
-        "shell":"# Installing Chrome
-      curl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\"
-      hdiutil mount - nobrowse googlechrome.dmg
-      cp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications
-      hdiutil unmount \"/Volumes/Google Chrome\"
-      rm googlechrome.dmg "
-      },
-
-      "2":{
-        "shell": "# Installing Firefox
-      curl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\"
-      hdiutil mount - nobrowse Firefox.dmg
-      cp - R \"/Volumes/Firefox/Firefox.app\" /Applications
-      hdiutil unmount \"/Volumes/Firefox\"
-      rm Firefox.dmg "
-      },
-
-      "3": {
-        "shell":"# Installing Opera
-      curl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\"
-      yes | hdiutil mount - nobrowse Opera.dmg > /dev/null
-      cp - R \"/Volumes/Opera/Opera.app\" /Applications
-      hdiutil unmount \"/Volumes/Opera\"
-      rm Opera.dmg "
-      },
-
-      "4": {
-        "shell":"# Installing Spotify
-        curl - L - O \"http://download.spotify.com/Spotify.dmg\"
-        hdiutil mount - nobrowse Spotify.dmg
-        cp - R \"/Volumes/Spotify/Spotify.app\" /Applications
-        hdiutil unmount \"/Volumes/Spotify\"
-        rm Spotify.dmg "
-      },
-
-      "5":{
-        "shell":"# Installing VLC Player
-        curl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\"
-        hdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc
-        cp - R \"/Volumes/vlc/VLC.app\" /Applications
-        hdiutil unmount \"/Volumes/vlc\"
-        rm vlc.dmg "
-      },
-
-      "6": {
-        "shell":"# Installing Skype
-        curl - L - O \"http://www.skype.com/go/getskype-macosx.dmg\"
-        hdiutil mount - nobrowse getskype - macosx.dmg
-        cp - R \"/Volumes/Skype/Skype.app\" /Applications
-        hdiutil unmount \"/Volumes/Skype\"
-        rm getskype - macosx.dmg "
-      },
-
-      "7": {
-        "shell":"# Installing Dropbox
-        curl - L - o Dropbox.dmg \"https://www.dropbox.com/download?plat=mac&type=full\"
-        hdiutil mount - nobrowse Dropbox.dmg
-        cp - R \"/Volumes/Dropbox Installer/Dropbox.app\" /Applications
-        hdiutil unmount \"/Volumes/Dropbox Installer\"
-        rm Dropbox.dmg "
-      },
-
-      "8":{
-        "shell":"#Installing Google Drive
-        curl - L - O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\"
-        hdiutil mount - nobrowse installgoogledrive.dmg
-        cp - R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications
-        hdiutil unmount \"/Volumes/Install Google Drive\"
-        rm installgoogledrive.dmg "
-      },
-
-      "9": {
-        "shell":"# Installing Carbon Copy Cloner
-        curl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\"
-        unzip ccc.zip
-        mv \"Carbon Copy Cloner.app\" /Applications
-        rm ccc.zip "
-      },
-
-      "10": {
-        "shell":"# Installing Thunderbird
-        curl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\"
-        hdiutil mount - nobrowse Thunderbird.dmg
-        cp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications
-        hdiutil unmount \"/Volumes/Thunderbird\"
-        rm Thunderbird.dmg "
-      },
-
-      "11": {
-        "shell":"# Installing EnacDrive
-      curl - L - o ENACdrives - 1.0 .6.dmg \"http://enacdrives.epfl.ch/releases/download?os=macosx\"
-      hdiutil mount - nobrowse ENACdrives - 1.0 .6.dmg
-      cp - R \"/Volumes/ENACdrives/ENACdrives.app\" /Applications
-      hdiutil unmount \"/Volumes/ENACdrives/\"
-      rm ENACdrives - 1.0 .6.dmg "
+  "command": [
+    {
+    "id":0,
+    "shell": "#!/bin/bash\nmkdir~/EnacPack_temp\ncd~/EnacPack_temp"
+  },
+    {
+       "id":1,
+       "shell":"# Installing Chrome\ncurl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\"\nhdiutil mount - nobrowse googlechrome.dmg\ncp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\"\nrm googlechrome.dmg "
+   },
+     {
+        "id":2,
+        "shell": "# Installing Firefox\ncurl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\"\nhdiutil mount - nobrowse Firefox.dmg\ncp - R \"/Volumes/Firefox/Firefox.app\" /Applications\nhdiutil unmount \"/Volumes/Firefox\"\nrm Firefox.dmg "
+    },
+      {
+        "id":3,
+        "shell":"# Installing Opera\ncurl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\"\nyes | hdiutil mount - nobrowse Opera.dmg > /dev/null\ncp - R \"/Volumes/Opera/Opera.app\" /Applications\nhdiutil unmount \"/Volumes/Opera\"\nrm Opera.dmg "
+    },
+      {
+        "id":4,
+        "shell":"# Installing Spotify\ncurl - L - O \"http://download.spotify.com/Spotify.dmg\"\nhdiutil mount - nobrowse Spotify.dmg\ncp - R \"/Volumes/Spotify/Spotify.app\" /Applications\nhdiutil unmount \"/Volumes/Spotify\"\nrm Spotify.dmg "
+    },
+      {
+        "id":5,
+        "shell":"# Installing VLC Player\ncurl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\"\nhdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\"\nrm vlc.dmg "
+    },
+      {
+        "id":6,
+        "shell":"# Installing Skype\ncurl - L - O \"http://www.skype.com/go/getskype-macosx.dmg\"\nhdiutil mount - nobrowse getskype - macosx.dmg\ncp - R \"/Volumes/Skype/Skype.app\" /Applications\nhdiutil unmount \"/Volumes/Skype\"\nrm getskype - macosx.dmg "
+    },
+      {
+        "id":7,
+        "shell":"# Installing Dropbox\ncurl - L - o Dropbox.dmg \"https://www.dropbox.com/download?plat=mac&type=full\"\nhdiutil mount - nobrowse Dropbox.dmg\ncp - R \"/Volumes/Dropbox Installer/Dropbox.app\" /Applications\nhdiutil unmount \"/Volumes/Dropbox Installer\"\nrm Dropbox.dmg "
+    },
+      {
+        "id":8,
+        "shell":"#Installing Google Drive\ncurl - L - O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\"\nhdiutil mount - nobrowse installgoogledrive.dmg\ncp - R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications\nhdiutil unmount \"/Volumes/Install Google Drive\"\nrm installgoogledrive.dmg "
+    },
+      {
+        "id":9,
+        "shell":"# Installing Carbon Copy Cloner\ncurl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\"\nunzip ccc.zip\nmv \"Carbon Copy Cloner.app\" /Applications\nrm ccc.zip "
+    },
+      {
+        "id":10,
+        "shell":"# Installing Thunderbird\ncurl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\"\nhdiutil mount - nobrowse Thunderbird.dmg\ncp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications\nhdiutil unmount \"/Volumes/Thunderbird\"\nrm Thunderbird.dmg "
+    },
+      {
+        "id":11,
+        "shell":"# Installing EnacDrive\ncurl - L - o ENACdrives - 1.0 .6.dmg \"http://enacdrives.epfl.ch/releases/download?os=macosx\"\nhdiutil mount - nobrowse ENACdrives - 1.0 .6.dmg\ncp - R \"/Volumes/ENACdrives/ENACdrives.app\" /Applications\nhdiutil unmount \"/Volumes/ENACdrives/\"\nrm ENACdrives - 1.0 .6.dmg "
     }
-  }
+  ]
 }
