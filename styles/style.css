@@ -22,7 +22,7 @@ body {
   margin: 0;
 }
 
-.selectZ {
+.card {
 
   padding: 5px;
 
@@ -33,4 +33,39 @@ body {
   border-width: 1px 1px 1px;
 
 
+}
+
+/*david catz CSS */
+#app {
+  font-family: 'Avenir', Helvetica, Arial, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+  color: #2c3e50;
+  margin: 20px;
+}
+
+.vue-btn {
+  color: #fff;
+  background-color: #41B783;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.form {
+  text-align: left;
+}
+
+.card {
+  text-align: left;
+  border: 1px solid #2c3e50;
+  border-radius: 4px;
+  padding-left: 8px;
+  padding-right: 8px;
+}
+
+.note {
+  padding: 5px;
 }
