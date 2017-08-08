@@ -4,29 +4,37 @@
   //loading html
   $html = file_get_contents('templates/template.html');
 
+  $classname = 'flex-items';
+
   //instancing object that will make me point in the DOM
   $doc = new DOMDocument;
-  @$doc->loadHTML($html);
+  $doc->loadHTML($html);
 
-  $classname = 'flex-items';
-  //object that point class CSS
-  $xpath = new DOMXPath($doc);
+  $myelem = $doc->createElement('div', 'test');
+  $dom->appendChild($element);
+  echo $dom->saveHTML();
 
-  $nodes = $finder->query("//*[contains(@class, '$classname')]");
+  //object that point class
+  $xpath = new    ($doc);
+
+  $selector = $xpath->query("//*[@class='" . $classname . "']");
 
   //loading database(json)
   $data  = file_get_contents('./asset/shellCom.json');
   $json = json_decode($data);
 
-  //selecting the things you know
+  //cardF($json, $selector);
+
+  echo $html;
+
+  //var card while be where the code are generated in the html
   //$card = $xpath->getElementsByClassName($expression);
 
   //generate the cards
   //cardF($json, $card);
 
 
-  //function that generate the cards
-  function cardF($json, $card){
+function cardF($json, $card){
     foreach ($json->command as $commands){
 
       $id = $commands->id;
@@ -35,7 +43,7 @@
       $img = ' "<div class="card"><img alt=" ' . $name . ' " src="./asset/' . $name . '.png"  />';
       $lab = '<label>' . $name . '</label><br /> ';
       $input = '<input type="radio" name=" ' . $name . ' " id=" ' . $id . '" /></div>';
-      //add to the html but how ?
+      //add to the html
       $card .= $img;
       $card .= $lab;
       $card .= $input;
