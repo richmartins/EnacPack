@@ -1,37 +1,8 @@
 <?php
 
-  libxml_use_internal_errors(true);
-  //loading html
-  $html = file_get_contents('templates/template.html');
-
-  $classname = 'flex-items';
-
-  //instancing object that will make me point in the DOM
-  $doc = new DOMDocument;
-  $doc->loadHTML($html);
-
-  $myelem = $doc->createElement('div', 'test');
-  $dom->appendChild($element);
-  echo $dom->saveHTML();
-
-  //object that point class
-  $xpath = new    ($doc);
-
-  $selector = $xpath->query("//*[@class='" . $classname . "']");
-
   //loading database(json)
   $data  = file_get_contents('./asset/shellCom.json');
   $json = json_decode($data);
-
-  //cardF($json, $selector);
-
-  echo $html;
-
-  //var card while be where the code are generated in the html
-  //$card = $xpath->getElementsByClassName($expression);
-
-  //generate the cards
-  //cardF($json, $card);
 
 
 function cardF($json, $card){
@@ -62,5 +33,30 @@ function cardF($json, $card){
 
     }
   }
-
 ?>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>Accueil</title>
+    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+  </head>
+  <body>
+    <div id="container">
+      <div class="header">
+        <div class="headItm"><img  alt="EnacLogo" src="images/LOGO-enac-it3.png" width="173px" height="169px"/></div>
+        <div class="headItm"><h1>EnacPack</h1></div>
+        <div class="headItm"><img alt="EpflLogo" src="images/Logo_EPFL.png" width="173px" height="169px" /></div>
+      </div>
+      <div class="description">
+        <p>EnacPack is a API for the installation of basic software.</p>
+      </div><hr />
+      <div class="flex-item">
+
+      </div>
+      <hr/><div>
+        <p>Richard©</p>
+      </div>
+    </div>
+    <script type="text/javascript" href="scripts/script.js"></script>
+  </body>
+</html>
