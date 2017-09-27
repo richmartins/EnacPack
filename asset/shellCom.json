@@ -1,10 +1,13 @@
 {
-  "command": [
+  "header": [
     {
-    "id":0,
-    "name":"header",
-    "shell": "#!/bin/bash \n mkdir~/EnacPack_temp \n cd~/EnacPack_temp \n"
-  },
+      "id":0,
+      "name":"header",
+      "shell": "#!/bin/bash \n mkdir~/EnacPack_temp \n cd~/EnacPack_temp \n"
+    }
+  ],
+
+  "command": [
     {
        "id":1,
        "name":"Chrome",
@@ -27,7 +30,7 @@
     },
       {
         "id":5,
-        "name":"VlC",
+        "name":"VLC",
         "shell":"# Installing VLC Player \n curl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\" \n hdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\" \n rm vlc.dmg "
     },
       {
@@ -42,7 +45,7 @@
     },
       {
         "id":8,
-        "name":"Google Drive",
+        "name":"GoogleDrive",
         "shell":"#Installing Google Drive \n curl - L - O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\" \n hdiutil mount - nobrowse installgoogledrive.dmg \n cp - R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications\nhdiutil unmount \"/Volumes/Install Google Drive\" \n rm installgoogledrive.dmg "
     },
       {

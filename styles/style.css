@@ -1,71 +1,56 @@
 @charset "UTF-8";
 
 body {
-  text-align: center;
-  padding: 0;
+  padding: auto;
 }
 
-.header{
+.headerImg{
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
+  align-content: center;
   justify-content: space-around;
 }
 
-.headItm {
+.headItem{
   order: <integer>;
-  margin: 10px 90px;
+  margin: auto;
   align-self: flex-end;
 }
 
-.headItm h1 {
-  margin: 0;
+.container {
+  padding: 0px 75px;
+  margin: auto;
 }
 
-.card {
-
-  padding: 5px;
-
-  width: 80px;
-  height: 80px;
-
-  border-style: solid;
-  border-width: 1px 1px 1px;
-
+div.card-deck{
+  padding: 20;
+  display: flex;
+  justify-content: center;
+  flex-flow: row wrap;
 
 }
+.card-img-top {
+  margin: auto;
+}
 
-/*david catz CSS */
-#app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@media (min-width:34em) {
+    .card-deck > .card
+    {
+        width: 10rem;
+        margin: auto;
+        margin-top: 10px;
+        padding-top: 5px;
+        flex-wrap: wrap;
+        flex: initial;
+        text-align: center;
+    }
+}
+
+div.card-deck div.card .card-text {
   text-align: center;
-  color: #2c3e50;
-  margin: 20px;
 }
 
-.vue-btn {
-  color: #fff;
-  background-color: #41B783;
-  padding: 6px 12px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
-  cursor: pointer;
-}
-
-.form {
-  text-align: left;
-}
-
-.card {
-  text-align: left;
-  border: 1px solid #2c3e50;
-  border-radius: 4px;
-  padding-left: 8px;
-  padding-right: 8px;
-}
-
-.note {
-  padding: 5px;
+#footer {
+  text-align: center;
 }
