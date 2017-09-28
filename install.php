@@ -1,4 +1,15 @@
+<?php
+function generateRandomString($length = 10) {
+  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  $charactersLength = strlen($characters);
+  $randomString = '';
+  for ($i = 0; $i < $length; $i++) {
+      $randomString .= $characters[rand(0, $charactersLength - 1)];
+  }
+  return $randomString;
+}
 
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -22,37 +33,40 @@
       <p class="lead">EnacPack is a API for the installation of basic software.</p>
     </div>
   </div>
+  <?php
+    //get the id of app's that have been clicked in the last page
+    //compare the id's with the id's in the json file and "if" it's the same -> echo de shell in one random page
+    //then show : curl < url of the random page > | sh
+    // dont forget the "header part" of the shell
 
-<?php
-  //get the id of app's that have been clicked in the last page
-  //compare the id's with the id's in the json file and "if" it's the same -> echo de shell in one random page
-  //then show : curl < url of the random page > | sh
-  // dont forget the "header part" of the shell
+    $my_file = generateRandomString() . ".txt";
 
-    echo "<p>";
-    //print_r($_POST['check_app']);  //it will print complete array of values for pay_type checkbox
-    $data  = file_get_contents('./asset/shellCom.json');
-    $json = json_decode($data);
+      echo "<p>";
+      $data  = file_get_contents('./asset/shellCom.json');
+      $json = json_decode($data);
+      $h = $json->header[0]->shell;
 
-    foreach($json->command as $commands){
-      $ids = ($commands->id);
-      $shells = ($commands->shell);
-      foreach ($_POST['check_app'] as $selected) {
-        if($selected == $ids){
-        echo $ids . "<br />";
-        echo $shells."<br />" ;
+      echo nl2br($h) . '\n';
+      if(isset($_POST['submit'])){//to run PHP script on submit
+        if(!empty($_POST['check_app'])){
+          foreach($json->command as $commands){
+            $ids = ($commands->id);
+            $shells = ($commands->shell);
+            foreach ($_POST['check_app'] as $selected) {
+              if($selected == $ids){
+              //echo $ids . "<br />"; test
+              echo nl2br($shells) . '\n';
+              }
+            }
+          }
         }
       }
-    }
-
-     $myArray = $json->command->name;
-     echo $myArray;
-
-
-
     echo "</p>";
 
- ?>
+    $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file); //implicitly creates file
+    $data = $h . $shells;
+    fwrite($handle, $data);
+   ?>
  <hr /><div id="footer">
    <p>Richard©</p>
  </div>

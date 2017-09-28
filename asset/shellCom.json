@@ -3,7 +3,7 @@
     {
       "id":0,
       "name":"header",
-      "shell": "#!/bin/bash \n mkdir~/EnacPack_temp \n cd~/EnacPack_temp \n"
+      "shell": "#!/bin/bash \nmkdir~/EnacPack_temp \ncd~/EnacPack_temp \n"
     }
   ],
 
@@ -11,32 +11,32 @@
     {
        "id":1,
        "name":"Chrome",
-       "shell":"# Installing Chrome \n curl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \n hdiutil mount - nobrowse googlechrome.dmg \n cp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \n rm googlechrome.dmg "
+       "shell":"#Installing Chrome \n curl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \n hdiutil mount - nobrowse googlechrome.dmg \n cp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \n rm googlechrome.dmg "
    },
      {
         "id":2,
         "name":"Firefox",
-        "shell": "# Installing Firefox \n curl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\" \n hdiutil mount - nobrowse Firefox.dmg\ncp - R \"/Volumes/Firefox/Firefox.app\" /Applications\nhdiutil unmount \"/Volumes/Firefox\" \n rm Firefox.dmg "
+        "shell": "#Installing Firefox \n curl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\" \n hdiutil mount - nobrowse Firefox.dmg\ncp - R \"/Volumes/Firefox/Firefox.app\" /Applications\nhdiutil unmount \"/Volumes/Firefox\" \n rm Firefox.dmg "
     },
       {
         "id":3,
         "name":"Opera",
-        "shell":"# Installing Opera \n curl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\" \ny es | hdiutil mount - nobrowse Opera.dmg > /dev/null\ncp - R \"/Volumes/Opera/Opera.app\" /Applications\nhdiutil unmount \"/Volumes/Opera\" \n rm Opera.dmg "
+        "shell":"#Installing Opera \n curl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\" \nyes | hdiutil mount - nobrowse Opera.dmg > /dev/null\ncp - R \"/Volumes/Opera/Opera.app\" /Applications\nhdiutil unmount \"/Volumes/Opera\" \n rm Opera.dmg "
     },
       {
         "id":4,
         "name":"Spotify",
-        "shell":"# Installing Spotify \n curl - L - O \"http://download.spotify.com/Spotify.dmg\"\nhdiutil mount - nobrowse Spotify.dmg \n cp - R \"/Volumes/Spotify/Spotify.app\" /Applications\nhdiutil unmount \"/Volumes/Spotify\"\nrm Spotify.dmg "
+        "shell":"#Installing Spotify \n curl - L - O \"http://download.spotify.com/Spotify.dmg\"\nhdiutil mount - nobrowse Spotify.dmg \n cp - R \"/Volumes/Spotify/Spotify.app\" /Applications\nhdiutil unmount \"/Volumes/Spotify\"\nrm Spotify.dmg "
     },
       {
         "id":5,
         "name":"VLC",
-        "shell":"# Installing VLC Player \n curl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\" \n hdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\" \n rm vlc.dmg "
+        "shell":"#Installing VLC Player \n curl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\" \n hdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\" \n rm vlc.dmg "
     },
       {
         "id":6,
         "name":"Skype",
-        "shell":"# Installing Skype \n curl - L - O \"http://www.skype.com/go/getskype-macosx.dmg\"\nhdiutil mount - nobrowse getskype - macosx.dmg \n cp - R \"/Volumes/Skype/Skype.app\" /Applications\nhdiutil unmount \"/Volumes/Skype\"\nrm getskype - macosx.dmg "
+        "shell":"#Installing Skype \n curl - L - O \"http://www.skype.com/go/getskype-macosx.dmg\"\nhdiutil mount - nobrowse getskype - macosx.dmg \n cp - R \"/Volumes/Skype/Skype.app\" /Applications\nhdiutil unmount \"/Volumes/Skype\"\nrm getskype - macosx.dmg "
     },
       {
         "id":7,
@@ -51,17 +51,17 @@
       {
         "id":9,
         "name":"CCC",
-        "shell":"# Installing Carbon Copy Cloner \n curl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\" \n unzip ccc.zip \n mv \"Carbon Copy Cloner.app\" /Applications \n rm ccc.zip "
+        "shell":"#Installing Carbon Copy Cloner \n curl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\" \n unzip ccc.zip \n mv \"Carbon Copy Cloner.app\" /Applications \n rm ccc.zip "
     },
       {
         "id":10,
         "name":"Thunderbird",
-        "shell":"# Installing Thunderbird \n curl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\" \n hdiutil mount - nobrowse Thunderbird.dmg \n cp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications \n hdiutil unmount \"/Volumes/Thunderbird\" \n rm Thunderbird.dmg "
+        "shell":"#Installing Thunderbird \n curl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\" \n hdiutil mount - nobrowse Thunderbird.dmg \n cp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications \n hdiutil unmount \"/Volumes/Thunderbird\" \n rm Thunderbird.dmg "
     },
       {
         "id":11,
         "name":"EnacDrive",
-        "shell":"# Installing EnacDrive \n curl - L - o ENACdrives - 1.0 .6.dmg \"http://enacdrives.epfl.ch/releases/download?os=macosx\" \n hdiutil mount - nobrowse ENACdrives - 1.0 .6.dmg \n cp - R \"/Volumes/ENACdrives/ENACdrives.app\" /Applications \n hdiutil unmount \"/Volumes/ENACdrives/\" \n rm ENACdrives - 1.0 .6.dmg "
+        "shell":"#Installing EnacDrive \n curl - L - o ENACdrives - 1.0 .6.dmg \"http://enacdrives.epfl.ch/releases/download?os=macosx\" \n hdiutil mount - nobrowse ENACdrives - 1.0 .6.dmg \n cp - R \"/Volumes/ENACdrives/ENACdrives.app\" /Applications \n hdiutil unmount \"/Volumes/ENACdrives/\" \n rm ENACdrives - 1.0 .6.dmg "
     }
   ]
 }
