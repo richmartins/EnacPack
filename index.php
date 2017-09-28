@@ -1,4 +1,5 @@
 <?php
+  //useless right now
   function cardF($json){
       foreach ($json->command as $commands){
 
@@ -12,11 +13,13 @@
       }
   }
 ?>
-<html>
+<html lang="en">
   <head>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Accueil</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
     <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
   </head>
@@ -33,6 +36,7 @@
       </div>
       <div class="container">
       <hr />
+      <form action="install.php" method="post">
       <div class="card-deck" style="display: flex;">
           <?php
             //loading database(json)
@@ -44,18 +48,27 @@
               $id = ($commands->id);
               $name = ($commands->name);
 
-              echo '<div class="card" style="width 300px">';
-              echo '<img class="card-img-top" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" height="60px" width="60px"/>';
-              echo '<div class="card-body">';
-              echo '<p class="card-title">' . $name . '</p>';
-              echo '<input class="card-text" type="checkbox" name="' . $name . '" id="' . $id .'" aria-label="Radio button for following text input">';
-              echo '</div></div>';
+              echo '<div class="card" style="width 300px"><img class="card-img-top" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" height="60px" width="60px"/><div class="card-body"><p class="card-title">' . $name . '</p><input class="card-text" type="checkbox" name="check_app[]" value="' . $id . '" /></div></div>';
+
             }?>
+      </div>
+      <div class="text-center">
+        <input type="submit" name ="submit" value="Install" class="btn btn-secondary"/>
+      </div>
+    </form>
+    <?php
+      if(isset($_POST['submit'])){//to run PHP script on submit
+        if(!empty($_POST['check_app'])){
+          // Loop to store and display values of individual checked checkbox.
+          //foreach($_POST['check_app'] as $selected){ test line
+            //echo $selected."</br>";
+          //}
+        }
+      }
+    ?>
     </div>
-    <button type="button" class="btn btn-secondary">Install</button>
-  </div>
       <hr /><div id="footer">
-        <p>Richard©</p>
+        <p>Ri.Tenorio@ENACIT3@EPFL©</p>
       </div>
     </div>
     <script type="text/javascript" href="scripts/script.js"></script>
