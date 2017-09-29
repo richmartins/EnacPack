@@ -56,16 +56,6 @@
         <input type="submit" name ="submit" value="Install" class="btn btn-secondary"/>
       </div>
     </form>
-    <?php
-      if(isset($_POST['submit'])){//to run PHP script on submit
-        if(!empty($_POST['check_app'])){
-          // Loop to store and display values of individual checked checkbox.
-          //foreach($_POST['check_app'] as $selected){ test line
-            //echo $selected."</br>";
-          //}
-        }
-      }
-    ?>
     </div>
       <hr /><div id="footer">
         <p>Ri.Tenorio@ENACIT3@EPFL©</p>

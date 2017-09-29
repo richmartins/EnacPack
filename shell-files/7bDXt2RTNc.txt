@@ -1,0 +1,18 @@
+#!/bin/bash 
+mkdir~/EnacPack_temp 
+cd~/EnacPack_temp 
+#Installing Chrome 
+curl - L - O "https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg" 
+ hdiutil mount - nobrowse googlechrome.dmg 
+ cp - R "/Volumes/Google Chrome/Google Chrome.app" /Applications
+hdiutil unmount "/Volumes/Google Chrome" 
+ rm googlechrome.dmg #Installing Firefox 
+curl - L - o Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US" 
+ hdiutil mount - nobrowse Firefox.dmg
+cp - R "/Volumes/Firefox/Firefox.app" /Applications
+hdiutil unmount "/Volumes/Firefox" 
+ rm Firefox.dmg #Installing Carbon Copy Cloner 
+curl - L - o ccc.zip "https://bombich.com/software/download_ccc.php" -H "User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36" 
+unzip ccc.zip 
+mv "Carbon Copy Cloner.app" /Applications 
+rm ccc.zip 

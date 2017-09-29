@@ -1,4 +1,9 @@
 <?php
+//get the id of app's that have been clicked in the last page
+//compare the id's with the id's in the json file and "if" it's the same -> echo the shell in one random page
+//then show : curl -S < url of the random page > | sh
+// dont forget the "header part" of the shell
+
 function generateRandomString($length = 10) {
   $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
   $charactersLength = strlen($characters);
@@ -34,19 +39,15 @@ function generateRandomString($length = 10) {
     </div>
   </div>
   <?php
-    //get the id of app's that have been clicked in the last page
-    //compare the id's with the id's in the json file and "if" it's the same -> echo de shell in one random page
-    //then show : curl < url of the random page > | sh
-    // dont forget the "header part" of the shell
 
-    $my_file = generateRandomString() . ".txt";
+    $my_file = "./shell-files/" . generateRandomString() . ".txt";
 
-      echo "<p>";
+      //echo "<p>"; uncomment everything to see what will be written in the file
       $data  = file_get_contents('./asset/shellCom.json');
       $json = json_decode($data);
       $h = $json->header[0]->shell;
 
-      echo nl2br($h) . '\n';
+      //echo nl2br($h) . '\n';
       if(isset($_POST['submit'])){//to run PHP script on submit
         if(!empty($_POST['check_app'])){
           foreach($json->command as $commands){
@@ -55,18 +56,22 @@ function generateRandomString($length = 10) {
             foreach ($_POST['check_app'] as $selected) {
               if($selected == $ids){
               //echo $ids . "<br />"; test
-              echo nl2br($shells) . '\n';
+              $pShell .= $shells;
+              //echo nl2br($shells) . '\n';
               }
             }
           }
         }
       }
-    echo "</p>";
+    //echo "</p>";
 
     $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file); //implicitly creates file
-    $data = $h . $shells;
+    $data = $h . $pShell;
     fwrite($handle, $data);
+    echo '<input class="form-control" type="text" value=" curl -S ' . $my_file .' | sh" />' ;
    ?>
+
+ </div>
  <hr /><div id="footer">
    <p>Richard©</p>
  </div>
