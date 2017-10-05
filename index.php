@@ -36,7 +36,7 @@
       </div>
       <div class="container">
       <hr />
-      <form action="install.php" method="post">
+      <form action="pkg.php" method="post">
       <div class="card-deck" style="display: flex;">
           <?php
             //loading database(json)
@@ -48,7 +48,7 @@
               $id = ($commands->id);
               $name = ($commands->name);
 
-              echo '<div class="card" style="width 300px"><img class="card-img-top" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" height="60px" width="60px"/><div class="card-body"><p class="card-title">' . $name . '</p><input class="card-text" type="checkbox" name="check_app[]" value="' . $id . '" /></div></div>';
+              echo '<div class="card" style="width 300px"><img class="card-img-top" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" height="60px" width="60px"/><div class="card-body"><p class="card-title">' . $name . '</p><input class="card-text" type="checkbox" name="check_app[]" value="' . $name .'.pkg " /></div></div>';
 
             }?>
       </div>

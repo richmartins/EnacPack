@@ -1,17 +1,13 @@
   <?php
 
-    $my_file = "./PKG/Firefox.pkg";
+    //$my_file = $_POST['check_app'];
+    //creating the script file
+    $file = 'Firefox.pkg';
+    //echo $my_file[0];
 
-    if (file_exists($my_file)) {
-    header('Content-Description: File Transfer');
-    header('Content-Type: application/octet-stream');
-    header('Content-Disposition: attachment; filename="'.basename($my_file).'"');
-    header('Expires: 0');
-    header('Cache-Control: must-revalidate');
-    header('Pragma: public');
-    header('Content-Length: ' . filesize($my_file));
-    readfile($my_file);
-    exit;
-    }
+    header('Content-Disposition: attachement; filename="PKG/' . $file . '"');
+    header('Content-Type: application/vnd.apple.installer+xml');
+    readfile('PKG/' . $file);
+    header('index.php');
 
    ?>
