@@ -1,15 +1,18 @@
 @charset "UTF-8";
 
+
+
 body {
   padding: auto;
 }
 
 .headerImg{
+  max-height: 400px;
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   align-content: center;
-  justify-content: space-around;
+  justify-content: center;
 }
 
 .headItem{
@@ -23,32 +26,48 @@ body {
   margin: auto;
 }
 
-div.card-deck{
-  padding: 20;
-  display: flex;
-  justify-content: center;
-  flex-flow: row wrap;
-
-}
-.card-img-top {
-  margin: auto;
+.custimgtop {
+  display: block;
+  max-width: 150px;
+  height: 150px;
 }
 
-@media (min-width:34em) {
-    .card-deck > .card
-    {
-        width: 10rem;
-        margin: auto;
-        margin-top: 10px;
-        padding-top: 5px;
-        flex-wrap: wrap;
-        flex: initial;
-        text-align: center;
-    }
+.custjumbotron {
+  background-color: rgb(170, 0, 22);
+  color: white;
+  width: 100%;
+
 }
 
-div.card-deck div.card .card-text {
-  text-align: center;
+.custcard-body{
+  display: block;
+  max-width: 150px;
+  height: 90px;
+}
+
+.custbtn {
+  background-color: white;
+  color: rgb(170, 0, 22);
+  font: 100%/1.5 "Roboto", Verdana, sans serif;
+
+  border: 2px solid rgb(170, 0, 22);
+}
+
+.custcard-deck {
+   justify-content: center;
+   margin-bottom: 20px;
+}
+.card {
+min-width:12em;
+max-width: 12em;
+padding: 20;
+margin-left: 40px;
+margin-right: 40px;
+margin-top: 10px;
+margin-bottom: 30px;
+
+text-align: center;
+font: 100%/1.5 "Roboto", Verdana, sans serif;
 }
 
 #footer {
