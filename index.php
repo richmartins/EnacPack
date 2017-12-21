@@ -34,7 +34,7 @@
           }?>
         </div>
         <div class="text-center ">
-        <input type="submit" name ="submit" value="Install it" class="btn btn-danger btn-lg animated tada custbtn"/>
+        <input type="submit" name ="submit" value="Install it" class="btn btn-danger btn-lg custbtn"/>
       </div>
       </form>
       </div>

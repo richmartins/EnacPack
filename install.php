@@ -1,11 +1,3 @@
-<?php
-//get the id of app's that have been clicked in the last page
-//compare the id's with the id's in the json file and "if" it's the same -> echo the shell in one random page
-//then show : curl -S < url of the random page > | sh
-// dont forget the "header part" of the shell
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -26,7 +18,7 @@
       foreach ($_POST['check_app'] as $app) {
         $my_file .= $app;
       }
-      $nameFile = "http://128.178.62.223/www/EnacPack/shell-files/". $my_file .".sh";
+      $nameFile = "http://128.178.62.223/www/EnacPack/shell-files/". $my_file;
 
         //echo "<p>"; uncomment <p> to see what will be written in the file
         $data  = file_get_contents('./asset/shellCom.json');
