@@ -24,15 +24,20 @@
             $id = ($commands->id);
             $name = ($commands->name);
 
-            echo '<div class="card animated bounceIn " style="max-width 300px"><img class="card-img-top custimgtop" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" /><div class="card-body custcard-body"><p class="card-title">' . $name . '</p><input class="card-text" type="checkbox" name="check_app[]" value="' . $name .'.pkg " /></div></div>';
-
+            echo '<div class="card animated bounceIn " style="max-width 300px">
+                    <img class="card-img-top custimgtop" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" />
+                    <div class="card-body custcard-body">
+                      <p class="card-title">' . $name . '</p>
+                      <input class="card-text" type="checkbox" name="check_app[]" value="'. $name . '" />
+                    </div>
+                  </div>';
           }?>
         </div>
         <div class="text-center ">
         <input type="submit" name ="submit" value="Install it" class="btn btn-danger btn-lg animated tada custbtn"/>
       </div>
       </form>
+      </div>
       <?php require('templates/footer.html'); ?>
-    </div>
   </body>
 </html>

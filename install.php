@@ -4,16 +4,6 @@
 //then show : curl -S < url of the random page > | sh
 // dont forget the "header part" of the shell
 
-function generateRandomString($length = 10) {
-  $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  $charactersLength = strlen($characters);
-  $randomString = '';
-  for ($i = 0; $i < $length; $i++) {
-      $randomString .= $characters[rand(0, $charactersLength - 1)];
-  }
-  return $randomString;
-}
-
 ?>
 
 <!DOCTYPE html>
@@ -22,39 +12,36 @@ function generateRandomString($length = 10) {
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/css/bootstrap.min.css" integrity="sha384-rwoIResjU2yc3z8GV/NPeZWAv56rSmLldC3R/AZzGRnGxQQKnKkoFVhFQhNUwEyJ" crossorigin="anonymous">
+    <title>Instllation</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" integrity="sha384-PsH8R72JQ3SOdhVi3uxftmaW6Vc51MKb0q5P2rRUpPvrszuE4W1povHYgTpBfshb" crossorigin="anonymous">
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" ></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
   </head>
-  <body>
-    <div class="headerImg">
-      <div class="headItem"><img  alt="EnacLogo" src="images/LOGO-enac-it3.png" width="193px" height="189px"/></div>
-      <div class="headItem"><img alt="EpflLogo" src="images/Logo_EPFL.png" width="173px" height="169px" /></div>
-    </div>
-    <div class="jumbotron jumbotron-fluid">
-      <div class="container">
-        <h1 class="display-3">EnacPack</h1>
-        <p class="lead">EnacPack is a API for the installation of basic software.</p>
-      </div>
-    </div>
     <?php
+      require('templates/header.html');
+      echo "<div class='container'>";
+      $pathFile = "./shell-files/";
+      $my_file = "";
 
-      $my_file = "./shell-files/" . generateRandomString() . ".txt";
+      foreach ($_POST['check_app'] as $app) {
+        $my_file .= $app;
+      }
+      $nameFile = "http://128.178.62.223/www/EnacPack/shell-files/". $my_file .".sh";
 
-        //echo "<p>"; uncomment everything to see what will be written in the file
+        //echo "<p>"; uncomment <p> to see what will be written in the file
         $data  = file_get_contents('./asset/shellCom.json');
         $json = json_decode($data);
         $h = $json->header[0]->shell;
 
         //echo nl2br($h) . '\n';
+        $pShell = "";
         if(isset($_POST['submit'])){//to run PHP script on submit
           if(!empty($_POST['check_app'])){
             foreach($json->command as $commands){
-              $ids = ($commands->id);
+              $names = ($commands->name);
               $shells = ($commands->shell);
               foreach ($_POST['check_app'] as $selected) {
-                if($selected == $ids){
+                if($selected == $names){
                 //echo $ids . "<br />"; test
                 $pShell .= $shells;
                 //echo nl2br($shells) . '\n';
@@ -64,15 +51,13 @@ function generateRandomString($length = 10) {
           }
         }
       //echo "</p>";
-
-      $handle = fopen($my_file, 'w') or die('Cannot open file:  '.$my_file); //implicitly creates file
+      $fullfilenname = $pathFile . $my_file;
+      $handle = fopen($fullfilenname, 'w') or die('Cannot open file:  '.$fullfilenname); //implicitly creates file
       $data = $h . $pShell;
       fwrite($handle, $data);
-      echo '<input class="form-control" type="text" value=" curl -S ' . $my_file .' | sh" />' ;
-     ?>
+      echo '<input class="form-control" type="text" value=" curl -S ' . $nameFile .' | sh" />' ;
 
+      require('templates/footer.html'); ?>
     </div>
-    <?php require('templates/footer.html'); ?>
-    <script type="text/javascript" href="scripts/script.js"></script>
   </body>
 </html>

@@ -3,7 +3,7 @@
     {
       "id":0,
       "name":"header",
-      "shell": "#!/bin/bash \nmkdir~/EnacPack_temp \ncd~/EnacPack_temp \n"
+      "shell": "#!/bin/bash\n\nmkdir ~/EnacPack_temp \ncd ~/EnacPack_temp\n\n"
     }
   ],
 
@@ -11,17 +11,17 @@
     {
        "id":1,
        "name":"Chrome",
-       "shell":"#Installing Chrome \ncurl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \n hdiutil mount - nobrowse googlechrome.dmg \n cp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \n rm googlechrome.dmg "
+       "shell":"#Installing Chrome \ncurl - L - O \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \nhdiutil mount - nobrowse googlechrome.dmg \n cp - R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \n rm googlechrome.dmg\n"
    },
      {
         "id":2,
         "name":"Firefox",
-        "shell": "#Installing Firefox \ncurl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\" \n hdiutil mount - nobrowse Firefox.dmg\ncp - R \"/Volumes/Firefox/Firefox.app\" /Applications\nhdiutil unmount \"/Volumes/Firefox\" \n rm Firefox.dmg "
+        "shell": "#Installing Firefox \ncurl - L - o Firefox.dmg \"http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US\" \nhdiutil mount - nobrowse Firefox.dmg\ncp - R \"/Volumes/Firefox/Firefox.app\" /Applications\nhdiutil unmount \"/Volumes/Firefox\" \nrm Firefox.dmg\n"
     },
       {
         "id":3,
         "name":"Opera",
-        "shell":"#Installing Opera \ncurl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\" \nyes | hdiutil mount - nobrowse Opera.dmg > /dev/null\ncp - R \"/Volumes/Opera/Opera.app\" /Applications\nhdiutil unmount \"/Volumes/Opera\" \nrm Opera.dmg "
+        "shell":"#Installing Opera \ncurl - L - o Opera.dmg \"http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine\" \nyes | hdiutil mount - nobrowse Opera.dmg > /dev/null\ncp - R \"/Volumes/Opera/Opera.app\" /Applications\nhdiutil unmount \"/Volumes/Opera\" \nrm Opera.dmg\n"
     },
       {
         "id":4,
@@ -31,7 +31,7 @@
       {
         "id":5,
         "name":"VLC",
-        "shell":"#Installing VLC Player \ncurl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\" \n hdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\" \nrm vlc.dmg "
+        "shell":"#Installing VLC Player \ncurl - L - o vlc.dmg \"http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg\" \nhdiutil mount - nobrowse vlc.dmg - mountpoint / Volumes / vlc\ncp - R \"/Volumes/vlc/VLC.app\" /Applications\nhdiutil unmount \"/Volumes/vlc\" \nrm vlc.dmg\n"
     },
       {
         "id":6,
@@ -41,22 +41,22 @@
       {
         "id":7,
         "name":"Dropbox",
-        "shell":"# Installing Dropbox \ncurl - L - o Dropbox.dmg \"https://www.dropbox.com/download?plat=mac&type=full\"\nhdiutil mount - nobrowse Dropbox.dmg \ncp - R \"/Volumes/Dropbox Installer/Dropbox.app\" /Applications\nhdiutil unmount \"/Volumes/Dropbox Installer\" \n rm Dropbox.dmg "
+        "shell":"# Installing Dropbox \ncurl - L - o Dropbox.dmg \"https://www.dropbox.com/download?plat=mac&type=full\"\nhdiutil mount - nobrowse Dropbox.dmg \ncp - R \"/Volumes/Dropbox Installer/Dropbox.app\" /Applications\nhdiutil unmount \"/Volumes/Dropbox Installer\" \n rm Dropbox.dmg\n"
     },
       {
         "id":8,
         "name":"GoogleDrive",
-        "shell":"#Installing Google Drive \ncurl - L - O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\" \n hdiutil mount - nobrowse installgoogledrive.dmg \ncp - R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications\nhdiutil unmount \"/Volumes/Install Google Drive\" \nrm installgoogledrive.dmg "
+        "shell":"#Installing Google Drive \ncurl - L - O \"https://dl-ssl.google.com/drive/installgoogledrive.dmg\" \nhdiutil mount - nobrowse installgoogledrive.dmg \ncp - R \"/Volumes/Install Google Drive/Google Drive.app\" /Applications\nhdiutil unmount \"/Volumes/Install Google Drive\" \nrm installgoogledrive.dmg\n"
     },
       {
         "id":9,
         "name":"CCC",
-        "shell":"#Installing Carbon Copy Cloner \ncurl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\" \nunzip ccc.zip \nmv \"Carbon Copy Cloner.app\" /Applications \nrm ccc.zip "
+        "shell":"#Installing Carbon Copy Cloner \ncurl - L - o ccc.zip \"https://bombich.com/software/download_ccc.php\" -H \"User-Agent: Mozilla/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/27.0.1453.93 Safari/537.36\" \nunzip ccc.zip \nmv \"Carbon Copy Cloner.app\" /Applications \nrm ccc.zip\n"
     },
       {
         "id":10,
         "name":"Thunderbird",
-        "shell":"#Installing Thunderbird \ncurl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\" \nhdiutil mount - nobrowse Thunderbird.dmg \ncp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications \nhdiutil unmount \"/Volumes/Thunderbird\" \nrm Thunderbird.dmg "
+        "shell":"#Installing Thunderbird \ncurl - L - o Thunderbird.dmg \"https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\" \nhdiutil mount - nobrowse Thunderbird.dmg \ncp - R \"/Volumes/Thunderbird/Thunderbird.app\" /Applications \nhdiutil unmount \"/Volumes/Thunderbird\" \nrm Thunderbird.dmg\n"
     },
       {
         "id":11,
