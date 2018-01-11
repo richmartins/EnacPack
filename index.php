@@ -14,7 +14,7 @@
       <div class="container">
         <h1 class="display-3">EnacPack</h1>
         <p class="lead">For easy and fast installation<br />
-                        Check the box(es) of app's that you want to install and then just click [install it] and follow the lead in the next page</p>
+                        Check the box(es) of app's that you want to install and then just click [install it] and follow the lead on the next page</p>
       </div>
     </div>
     <div class="container">

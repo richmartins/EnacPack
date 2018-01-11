@@ -19,29 +19,41 @@
   </div>
 
 <div class="container">
+  <form id="adderForm" method="post">
+    <?php
+      $data  = file_get_contents('./asset/shellCom.json');
+      $json = json_decode($data);
 
-  <?php
-    $data  = file_get_contents('./asset/shellCom.json');
-    $json = json_decode($data);
-    echo '<select id="selector">';
 
-    foreach ($json->command as $app) {
-      $name = ($app->name);
-      echo '<option value="' .$name . '">'. $name . '</option>';
-    }
+      if(isset($_POST['appNameSelec'])){
+        $appIdNameSel = $_POST['appNameSelec'];
+        echo $appIdNameSel . '<br />';
+      } else {
+        echo 'bugged <br />';
+      }
 
-    echo '</select><br />';
-  ?>
+      echo '<select id="selector" name ="appNameSelec" onchange="change()" >';
+      foreach ($json->command as $app) {
+        $names = ($app->name);
+        echo '<option value="' .$names . '" selected="selected">'. $names . '</option>';
+      }
 
-  <label >ID</label>
-  <input /><br />
-  <label>Name</label>
-  <input /><br />
-  <label>Shell</label>
-  <input /><br />
-  <button >Apply</button>
+      echo '</select><br />
+            </from>
+            <button >Refresh</button><br />';
 
-</div>
+
+      $ids = ($app->id);
+      $shells = ($app->shell);
+      echo '<label>ID</label>
+            <input name="id" value="'. $ids . '"/><br />
+            <label>Shell</label>
+            <input name="shell value"' . $shells .'"/><br />';
+    ?>
+
+    <button >aplly</button>
+
+  </div>
 
   <?php require('templates/footer.html')?>
 </body>

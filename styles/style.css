@@ -1,26 +1,8 @@
 @charset "UTF-8";
 
-
-
 body {
   padding: auto;
 }
-
-.headerImg{
-  max-height: 400px;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-content: center;
-  justify-content: center;
-}
-
-.headItem{
-  order: <integer>;
-  margin: auto;
-  align-self: flex-end;
-}
-
 .container {
   padding: 0px 75px;
   margin: auto;
@@ -28,8 +10,8 @@ body {
 
 .custimgtop {
   display: block;
-  max-width: 150px;
-  height: 150px;
+  max-width: 100px;
+  height: 100px;
 }
 
 .custjumbotron {

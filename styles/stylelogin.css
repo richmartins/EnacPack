@@ -11,13 +11,10 @@ body {
 
 }
 
-.cutposition {
-  left: auto;
-  right: auto;
-  display: block;
-}
-
 .form-login {
+  max-width: 300px;
+  position: relative;
+  margin: auto;
   background-color: #EDEDED;
   padding-top: 10px;
   padding-bottom: 20px;

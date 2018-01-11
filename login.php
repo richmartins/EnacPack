@@ -21,7 +21,7 @@
   </div>
   <div class="container">
       <div class="raw">
-          <div class="cutposition centered">
+          <div>
               <div class="form-login">
               <h4 class="custh4">ENAC IT3 admin</h4>
               <input type="text" id="userName" class="form-control input-md chat-input" placeholder="username" />
