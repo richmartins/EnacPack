@@ -11,7 +11,7 @@
     {
        "id":1,
        "name":"Chrome",
-       "shell":"# Installing Chrome \ncurl -L -o \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \nhdiutil mount -nobrowse googlechrome.dmg \n cp -R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \n rm googlechrome.dmg\n\n"
+       "shell":"# Installing Chrome \ncurl -L -o \"https://dl.google.com/chrome/mac/stable/GGRO/googlechrome.dmg\" \nhdiutil mount -nobrowse googlechrome.dmg \ncp -R \"/Volumes/Google Chrome/Google Chrome.app\" /Applications\nhdiutil unmount \"/Volumes/Google Chrome\" \nrm googlechrome.dmg\n\n"
    },
      {
         "id":2,

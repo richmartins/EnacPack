@@ -33,10 +33,8 @@
           } else {
             echo '<option value="' . $names .'">';
           }
-
           echo $names . '</option>';
         }
-
         echo '</select>';
       ?>
     </from>
@@ -50,13 +48,15 @@
           $shells = ($app2->shell);
         }
       }
-          echo '<label>ID</label>
-                <input name="id" value="'. $ids . '"/><br />
-                <label>Shell</label>
-                <textarea rows="20" cols="70"> ' . $shells .'</textarea><br />';
+      echo '<label>ID</label>
+            <input name="id" value="'. $ids . '"/><br />
+            <label>Shell</label>
+            <textarea rows="20" cols="70"> ' . $shells .'</textarea><br />';
 
     ?>
-    <button >aplly</button>
+    <button onclick="apply()">aplly</button>
+    <button onclick="add()">add</button>
+    <button onclick="delete()">delete</button>
   </div>
   <?php require('templates/footer.html')?>
   </body>
