@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir ~/EnacPack_temp 
+cd ~/EnacPack_temp
+
+# Installing Opera 
+curl -L -o Opera.dmg "http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine" 
+yes | hdiutil mount -nobrowse Opera.dmg > /dev/null
+cp -R "/Volumes/Opera/Opera.app" /Applications
+hdiutil unmount "/Volumes/Opera" 
+rm Opera.dmg
+
+# Installing VLC Player 
+curl -L -o vlc.dmg "http://get.videolan.org/vlc/2.2.4/macosx/vlc-2.2.4.dmg" 
+hdiutil mount -nobrowse vlc.dmg -mountpoint / Volumes / vlc
+cp -R "/Volumes/vlc/VLC.app" /Applications
+hdiutil unmount "/Volumes/vlc" 
+rm vlc.dmg
+

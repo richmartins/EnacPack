@@ -1,0 +1,22 @@
+{
+  "name": "enacpack",
+  "version": "1.0.0",
+  "description": "installer website",
+  "main": "index.php",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/richmartins/EnacPack.git"
+  },
+  "author": "Richard Tenorio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/richmartins/EnacPack/issues"
+  },
+  "homepage": "https://github.com/richmartins/EnacPack#readme",
+  "dependencies": {
+    "jsonfile": "^4.0.0"
+  }
+}
