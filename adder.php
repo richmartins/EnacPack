@@ -56,7 +56,7 @@
                 <textarea rows="20" cols="70"> ' . $shells .'</textarea><br />';
 
     ?>
-    <button >aplly</button>
+    <button onclick="aplly()">aplly</button>
   </div>
   <?php require('templates/footer.html')?>
   </body>
