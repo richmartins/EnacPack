@@ -9,10 +9,3 @@ unzip ccc.zip
 mv "Carbon Copy Cloner.app" /Applications 
 rm ccc.zip
 
-# Installing Thunderbird 
-curl -L -o Thunderbird.dmg "https://download.mozilla.org/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US" 
-hdiutil mount -nobrowse Thunderbird.dmg 
-cp -R "/Volumes/Thunderbird/Thunderbird.app" /Applications 
-hdiutil unmount "/Volumes/Thunderbird" 
-rm Thunderbird.dmg
-

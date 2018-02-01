@@ -22,7 +22,7 @@
       <?php
         $data  = file_get_contents('./asset/shellCom.json');
         $json = json_decode($data);
-        echo '<select id="selector" name ="appNameSelec" onchange="change()" >';
+        echo '<select id="selector" name ="appNameSelec">';
         if(isset($_POST['appNameSelec'])){
           $appIdNameSel = $_POST['appNameSelec'];
         }
@@ -41,7 +41,7 @@
   </div>
   <div class="container">
     <?php
-      foreach ($json->command as $app2){
+      /*foreach ($json->command as $app2){ OLD WAY
         $names2 = ($app2->name);
         if($names2 == $appIdNameSel){
           $ids = ($app2->id);
@@ -51,17 +51,18 @@
       echo '<label>ID</label>
             <input name="id" value="'. $ids . '"/><br />
             <label>Shell</label>
-            <textarea rows="20" cols="70"> ' . $shells .'</textarea><br />';
+            <textarea id="area" rows="20" cols="70"> ' . $shells . '</textarea><br />';*/
 
     ?>
-<<<<<<< HEAD
-    <button onclick="aplly()">aplly</button>
-=======
+    <label>ID</label>
+    <input id="inputId" name="id"/><br />
+    <label>Shell</label>
+    <textarea id="area" rows="20" cols="70"></textarea><br />
     <button onclick="apply()">aplly</button>
     <button onclick="add()">add</button>
     <button onclick="delete()">delete</button>
->>>>>>> 7753c1b2ddb33bcf09305b9d92f67007887f2a8e
   </div>
   <?php require('templates/footer.html')?>
+  <script src="scripts/scriptjquery.js" type="text/javascript"></script>
   </body>
 </html>
