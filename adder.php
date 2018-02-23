@@ -1,4 +1,5 @@
-
+<?php
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -10,7 +11,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
   </head>
   <body>
-    <?php require('templates/header.html')?>
+    <?php require('templates/header.html');?>
     <div class="jumbotron jumbotron-fluid custjumbotron">
       <div class="container">
         <h1 class="display-3">EnacPack</h1>
@@ -21,9 +22,11 @@
       <?php
         $data  = file_get_contents('./asset/shellCom.json');
         $json = json_decode($data);
-        echo '<select id="selector" name ="appNameSelec">';
+        echo '<select id="selector" name="appNameSelec[]">';
         if(isset($_POST['appNameSelec'])){
           $appIdNameSel = $_POST['appNameSelec'];
+        } else {
+          $appIdNameSel = '';
         }
         foreach ($json->command as $app) {
           $names = ($app->name);
@@ -38,39 +41,20 @@
       ?>
   </div>
   <div class="container">
-    <label>ID</label>
-    <input id="inputId" name="id"/><br />
-    <label>Shell</label>
-    <textarea id="area" rows="20" cols="70"></textarea><br />
+    <form method="POST" name="myForm" action="">
+      <label>ID</label>
+      <input id="inputId" name="id"/><br />
 
-    <button id="apllyButton">aplly</button>
-    <?php
-      
+      <label>Shell</label>
+      <textarea id="area" name="textShell" rows="20" cols="70"></textarea><br />
 
-    ?>
+      <button id="applyButton">apply</button>
+      <button onclick="add(); return false;">add</button>
+      <button onclick="delete(); return false;">delete</button>
 
-    <button onclick="add()">add</button>
-    <button onclick="delete()">delete</button>
+    </form>
   </div>
-  <?php require('templates/footer.html')?>
+  <?php require('templates/footer.html');?>
   <script src="scripts/scriptjquery.js" type="text/javascript"></script>
   </body>
 </html>
-
-
-
-
-<?php
-  /*foreach ($json->command as $app2){ OLD WAY
-    $names2 = ($app2->name);
-    if($names2 == $appIdNameSel){
-      $ids = ($app2->id);
-      $shells = ($app2->shell);
-    }
-  }
-  echo '<label>ID</label>
-        <input name="id" value="'. $ids . '"/><br />
-        <label>Shell</label>
-        <textarea id="area" rows="20" cols="70"> ' . $shells . '</textarea><br />';*/
-
-?>
