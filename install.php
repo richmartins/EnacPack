@@ -1,3 +1,6 @@
+<?php
+require('init.php');
+?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
@@ -13,12 +16,14 @@
     <div class="jumbotron jumbotron-fluid custjumbotron">
       <div class="container">
         <h1 class="display-3">EnacPack</h1>
-        <p class="lead">For easy and fast installation<br />
-                        Now just copy past this link in your terminal and wait for the end</p>
+        <p class="lead">For easy and fast installation<br />Now just copy past this link in your terminal and wait for the end</p>
       </div>
     </div>
     <div class='container'>
     <?php
+
+
+      echo exec('whoami');
       $pathFile = "./shell-files/";
       $my_file = "";
 
@@ -28,8 +33,7 @@
       $nameFile = "http://128.178.62.223/www/EnacPack/shell-files/". $my_file;
 
         //echo "<p>"; uncomment <p> to see what will be written in the file
-        $data  = file_get_contents('./asset/shellCom.json');
-        $json = json_decode($data);
+        $json = $shellJSON->getJSONdata();
         $h = $json->header[0]->shell;
 
         //echo nl2br($h) . '\n';

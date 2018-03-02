@@ -1,4 +1,5 @@
 <?php
+require('init.php');
 ?>
 <html lang="en">
   <head>
@@ -20,8 +21,7 @@
     </div>
     <div class="container">
       <?php
-        $data  = file_get_contents('./asset/shellCom.json');
-        $json = json_decode($data);
+        $json = $shellJSON->getJSONdata();
         echo '<select id="selector" name="appNameSelec[]">';
         if(isset($_POST['appNameSelec'])){
           $appIdNameSel = $_POST['appNameSelec'];
