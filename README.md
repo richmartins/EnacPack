@@ -17,13 +17,12 @@ then all you need to do. It's copy past the command that the next page will give
  - Check if the user is on a MacOS environment
  - Authentifaction with Tequila protocole from [ [EPFL](tequila.epfl.ch) ]
  - Update from a page, the json file with the template of all installer script
- 
+
 ## OS
 This will work only in MacOS
 
 ## Dependencies
- - NPM -> checkout [here](https://www.npmjs.com/)
--  jsonfile -> checkout [here](https://www.npmjs.com/package/jsonfile)
-
+ - jquery -> checkout [here](https://jquery.com/)
+ - bootstrap -> checkout [here](https://getbootstrap.com/)
 
 ----------

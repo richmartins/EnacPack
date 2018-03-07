@@ -16,9 +16,6 @@
     "url": "https://github.com/richmartins/EnacPack/issues"
   },
   "homepage": "https://github.com/richmartins/EnacPack#readme",
-  "dependencies": {
-    "bootstrap": "^4.0.0",
-    "jquery": "^3.3.1",
-    "popper.js": "^1.12.9"
-  }
+  "dependencies": {},
+  "devDependencies": {}
 }

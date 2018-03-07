@@ -1,6 +1,8 @@
 <?php
 require("init.php");
 $logger->addInfo('api.php');
+
+
 if ($_POST["method"]=="applyButton"){
   handleApply($_POST);
 }

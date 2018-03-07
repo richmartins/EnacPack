@@ -9,9 +9,14 @@ body {
 }
 
 .custimgtop {
-  display: block;
+  display: inline-block;
   max-width: 100px;
   height: 100px;
+}
+
+.img-div {
+  display: block;
+  max-width: 150px;
 }
 
 .custjumbotron {
@@ -19,6 +24,14 @@ body {
   color: white;
   width: 100%;
 
+}
+
+.custjumbotron a {
+  color: white;
+}
+
+.custjumbotron a:hover {
+  text-decoration: none;
 }
 
 .custcard-body{
@@ -40,16 +53,16 @@ body {
    margin-bottom: 20px;
 }
 .card {
-min-width:12em;
-max-width: 12em;
-padding: 20;
-margin-left: 40px;
-margin-right: 40px;
-margin-top: 10px;
-margin-bottom: 30px;
+  min-width:12em;
+  max-width: 12em;
+  padding: 20;
+  margin-left: 40px;
+  margin-right: 40px;
+  margin-top: 10px;
+  margin-bottom: 30px;
 
-text-align: center;
-font: 100%/1.5 "Roboto", Verdana, sans serif;
+  text-align: center;
+  box-shadow: 0 0.5px 1.5px;
 }
 
 #footer {

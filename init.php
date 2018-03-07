@@ -3,7 +3,7 @@ ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
 /* This is a init file which should be required on every other file to be
-   sure that one will be able to use composer tools... (e.g. logger, csv)
+   sure that one will be able to use composer tools... (e.g. logger)
 */
 require_once __DIR__.'/vendor/autoload.php';
 use Monolog\Logger;
@@ -13,7 +13,7 @@ use Monolog\Handler\FirePHPHandler;
 // Create the logger
 global $logger;
 $logger = new Logger('my_logger');
-$shellJSON = new handleJsonFile('./asset/shellCom.json');
+$shellJSON = new handleJsonFile('./assets/shellCom.json');
 // Now add some handlers
 $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Logger::DEBUG));
 $logger->pushHandler(new FirePHPHandler());
@@ -22,9 +22,9 @@ $logger->pushHandler(new FirePHPHandler());
 $logger->addInfo('My logger is now ready');
 
 class handleJsonFile {
-
   private $filename;
-  function __construct($file = './asset/shellCom.json') {
+
+  function __construct($file = './assets/shellCom.json') {
     $this->filename = $file;
   }
 
