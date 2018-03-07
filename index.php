@@ -45,7 +45,7 @@
           <input type="submit" name ="submit" value="Install it" class="btn btn-danger btn-lg custbtn"/>
         </div>
       </form>
-    </div>
     <?php require('templates/footer.html'); ?>
+  </div>
   </body>
 </html>

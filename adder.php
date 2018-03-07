@@ -20,9 +20,11 @@ require('init.php');
       </div>
     </div>
     <div class="container">
+      <form method="POST" name="myForm" action="">
+      <div class="selector-div">
       <?php
         $json = $shellJSON->getJSONdata();
-        echo '<select id="selector" name="appNameSelec[]">';
+        echo '<select class="custom-select" id="selector" name="appNameSelec[]">';
         if(isset($_POST['appNameSelec'])){
           $appIdNameSel = $_POST['appNameSelec'];
         } else {
@@ -39,21 +41,24 @@ require('init.php');
         }
         echo '</select>';
       ?>
-  </div>
-  <div class="container">
-    <form method="POST" name="myForm" action="">
-      <label>ID</label>
-      <input id="inputId" name="id"/><br />
-
-      <label>Shell</label>
-      <textarea id="area" name="textShell" rows="20" cols="70"></textarea><br />
-
-      <button id="applyButton">apply</button>
-      <button>add</button>
-      <button>delete</button>
-
+    </div>
+    <div class="form-group row">
+      <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
+      <div class="col-sm-10">
+       <input class="form-control" id="inputId" name="id"/><br />
+     </div>
+     <label class="col-sm-2 col-form-label">Shell</label>
+     <div class="col-sm-10">
+       <textarea id="area" name="textShell" class="form-control" rows="8"></textarea><br />
+     </div>
+     <div class="offset-sm-2 col-sm-10">
+       <button id="applyButton" class="btn btn-danger btn-lg">apply</button>
+       <button class="btn btn-danger btn-lg">add</button>
+       <button class="btn btn-danger btn-lg">delete</button>
+     </div>
+    </div>
     </form>
-  </div>
-  <?php require('templates/footer.html');?>
+    <?php require('templates/footer.html');?>
+    </div>
   </body>
 </html>

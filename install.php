@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Instllation</title>
-    <link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
   </head>
     <?php
@@ -49,8 +49,8 @@
       $handle = fopen($fullfilenname, 'w') or die('Cannot open file:  '.$fullfilenname); //implicitly creates file
       $data = $h . $pShell;
       fwrite($handle, $data);
+      fclose($handle);
       echo '<input class="form-control" type="text" value=" curl -S ' . $url .' | sh" />' ;
-
       require('templates/footer.html'); ?>
     </div>
   </body>

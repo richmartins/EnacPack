@@ -29,13 +29,13 @@
               </br>
               <div class="wrapper">
               <span class="group-btn">
-                  <a href="adder.php" class="btn btn-danger btn-lg">login <i class="fa fa-sign-in"></i></a>
+                  <a href="adder.php" class="btn btn-danger btn-lg">login</a>
               </span>
               </div>
               </div>
           </div>
       </div>
+      <?php require('templates/footer.html'); ?>
   </div>
-  <?php require('templates/footer.html'); ?>
 </body>
 </html>

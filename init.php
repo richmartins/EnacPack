@@ -13,6 +13,7 @@ use Monolog\Handler\FirePHPHandler;
 // Create the logger
 global $logger;
 $logger = new Logger('my_logger');
+
 $shellJSON = new handleJsonFile('./assets/shellCom.json');
 // Now add some handlers
 $logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Logger::DEBUG));

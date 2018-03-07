@@ -17,7 +17,7 @@ $( document ).ready(function(){
     console.log("Apply boutton pressed");
     var id = $( '#inputId' ).val();
     var shell = $( '#area' ).val();
-    console.log(id + shell);
+    console.log(id + "\r\n" + shell);
     $.ajax({
       type: 'POST',
       url: './api.php',

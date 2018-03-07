@@ -43,8 +43,6 @@ body {
 .custbtn {
   background-color: white;
   color: rgb(170, 0, 22);
-  font: 100%/1.5 "Roboto", Verdana, sans serif;
-
   border: 2px solid rgb(170, 0, 22);
 }
 
@@ -67,4 +65,19 @@ body {
 
 #footer {
   text-align: center;
+}
+
+.selector-div {
+  align-items: center;
+  display: block;
+}
+
+#selector {
+  display: inline-block;
+  max-width: 200px;
+  margin: 20px 20px ;
+}
+
+.id-form-input {
+  margin-top: 40px;
 }

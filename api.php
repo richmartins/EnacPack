@@ -8,8 +8,25 @@ if ($_POST["method"]=="applyButton"){
 }
 
 function handleApply($param) {
+  //$logger->addInfo('handleApply1');
+
   error_log(var_export($param, true));
-  $logger->addInfo('handleApply1');
-  /*$handle = fopen($pathFile, 'w') or die('Cannot open file:  '.$fullfilenname); //implicitly creates file*/
+  
+  $handle = fopen('assets/shellCom.json', 'a') or die('Cannot open file:  the json'); //implicitly creates file
+
+
+  foreach ($jsonfile->command as $value) {
+    $ids=$value->id;
+    $shells=$value->shell;
+
+    if($ids == $param['id']){
+      $shells = $sendjsonfile->shell;
+    }
+  }
+
+  fclose($handle);
+
+  error_log(fread($handle));
+  error_log($handle);
   echo "{resolve:success}";
 }
