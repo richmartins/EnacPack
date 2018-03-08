@@ -6,8 +6,7 @@ $( document ).ready(function(){
       $.each(commands, function( key, obj ) {
         if (obj.name == $("#selector").find(":selected").attr("value")){
           $('#inputId').val(obj.id);
-          $('#area').empty()
-          $('#area').append(obj.shell);
+          $('#area').val(obj.shell);
         }
       })
     })
@@ -20,8 +19,8 @@ $( document ).ready(function(){
     console.log(id + "\r\n" + shell);
     $.ajax({
       type: 'POST',
-      url: './api.php',
-      data: {id, shell,method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
+      url: 'api.php',
+      data: {id, shell, method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
       success: function(data) { alert('data: ' + data); },
       dataType: 'json'
     });

@@ -1,32 +1,32 @@
 <?php
 require("init.php");
-$logger->addInfo('api.php');
-
 
 if ($_POST["method"]=="applyButton"){
   handleApply($_POST);
 }
 
-function handleApply($param) {
-  //$logger->addInfo('handleApply1');
+function handleApply($myPost) {
 
-  error_log(var_export($param, true));
-  
-  $handle = fopen('assets/shellCom.json', 'a') or die('Cannot open file:  the json'); //implicitly creates file
+  $file_to_handle = fopen('assets/shellCom.json', 'r');
+
+  while(!feof($file_to_handle)){
+    $line = fgets($file_to_handle);
+    $plaintext=str_replace("\n"," ",$line);
+
+    $pos_id = strpos($plaintext, '"id"');
+    $pos_shell = strpos($plaintext, '"shell"');
 
 
-  foreach ($jsonfile->command as $value) {
-    $ids=$value->id;
-    $shells=$value->shell;
+    if($pos_id || $pos_shell){
+      $id = explode(":", $plaintext);
+      $shell = explode(":", $plaintext);
 
-    if($ids == $param['id']){
-      $shells = $sendjsonfile->shell;
+      if($id[1] == $myPost['id'].", "){
+        error_log('ID in the file : ' . $id[1]);
+        error_log('ID posted : ' . $myPost['id']);
+      }
+      error_log('Shell : ' . $shell[1]);
     }
   }
-
-  fclose($handle);
-
-  error_log(fread($handle));
-  error_log($handle);
-  echo "{resolve:success}";
+  fclose($file_to_handle);
 }

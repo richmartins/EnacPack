@@ -74,8 +74,8 @@ body {
 
 #selector {
   display: inline-block;
-  max-width: 200px;
-  margin: 20px 20px ;
+  max-width: 150px;
+  margin: 20px 0px ;
 }
 
 .id-form-input {
