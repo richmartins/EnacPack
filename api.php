@@ -17,7 +17,7 @@ function handleApply($myPost) {
     $pos_shell = strpos($plaintext, '"shell"');
 
 
-    if($pos_id || $pos_shell){
+    if($pos_id){
       $id = explode(":", $plaintext);
       $shell = explode(":", $plaintext);
 
@@ -25,7 +25,7 @@ function handleApply($myPost) {
         error_log('ID in the file : ' . $id[1]);
         error_log('ID posted : ' . $myPost['id']);
       }
-      error_log('Shell : ' . $shell[1]);
+      //error_log('Shell : ' . $shell[1]);
     }
   }
   fclose($file_to_handle);
