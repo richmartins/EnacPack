@@ -20,7 +20,7 @@ body {
 }
 
 .custjumbotron {
-  background-color: rgb(170, 0, 22);
+  background-color: #b71c1c;
   color: white;
   width: 100%;
 
@@ -42,8 +42,8 @@ body {
 
 .custbtn {
   background-color: white;
-  color: rgb(170, 0, 22);
-  border: 2px solid rgb(170, 0, 22);
+  color: #b71c1c;
+  border: 2px solid #b71c1c;
 }
 
 .custcard-deck {

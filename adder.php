@@ -52,9 +52,9 @@ require('init.php');
        <textarea id="area" name="textShell" class="form-control" rows="8"></textarea><br />
      </div>
      <div class="offset-sm-2 col-sm-10">
-       <button id="applyButton" class="btn btn-danger btn-lg">apply</button>
-       <button class="btn btn-danger btn-lg">add</button>
-       <button class="btn btn-danger btn-lg">delete</button>
+       <button id="applyButton" class="btn btn-danger btn-lg custbtn">apply</button>
+       <button class="btn btn-danger btn-lg custbtn">add</button>
+       <button class="btn btn-danger btn-lg custbtn">delete</button>
      </div>
     </div>
     </form>
