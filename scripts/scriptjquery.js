@@ -2,7 +2,7 @@ $( document ).ready(function(){
 
   function getJsonVal() {
     $.getJSON( "assets/shellCom.json", function( data ) {
-      var commands = data.command
+      var commands = data.command;
       $.each(commands, function( key, obj ) {
         if (obj.name == $("#selector").find(":selected").attr("value")){
           $('#inputId').val(obj.id);

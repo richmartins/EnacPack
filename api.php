@@ -7,7 +7,7 @@ if ($_POST["method"]=="applyButton"){
 
 function handleApply($myPost) {
 
-  $file_to_handle = fopen('assets/shellCom.json', 'r+');
+  $file_to_handle = fopen('assets/shellCom.json', 'w');
 
   while(!feof($file_to_handle)){
     $line = fgets($file_to_handle);
@@ -20,6 +20,9 @@ function handleApply($myPost) {
     if($pos_id){
         $id = explode(":", $plaintext);
         $shell = explode(":", $plaintext);
+
+        error_log('ID in the file : ' . $id[1]);
+        error_log('ID posted : ' . $myPost['id']);
 
         if($id[1] == $myPost['id'].", "){
             error_log('ID in the file : ' . $id[1]);

@@ -2,27 +2,11 @@
 ini_set('display_errors', 1);
 ini_set('display_startup_errors', 1);
 error_reporting(E_ALL);
-/* This is a init file which should be required on every other file to be
-   sure that one will be able to use composer tools... (e.g. logger)
-*/
-require_once __DIR__.'/vendor/autoload.php';
-use Monolog\Logger;
-use Monolog\Handler\StreamHandler;
-use Monolog\Handler\FirePHPHandler;
 
-// Create the logger
-global $logger;
-$logger = new Logger('my_logger');
 
 $shellJSON = new handleJsonFile('./assets/shellCom.json');
 //$jsonHandler = new codeJson();
 
-// Now add some handlers
-$logger->pushHandler(new StreamHandler(__DIR__.'/my_app.log', Logger::DEBUG));
-$logger->pushHandler(new FirePHPHandler());
-
-// You can now use your logger
-$logger->addInfo('My logger is now ready');
 
 class handleJsonFile {
   private $filename;
@@ -37,35 +21,3 @@ class handleJsonFile {
     return $this->json;
   }
 }
-
-/*class codeJson {
-
-  protected static $_messages = array(
-    JSON_ERROR_NONE => 'No error has occured',
-    JSON_ERROR_DEPTH => 'The maximum stack depth has been exceeded',
-    JSON_ERROR_STATE_MISMATCH => 'Invalid or malformed JSON',
-    JSON_ERROR_CTRL_CHAR => 'Control character error, possibly incorrectly encoded',
-    JSON_ERROR_SYNTAX => 'Syntax error',
-    JSON_ERROR_UTF8 => 'Malformed UTF-8 characters, possibly incorrectly encoded'
-  );
-
-  public static function encode($value, $options = 0){
-    $result = json_encode($value, $options);
-
-    if($result){
-      return $result;
-    }
-
-    throw new RunException(static::$_messages[json_last_error()]);
-  }
-
-  public static function decode($json, $assoc = false){
-    $result = json_decode($json, $assoc);
-
-    if($result){
-      return $result;
-    }
-
-    throw new RunException(static::$_messages[json_last_error()]);
-  }
-}*/
