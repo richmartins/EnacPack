@@ -6,30 +6,24 @@ if ($_POST["method"]=="applyButton"){
 }
 
 function handleApply($myPost) {
+  $json_file = file_get_contents('assets/shellCom.json');
+  $json_dec = json_decode($json_file, true);
 
-  $file_to_handle = fopen('assets/shellCom.json', 'w');
+  $new_id = $myPost['id'];
+  $new_shell = $myPost['shell'];
 
-  while(!feof($file_to_handle)){
-    $line = fgets($file_to_handle);
-    $plaintext=str_replace("\n"," ",$line);
-
-    $pos_id = strpos($plaintext, '"id"');
-    $pos_shell = strpos($plaintext, '"shell"');
-
-
-    if($pos_id){
-        $id = explode(":", $plaintext);
-        $shell = explode(":", $plaintext);
-
-        error_log('ID in the file : ' . $id[1]);
-        error_log('ID posted : ' . $myPost['id']);
-
-        if($id[1] == $myPost['id'].", "){
-            error_log('ID in the file : ' . $id[1]);
-            error_log('ID posted : ' . $myPost['id']);
-        }
-      //error_log('Shell : ' . $shell[1]);
-      }
+  foreach ($json_dec['command'] as $k => $v) {
+    if($v['id'] == $myPost['id']){
+      $v['id'] = $new_id;
+      $v['shell'] = $new_shell;
     }
-    fclose($file_to_handle);
+  }
+
+  foreach(array_keys($json_dec) as $v){
+    $v = iconv('UTF-8','ISO-8859-9', $v);
+  }
+
+  $enc = json_encode($json_dec);
+
+  file_put_contents('assets/shellCom.json', $enc);
 }

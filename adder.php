@@ -30,8 +30,8 @@ require('init.php');
         } else {
           $appIdNameSel = '';
         }
-        foreach ($json->command as $app) {
-          $names = ($app->name);
+        foreach ($json['command'] as $app) {
+          $names = $app['name'];
           if ($appIdNameSel == $names ){
             echo '<option value="' . $names . '" selected="selected">';
           } else {

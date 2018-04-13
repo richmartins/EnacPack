@@ -5,7 +5,6 @@ error_reporting(E_ALL);
 
 
 $shellJSON = new handleJsonFile('./assets/shellCom.json');
-//$jsonHandler = new codeJson();
 
 
 class handleJsonFile {
@@ -17,7 +16,7 @@ class handleJsonFile {
 
   function getJSONdata() {
     $this->data = file_get_contents($this->filename);
-    $this->json =json_decode($this->data);
+    $this->json =json_decode($this->data, true);
     return $this->json;
   }
 }

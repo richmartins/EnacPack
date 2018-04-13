@@ -26,9 +26,9 @@
         <?php
           $json = $shellJSON->getJSONdata();
 
-          foreach ($json->command as $commands) {
-            $id = ($commands->id);
-            $name = ($commands->name);
+          foreach ($json['command'] as $commands) {
+            $id = $commands['id'];
+            $name = $commands['name'];
 
             echo '<div class="card animated bounceIn " style="max-width 300px">
                     <div class="img-div">

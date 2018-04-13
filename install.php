@@ -29,14 +29,14 @@
       }
       $url = "http://128.178.62.223/www/EnacPack/shell-files/". $my_file;
       $json = $shellJSON->getJSONdata();
-      $h = $json->header[0]->shell;
+      $h = $json['header']['shell'];
 
       $pShell = "";
       if(isset($_POST['submit'])){//to run PHP script on submit
         if(!empty($_POST['check_app'])){
-          foreach($json->command as $commands){
-            $names = ($commands->name);
-            $shells = ($commands->shell);
+          foreach($json['command'] as $commands){
+            $names = $commands['name'];
+            $shells = $commands['shell'];
             foreach ($_POST['check_app'] as $selected) {
               if($selected == $names){
                 $pShell .= $shells;
