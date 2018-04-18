@@ -81,3 +81,26 @@ body {
 .id-form-input {
   margin-top: 40px;
 }
+#footer p a {
+    color: black;
+}
+
+#footer p a:hover {
+    color: #b71c1c;
+    text-decoration: none;
+}
+
+.contact {
+  background-color: #fff;
+  padding: 15px;
+  max-width: 200px;
+  margin: 30px auto;
+}
+
+.icon {
+  width: 16px;
+  height: 16px;
+  padding: 0;
+  margin: 0;
+  vertical-align: middle;
+}

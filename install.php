@@ -6,10 +6,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Instllation</title>
+    <title>Installation</title>
     <link rel="stylesheet" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
   </head>
+  <body>
+
     <?php
       require('templates/header.html');
     ?>
@@ -49,9 +51,16 @@
       $handle = fopen($fullfilenname, 'w') or die('Cannot open file:  '.$fullfilenname); //implicitly creates file
       $data = $h . $pShell;
       fwrite($handle, $data);
-      fclose($handle);
-      echo '<input class="form-control" type="text" value=" curl -S ' . $url .' | sh" />' ;
-      require('templates/footer.html'); ?>
+      fclose($handle);?>
+      <form>
+        <div class="input-group">
+          <input type="text" class="form-control" value="<?php echo $url;?>" placeholder="path to the file" id="copy-input" />
+          <span class="input-group-btn">
+            <button class="btn btn-default" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
+          </span>
+        </div>
+      </form>
+      <?php require('templates/footer.html'); ?>
     </div>
   </body>
 </html>
