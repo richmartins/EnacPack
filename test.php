@@ -4,15 +4,19 @@
   $json_dec = $shellJSON->getJSONdata();
 
 
-  $new_content = 'omggggggg work please';
+  $new_content = 'omggggggg asdasdaswork please';
 
   $id = 2;
+  $index=0;
 
-  foreach ($json_dec['command'] as $key => $value) {
-    if($value['id'] == $id){
-        $value['shell'] = $new_content;
-    }
+  #$json_dec['command'][$id]['shell'] = $new_content;
+
+  for ($i=0; $i < count($json_dec['command']); $i++) {
+      if($json_dec['command'][$i]['id'] == $id){
+          $json_dec['command'][$i]['shell'] = $new_content;
+      }
   }
+  var_dump($json_dec);
 
   foreach(array_keys($json_dec) as $v){
     $v = iconv('UTF-8','ISO-8859-9', $v);

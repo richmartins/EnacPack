@@ -1,5 +1,5 @@
 $( document ).ready(function(){
-
+    
   function getJsonVal() {
     $.getJSON( "assets/shellCom.json", function( data ) {
       var commands = data.command;
@@ -13,7 +13,6 @@ $( document ).ready(function(){
   }
 
   $( '#applyButton').click(function(e){
-    console.log("Apply boutton pressed");
     var id = $( '#inputId' ).val();
     var shell = $( '#area' ).val();
     console.log(id + "\r\n" + shell);
@@ -21,12 +20,36 @@ $( document ).ready(function(){
       type: 'POST',
       url: 'api.php',
       data: {id, shell, method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
-      success: function(data) { alert('data: ' + data); },
-      dataType: 'json'
+      success: function() { alert('Applied with success'); },
+      error: function (){ alert('Failed to apply'); },
+      //dataType: 'json'
     });
     e.preventDefault();
   });
 
+  $( '#addButton').click(function(e){
+    $.ajax({
+      type: 'POST',
+      url: 'api.php',
+      data: {method:"addButton"}, // or JSON.stringify ({name: 'jonas'}),
+      success: function() { alert('Added with success'); },
+      error: function (){ alert('Failed to add'); },
+      //dataType: 'json'
+    });
+    e.preventDefault();
+  });
+
+  $( '#delButton').click(function(e){
+    $.ajax({
+      type: 'POST',
+      url: 'api.php',
+      data: {method:"delButton"}, // or JSON.stringify ({name: 'jonas'}),
+      success: function() { alert('Deleted with success'); },
+      error: function (){ alert('Failed to delete'); },
+      //dataType: 'json'
+    });
+    e.preventDefault();
+  });
 
   $("#selector").change(function() {
     getJsonVal();

@@ -43,7 +43,7 @@ require('init.php');
       ?>
     </div>
     <div class="form-group row">
-      <label for="inputEmail3" class="col-sm-2 col-form-label">ID</label>
+      <label class="col-sm-2 col-form-label">ID</label>
       <div class="col-sm-10">
        <input class="form-control" id="inputId" name="id"/><br />
      </div>
@@ -53,8 +53,8 @@ require('init.php');
      </div>
      <div class="offset-sm-2 col-sm-10">
        <button id="applyButton" class="btn btn-danger btn-lg custbtn">apply</button>
-       <button class="btn btn-danger btn-lg custbtn">add</button>
-       <button class="btn btn-danger btn-lg custbtn">delete</button>
+       <button id="addButton" class="btn btn-danger btn-lg custbtn">add</button>
+       <button id="delButton" class="btn btn-danger btn-lg custbtn">delete</button>
      </div>
     </div>
     </form>
