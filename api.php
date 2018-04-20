@@ -26,6 +26,8 @@
             $json_dec['command'][$i]['shell'] = $new_shell;
         }
     }
+    error_log('handle apply');
+
 
     foreach(array_keys($json_dec) as $v){
       $v = iconv('UTF-8','ISO-8859-9', $v);
@@ -37,7 +39,7 @@
   }
 
   function handleAdd(){
-      error_log('xD');
+    
   }
 
   function handleDel(){

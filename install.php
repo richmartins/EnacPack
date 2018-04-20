@@ -1,17 +1,16 @@
 <?php
-  require('init.php');
+  require_once 'init.php';
 ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <title>Installation</title>
-    <link rel="stylesheet" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="styles/style.css"/>
   </head>
   <body>
-
     <?php
       require('templates/header.html');
     ?>
@@ -52,14 +51,15 @@
       $data = $h . $pShell;
       fwrite($handle, $data);
       fclose($handle);?>
-      <form>
-        <div class="input-group">
-          <input type="text" class="form-control" value="<?php echo $url;?>" placeholder="path to the file" id="copy-input" />
-          <span class="input-group-btn">
-            <button class="btn btn-default" type="button" id="copy-button" data-toggle="tooltip" data-placement="button" title="Copy to Clipboard">Copy</button>
-          </span>
+      <div class="input-group">
+        <input class="form-control"type="text" value="curl -S <?php echo $url?> | sh" id="myInput">
+        <div class="tooltip input-group-append">
+          <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
+          <button class="input-group-text"onclick="myFunction()" onmouseout="outFunc()">
+            <img src="images/clippy.svg" alt="clipboard" style="max-height:30px;" />
+          </button>
         </div>
-      </form>
+      </div>
       <?php require('templates/footer.html'); ?>
     </div>
   </body>

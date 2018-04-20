@@ -1,5 +1,5 @@
 <?php
-require('init.php');
+require_once 'init.php';
 ?>
 <html lang="en">
   <head>
