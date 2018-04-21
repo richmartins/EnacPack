@@ -19,23 +19,28 @@ $( document ).ready(function(){
       var commands = data.command;
       $.each(commands, function( key, obj ) {
         if (obj.name == $("#selector").find(":selected").attr("value")){
+          $('#inputName').val(obj.name);
           $('#inputId').val(obj.id);
           $('#area').val(obj.shell);
+        }else if($("#selector").find(":selected").attr("value") == "add"){
+          $('#inputId').val("");
+          $('#area').val("")
         }
       })
     })
   }
 
   $( '#applyButton').click(function(e){
+    var name = $('#inputName').val();
     var id = $( '#inputId' ).val();
     var shell = $( '#area' ).val();
-    console.log(id + "\r\n" + shell);
+    console.log(name + "\r\n" +id + "\r\n" + shell);
     $.ajax({
       type: 'POST',
       url: 'api.php',
-      data: {id, shell, method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
-      success: function() { alert('Applied with success'); },
-      error: function (){ alert('Failed to apply'); },
+      data: {name, id, shell, method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
+      success: function(){ alert('Applied with succes'); },
+      error: function (){ alert('Failed to apply'); }
       //dataType: 'json'
     });
     e.preventDefault();

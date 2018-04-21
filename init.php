@@ -94,6 +94,6 @@
 
     if($user_os != "Mac OS X"){
       header('Status: 301 Moved Permanently', false, 301);
-      header("Location: wrong-os.php");
+      header("Location: err.php");
       exit();
     }

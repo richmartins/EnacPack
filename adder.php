@@ -39,10 +39,15 @@ require_once 'init.php';
           }
           echo $names . '</option>';
         }
-        echo '</select>';
+
+        echo '<option value="add">New shell...</option></select>';
       ?>
     </div>
     <div class="form-group row">
+      <label class="col-sm-2 col-form-label">Name</label>
+      <div class="col-sm-10">
+       <input class="form-control" id="inputName" name="name"/><br />
+     </div>
       <label class="col-sm-2 col-form-label">ID</label>
       <div class="col-sm-10">
        <input class="form-control" id="inputId" name="id"/><br />

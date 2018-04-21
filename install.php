@@ -17,7 +17,7 @@
     <div class="jumbotron jumbotron-fluid custjumbotron">
       <div class="container">
         <h1 class="display-3"><a href="index.php">EnacPack</a></h1>
-        <p class="lead">For easy and fast installation<br />Now just copy past this link in your terminal and wait for the end</p>
+        <p class="lead">For easy and fast installation<br />Now just copy the command below and follow the instructions</p>
       </div>
     </div>
     <div class='container'>
@@ -58,6 +58,29 @@
           <button class="input-group-text"onclick="myFunction()" onmouseout="outFunc()">
             <img src="images/clippy.svg" alt="clipboard" style="max-height:30px;" />
           </button>
+        </div>
+      </div>
+      <div id="instruct">
+        <div id="step1" class="instruct-step">
+          <h3>Step 1</h3>
+          <p>
+            Open the " Spotlight Search " by typing : [CMD]+[SPACE]
+          </p>
+          <img src="images/instructions/1.png" alt="step1"/>
+        </div>
+        <div id="step2" class="instruct-step">
+          <h3>Step 2</h3>
+          <p>
+            Now open your terminal by typing : terminal + [ENTER]
+          </p>
+          <img src="images/instructions/2.png" alt="step2"/>
+        </div>
+        <div id="step3" class="instruct-step">
+          <h3>Step 3</h3>
+          <p>
+            And finaly just past what you copied above and enjoy !
+          </p>
+          <img src="images/instructions/3.png" alt="step3"/>
         </div>
       </div>
       <?php require('templates/footer.html'); ?>

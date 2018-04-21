@@ -4,7 +4,7 @@ body {
   padding: auto;
 }
 .container {
-  padding: 0px 75px;
+  padding: 0px 0px;
   margin: auto;
 }
 
@@ -157,4 +157,45 @@ body {
 .tooltip:hover .tooltiptext {
     visibility: visible;
     opacity: 1;
+}
+
+/*
+ ******************* instructions
+ */
+
+#instruct {
+  background-color: #555;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: baseline;
+  margin: 40px;
+  opacity: 0.8;
+  box-shadow: 0 0.5px 1.5px;
+
+}
+
+#instruct div img {
+  max-width: 400px;
+  max-height: 400px;
+
+}
+
+.instruct-step {
+  color: #fff;
+  padding: 20px;
+  order: 1;
+  flex-grow: 1;
+}
+
+@media screen and (max-width: 1000px){
+  body {
+    /*background-color: blue;*/
+  }
+
+  #instruct div img {
+    max-width: 200px;
+    max-height: 200px;
+
+  }
 }
