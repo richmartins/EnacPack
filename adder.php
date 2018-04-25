@@ -1,71 +1,23 @@
 <?php
   require_once 'init.php';
+  echo"1";
 
-  if ($_POST["method"]=="applyButton"){
-    handleApply($_POST, $shellJSON);
+  if($_SERVER['REQUEST_METHOD'] === "POST"){
+      echo"3";
+
+      if ($_POST["method"]=="applyButton"){
+        handleApply($_POST, $shellJSON);
+      }
+
+      if ($_POST["method"]=="addButton"){
+        handleAdd($_POST, $shellJSON);
+      }
+
+      if ($_POST["method"]=="delButton"){
+          handleDel();
+      }
   }
 
-  if ($_POST["method"]=="addButton"){
-    handleAdd($_POST, $shellJSON);
-  }
-
-  if ($_POST["method"]=="delButton"){
-      handleDel();
-  }
-
-  function handleApply($myPost, $json) {
-
-    $json_dec = $json->getJSONdata();
-
-    $new_name = $myPost['name'];
-    $new_id = $myPost['id'];
-    $new_shell = $myPost['shell'];
-
-    for ($i=0; $i < count($json_dec['command']); $i++) {
-        if($json_dec['command'][$i]['id'] == $myPost['id']){
-
-            $json_dec['command'][$i]['name'] = $new_name;
-            $json_dec['command'][$i]['id'] = $new_id;
-            $json_dec['command'][$i]['shell'] = $new_shell;
-        }
-    }
-
-
-    foreach(array_keys($json_dec) as $v){
-      $v = iconv('UTF-8','ISO-8859-9', $v);
-    }
-
-    $enc = json_encode($json_dec);
-
-    file_put_contents('assets/shellCom.json', $enc);
-  }
-
-  function handleAdd(){
-    $json_dec = $json->getJSONdata();
-
-    $new_name = $myPost['name'];
-    $new_id = $myPost['id'];
-    $new_shell = $myPost['shell'];
-
-    $i = count($json_dec['command'])+1;
-
-    $json_dec['command'][$i]['name'] = $new_name;
-    $json_dec['command'][$i]['id'] = $new_id;
-    $json_dec['command'][$i]['shell'] = $new_shell;
-
-    foreach(array_keys($json_dec) as $v){
-      $v = iconv('UTF-8','ISO-8859-9', $v);
-    }
-
-    $enc = json_encode($json_dec);
-
-    file_put_contents('assets/shellCom.json', $enc);
-
-  }
-
-  function handleDel(){
-      error_log('inner del function');
-  }
 
 
 ?>
@@ -128,20 +80,73 @@
        <!-- upload img -->
        <form class="" action="" method="post" enctype="multipart/form-data">
          <input id="input_file" type="file" name="uploadPngFile" hidden>
-         <label class=""id='select_file'>Choose a icons for the app [PNG]</label>
-         <div>
-           <input type="submit" value="Upload"  id="submit_file" class="btn btn-danger btn-lg custbtn">
-         </div>
+         <span class="btn btn-danger btn-lg custbtn" id='select_file'>Browse Icon...</span>
+       <input id="submit_file" type="submit" value="Upload" class="btn btn-danger btn-lg custbtn">
        </form>
 
      </div>
      <div class="offset-sm-2 col-sm-10">
-       <button id="applyButton" class="btn btn-danger btn-lg custbtn">apply</button>
-       <button id="addButton" class="btn btn-danger btn-lg custbtn">add</button>
-       <button id="delButton" class="btn btn-danger btn-lg custbtn">delete</button>
+         <button name="applyButton" id="applyButton" class="btn btn-danger btn-lg custbtn" >apply</button>
+         <button id="addButton" class="btn btn-danger btn-lg custbtn" >add</button>
+         <button id="delButton" class="btn btn-danger btn-lg custbtn" >delete</button>
      </div>
     </div>
     <?php require('templates/footer.html');?>
     </div>
   </body>
 </html>
+
+<?php
+    function handleApply($myPost, $json) {
+
+      $json_dec = $json->getJSONdata();
+
+      $new_name = $myPost['name'];
+      $new_id = $myPost['id'];
+      $new_shell = $myPost['shell'];
+
+      for ($i=0; $i < count($json_dec['command']); $i++) {
+          if($json_dec['command'][$i]['id'] == $myPost['id']){
+              $json_dec['command'][$i]['name'] = $new_name;
+              $json_dec['command'][$i]['id'] = $new_id;
+              $json_dec['command'][$i]['shell'] = $new_shell;
+          }
+      }
+
+
+      foreach(array_keys($json_dec) as $v){
+        $v = iconv('UTF-8','ISO-8859-9', $v);
+      }
+
+      $enc = json_encode($json_dec);
+
+      file_put_contents('assets/shellCom.json', $enc);
+    }
+
+    function handleAdd(){
+      $json_dec = $json->getJSONdata();
+
+      $new_name = $myPost['name'];
+      $new_id = $myPost['id'];
+      $new_shell = $myPost['shell'];
+
+      $i = count($json_dec['command'])+1;
+
+      $json_dec['command'][$i]['name'] = $new_name;
+      $json_dec['command'][$i]['id'] = $new_id;
+      $json_dec['command'][$i]['shell'] = $new_shell;
+
+      foreach(array_keys($json_dec) as $v){
+        $v = iconv('UTF-8','ISO-8859-9', $v);
+      }
+
+      $enc = json_encode($json_dec);
+
+      file_put_contents('assets/shellCom.json', $enc);
+
+    }
+
+    function handleDel(){
+        error_log('inner del function');
+    }
+?>

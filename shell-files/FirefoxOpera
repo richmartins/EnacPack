@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir ~/EnacPack_temp 
+cd ~/EnacPack_temp
+
+# Installing Firefox
+curl -L -o Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US" 
+hdiutil mount -nobrowse Firefox.dmg
+cp -R "/Volumes/Firefox/Firefox.app" /Applications
+hdiutil unmount "/Volumes/Firefox" 
+rm Firefox.dmg
+
+#Installing Opera
+curl -L -o Opera.dmg "http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine"
+yes | hdiutil mount -nobrowse Opera.dmg > /dev/null
+cp -R "/Volumes/Opera/Opera.app" /Applications
+hdiutil unmount "/Volumes/Opera" 
+rm Opera.dmg
+

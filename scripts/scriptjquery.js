@@ -14,6 +14,8 @@ function outFunc() {
 
 $( document ).ready(function(){
 
+
+
   function getJsonVal() {
     $.getJSON( "assets/shellCom.json", function( data ) {
       var commands = data.command;
@@ -34,6 +36,11 @@ $( document ).ready(function(){
       })
     })
   }
+
+  // Upload button
+  $('#select_file').click(function () {
+    $("input[type='file']").trigger('click');
+  });
 
   $( '#applyButton').click(function(e){
     var name = $('#inputName').val();

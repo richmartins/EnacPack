@@ -104,12 +104,12 @@
     $fileextesion = "";
 
     try {
-        if (isset($_FILES['uploadJsonFile'])){
+        if (isset($_FILES['uploadPngFile'])){
 
-          $filename = $_FILES['uploadJsonFile']['name'];
-          $filetype = $_FILES['uploadJsonFile']['type'];
-          $filesize = $_FILES['uploadJsonFile']['size'];
-          $filedir = "uploads/userFiles";
+          $filename = $_FILES['uploadPngFile']['name'];
+          $filetype = $_FILES['uploadPngFile']['type'];
+          $filesize = $_FILES['uploadPngFile']['size'];
+          $filedir = __DIR__."images/LogoAPP/";
           $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
 
           //echo $fileextesion;
@@ -118,22 +118,17 @@
           if($fileextesion != "png" ) {
             //throw new RuntimeException('Error NO JSON');
             $error = "nopng";
-          echo $fileextesion;
-          /** Check if uploaded file is JSON type **/
-          if($fileextesion != "png" ) {
-            throw new RuntimeException(' Error No PNG');
-          } else {
-            move_uploaded_file($_FILES["uploadPngFile"]["tmp_name"], "uploads/userFiles/" . $_FILES["uploadPngFile"]["name"]);
-            $_SESSION['uploadPngFile'] = $_FILES['uploadPngFile']['name'];
+            echo $fileextesion;
+            /** Check if uploaded file is JSON type **/
+              if($fileextesion != "png" ) {
+                throw new RuntimeException(' Error No PNG');
+              } else {
+                move_uploaded_file($_FILES["uploadPngFile"]["tmp_name"], __DIR__. "images/logoAPP/" . $_FILES["uploadPngFile"]["name"]);
+                //$_SESSION['uploadPngFile'] = $_FILES['uploadPngFile']['name'];
+              }
           }
-
-      } else {
-          //session_destroy();
-          //session_unset();
-      }
-
-    }
-  } catch (RuntimeException $e) {
+        }
+    } catch (RuntimeException $e) {
         echo $e->getMessage();
 
     }
