@@ -50,7 +50,7 @@
 
     $i = count($json_dec['command'])+1;
 
-    $json_dec['command'][$i]['id'] = $new_name;
+    $json_dec['command'][$i]['name'] = $new_name;
     $json_dec['command'][$i]['id'] = $new_id;
     $json_dec['command'][$i]['shell'] = $new_shell;
 

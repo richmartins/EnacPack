@@ -19,10 +19,15 @@ $( document ).ready(function(){
       var commands = data.command;
       $.each(commands, function( key, obj ) {
         if (obj.name == $("#selector").find(":selected").attr("value")){
+          $('#applyButton').show();
+          $('#delButton').show();
           $('#inputName').val(obj.name);
           $('#inputId').val(obj.id);
           $('#area').val(obj.shell);
         }else if($("#selector").find(":selected").attr("value") == "add"){
+          $('#applyButton').hide();
+          $('#delButton').hide();
+          $('#inputName').val("")
           $('#inputId').val("");
           $('#area').val("")
         }
@@ -37,9 +42,12 @@ $( document ).ready(function(){
     console.log(name + "\r\n" +id + "\r\n" + shell);
     $.ajax({
       type: 'POST',
-      url: 'api.php',
+      url: 'adder.php',
       data: {name, id, shell, method:"applyButton"}, // or JSON.stringify ({name: 'jonas'}),
-      success: function(){ alert('Applied with succes'); },
+      success: function(html){
+          alert('Applied with succes');
+          location.reload();
+      },
       error: function (){ alert('Failed to apply'); }
       //dataType: 'json'
     });
@@ -49,9 +57,12 @@ $( document ).ready(function(){
   $( '#addButton').click(function(e){
     $.ajax({
       type: 'POST',
-      url: 'api.php',
+      url: 'adder.php',
       data: {method:"addButton"}, // or JSON.stringify ({name: 'jonas'}),
-      success: function() { alert('Added with success'); },
+      success: function(html){
+          alert('Applied with succes');
+          location.reload();
+      },
       error: function (){ alert('Failed to add'); },
       //dataType: 'json'
     });
@@ -61,9 +72,12 @@ $( document ).ready(function(){
   $( '#delButton').click(function(e){
     $.ajax({
       type: 'POST',
-      url: 'api.php',
+      url: 'adder.php',
       data: {method:"delButton"}, // or JSON.stringify ({name: 'jonas'}),
-      success: function() { alert('Deleted with success'); },
+      success: function(html){
+          alert('Applied with succes');
+          location.reload();
+      },
       error: function (){ alert('Failed to delete'); },
       //dataType: 'json'
     });
