@@ -1,14 +1,14 @@
 <?php
-  require_once 'init.php';
+  require_once 'php/init.php';
 ?>
 <html lang="en">
   <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <link rel="stylesheet" type="text/css" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css"/>
     <title>Installation</title>
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
   </head>
   <body>
     <?php
@@ -56,7 +56,7 @@
         <div class="tooltip input-group-append">
           <span class="tooltiptext" id="myTooltip">Copy to clipboard</span>
           <button class="input-group-text"onclick="myFunction()" onmouseout="outFunc()">
-            <img src="images/clippy.svg" alt="clipboard" style="max-height:30px;" />
+            <img src="assets/images/clippy.svg" alt="clipboard" style="max-height:30px;" />
           </button>
         </div>
       </div>
@@ -66,24 +66,25 @@
           <p>
             Open the " Spotlight Search " by typing : [CMD]+[SPACE]
           </p>
-          <img src="images/instructions/1.png" alt="step1"/>
+          <img src="assets/images/instructions/1.png" alt="step1"/>
         </div>
         <div id="step2" class="instruct-step">
           <h3>Step 2</h3>
           <p>
             Now open your terminal by typing : terminal + [ENTER]
           </p>
-          <img src="images/instructions/2.png" alt="step2"/>
+          <img src="assets/images/instructions/2.png" alt="step2"/>
         </div>
         <div id="step3" class="instruct-step">
           <h3>Step 3</h3>
           <p>
             And finaly just past what you copied above and enjoy !
           </p>
-          <img src="images/instructions/3.png" alt="step3"/>
+          <img src="assets/images/instructions/3.png" alt="step3"/>
         </div>
       </div>
       <?php require('templates/footer.html'); ?>
+      <script src="scripts/script.js" type="text/javascript"></script>
     </div>
   </body>
 </html>

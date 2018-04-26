@@ -1,5 +1,5 @@
 <?php
-  require_once 'init.php';
+  require_once 'php/init.php';
 ?>
 <html lang="en">
   <head>
@@ -8,8 +8,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>EnacPack</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/animate.css@3.5.2/animate.min.css" integrity="sha384-OHBBOqpYHNsIqQy8hL1U+8OXf9hH6QRxi0+EODezv82DfnZoV7qoHAZDwMwEJvSw" crossorigin="anonymous">
-    <link rel="stylesheet" href="assets/bootstrap-4.0.0-dist/css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="styles/style.css"/>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+    <link rel="stylesheet" type="text/css" href="assets/styles/style.css"/>
   </head>
   <body>
     <?php require('templates/header.html'); ?>
@@ -32,7 +32,7 @@
 
             echo '<div class="card animated bounceIn " style="max-width 300px">
                     <div class="img-div">
-                      <img class="card-img-top custimgtop" alt="'. $name . '" src="./images/LogoAPP/' . $name . '.png" />
+                      <img class="card-img-top custimgtop" alt="'. $name . '" src="assets/images/LogoAPP/' . $name . '.png" />
                     </div>
                     <div class="card-body custcard-body">
                       <p class="card-title">' . $name . '</p>

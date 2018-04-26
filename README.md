@@ -24,4 +24,3 @@ This will work only in MacOS
 ## Dependencies
  - jquery -> checkout [here](https://jquery.com/)
  - bootstrap -> checkout [here](https://getbootstrap.com/)
- - Download it and put them both in " assets/ "
