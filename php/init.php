@@ -98,7 +98,9 @@
       exit();
     }
 
-
+    /*
+     * upload
+     */
     $error = "";
 
     $fileextesion = "";
@@ -106,16 +108,19 @@
     try {
         if (isset($_FILES['uploadPngFile'])){
 
-          $filename = $_FILES['uploadPngFile']['name'];
+          $filename = $_FILES["uploadPngFile"]["name"];
           $filetype = $_FILES['uploadPngFile']['type'];
           $filesize = $_FILES['uploadPngFile']['size'];
-          $filedir = __DIR__."images/LogoAPP/";
+          $filedir = "assets/images/LogoAPP/";
           $fileextesion = strtolower(pathinfo($filedir . $filename ,PATHINFO_EXTENSION));
 
           //echo $fileextesion;
-
+          echo"1<br />";
+          echo $filename . '<br />' . $filedir .'<br />' . $fileextesion;
           /** Check if uploaded file is JSON type **/
-          if($fileextesion != "png" ) {
+          if($fileextesion == "png" ) {
+            echo"2";
+
             //throw new RuntimeException('Error NO JSON');
             $error = "nopng";
             echo $fileextesion;
@@ -123,7 +128,7 @@
               if($fileextesion != "png" ) {
                 throw new RuntimeException(' Error No PNG');
               } else {
-                move_uploaded_file($_FILES["uploadPngFile"]["tmp_name"], __DIR__. "images/logoAPP/" . $_FILES["uploadPngFile"]["name"]);
+                move_uploaded_file($_FILES["uploadPngFile"]["tmp_name"], "./assets/images/logoAPP/" . $_POST['name'] . '.png');
                 //$_SESSION['uploadPngFile'] = $_FILES['uploadPngFile']['name'];
               }
           }

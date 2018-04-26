@@ -1,24 +1,29 @@
 <?php
+  header("Last-Modified: " . gmdate("D, d M Y H:i:s") . " GMT");
+  header("Cache-Control: no-store, no-cache, must-revalidate, max-age=0");
+  header("Cache-Control: post-check=0, pre-check=0", false);
+  header("Pragma: no-cache");
+
   require_once 'php/init.php';
-  echo"1";
 
-  if($_SERVER['REQUEST_METHOD'] === "POST"){
-      echo"3";
+  try {
+    if (isset($_POST["applyButton"])){
+      handleApply($_POST, $shellJSON);
+    }
 
-      if ($_POST["method"]=="applyButton"){
-        handleApply($_POST, $shellJSON);
-      }
+    if (isset($_POST["addButton"])){
+      handleAdd($_POST, $shellJSON);
+    }
 
-      if ($_POST["method"]=="addButton"){
-        handleAdd($_POST, $shellJSON);
-      }
+    if (isset($_POST["delButton"])){
+        handleDel($_POST, $shellJSON);
+    }
 
-      if ($_POST["method"]=="delButton"){
-          handleDel();
-      }
+
+  } catch (RuntimeException $e) {
+      echo $e->getMessage();
+
   }
-
-
 
 ?>
 <html lang="en">
@@ -62,35 +67,32 @@
         echo '<option value="add">New shell...</option></select>';
       ?>
     </div>
-    <div class="form-group row">
-      <label class="col-sm-2 col-form-label">Name</label>
-      <div class="col-sm-10">
-       <input class="form-control" id="inputName" name="name"/><br />
-     </div>
-      <label class="col-sm-2 col-form-label">ID</label>
-      <div class="col-sm-10">
-       <input class="form-control" id="inputId" name="id"/><br />
-     </div>
-     <label class="col-sm-2 col-form-label">Shell</label>
-     <div class="col-sm-10">
-       <textarea id="area" name="textShell" class="form-control" rows="8"></textarea><br />
-     </div>
-     <div class="offset-sm-2 col-sm-10">
+    <form action="adder.php" method="post" enctype="multipart/form-data">
+      <div class="form-group row">
+        <label class="col-sm-2 col-form-label">Name</label>
+        <div class="col-sm-10">
+         <input class="form-control" id="inputName" name="name" required/><br />
+       </div>
+        <label class="col-sm-2 col-form-label">ID</label>
+        <div class="col-sm-10">
+         <input class="form-control" id="inputId" name="id" required/><br />
+       </div>
+       <label class="col-sm-2 col-form-label">Shell</label>
+       <div class="col-sm-10">
+         <textarea id="area" name="shell" class="form-control" rows="8" required></textarea><br />
+       </div>
+       <div class="offset-sm-2 col-sm-10">
+           <input id="input_file" type="file" name="uploadPngFile" hidden>
+           <span class="btn btn-danger btn-lg custbtn" id='select_file'>Browse Icon...</span>
+       </div>
+       <div class="offset-sm-2 col-sm-10">
+           <button name="applyButton" id="applyButton" class="btn btn-danger btn-lg custbtn" >apply</button>
+           <button name="addButton" id="addButton" class="btn btn-danger btn-lg custbtn" >add</button>
+           <button name="delButton" id="delButton" class="btn btn-danger btn-lg custbtn" >delete</button>
+       </div>
+      </div>
+    </form>
 
-       <!-- upload img -->
-       <form class="" action="" method="post" enctype="multipart/form-data">
-         <input id="input_file" type="file" name="uploadPngFile" hidden>
-         <span class="btn btn-danger btn-lg custbtn" id='select_file'>Browse Icon...</span>
-       <input id="submit_file" type="submit" value="Upload" class="btn btn-danger btn-lg custbtn">
-       </form>
-
-     </div>
-     <div class="offset-sm-2 col-sm-10">
-         <button name="applyButton" id="applyButton" class="btn btn-danger btn-lg custbtn" >apply</button>
-         <button id="addButton" class="btn btn-danger btn-lg custbtn" >add</button>
-         <button id="delButton" class="btn btn-danger btn-lg custbtn" >delete</button>
-     </div>
-    </div>
     <?php require('templates/footer.html');?>
     </div>
   </body>
@@ -123,14 +125,14 @@
       file_put_contents('assets/shellCom.json', $enc);
     }
 
-    function handleAdd(){
+    function handleAdd($myPost, $json){
       $json_dec = $json->getJSONdata();
 
       $new_name = $myPost['name'];
       $new_id = $myPost['id'];
       $new_shell = $myPost['shell'];
 
-      $i = count($json_dec['command'])+1;
+      $i = count($json_dec['command']);
 
       $json_dec['command'][$i]['name'] = $new_name;
       $json_dec['command'][$i]['id'] = $new_id;
@@ -146,7 +148,21 @@
 
     }
 
-    function handleDel(){
-        error_log('inner del function');
+    function handleDel($myPost, $json){
+      $json_dec = $json->getJSONdata();
+
+      for ($i=0; $i < count($json_dec['command']); $i++) {
+          if($json_dec['command'][$i]['id'] == $myPost['id']){
+            unset($json_dec['command'][$i]);
+          }
+      }
+
+      foreach(array_keys($json_dec) as $v){
+        $v = iconv('UTF-8','ISO-8859-9', $v);
+      }
+
+      $enc = json_encode($json_dec);
+
+      file_put_contents('assets/shellCom.json', $enc);
     }
 ?>

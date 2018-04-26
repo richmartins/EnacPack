@@ -15,7 +15,7 @@ then all you need to do. It's copy past the command that the next page will give
 ## Function
  - Generate installer shell script  in function of the application that has been selected
  - Check if the user is on a MacOS environment
- - Authentifaction with Tequila protocole from [ [EPFL](tequila.epfl.ch) ]
+ - Authentifaction with Tequila protocole from [ [EPFL](tequila.epfl.ch) ] ~
  - Update from a page, the json file with the template of all installer script
 
 ## OS
