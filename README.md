@@ -24,3 +24,12 @@ This will work only in MacOS
 ## Dependencies
  - jquery -> checkout [here](https://jquery.com/)
  - bootstrap -> checkout [here](https://getbootstrap.com/)
+
+
+## Installation
+     git clone https://github.com/richmartins/EnacPack.git
+     cd EnacPack
+
+ In order to make everything work you might need to give permissions to your server (e.g. Apache) to write in the folder **shell-files/** and **assets/shellCom.json**. In my case I just changed the owner of these folder to **__www**, which is the user that execute the http requests on apache server.
+
+     sudo chown __www: shell-files/ assets/shellCom.json
