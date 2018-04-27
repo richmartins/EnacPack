@@ -1,5 +1,21 @@
+function myFunction() {
+  var copyText = document.getElementById("myInput");
+  copyText.select();
+  document.execCommand("Copy");
+
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copied to\nclipboard!";
+}
+
+function outFunc() {
+  var tooltip = document.getElementById("myTooltip");
+  tooltip.innerHTML = "Copy to clipboard";
+}
+
+
 $( document ).ready(function(){
   function getJsonVal() {
+
     $.getJSON( "assets/shellCom.json", function( data ) {
       var commands = data.command;
       $.each(commands, function( key, obj ) {
@@ -21,12 +37,13 @@ $( document ).ready(function(){
         }
       })
     })
+
   }
 
   // Upload button
   $('#select_file').click(function () {
     $("input[type='file']").trigger('click');
-    
+
   });
 
 
@@ -34,7 +51,5 @@ $( document ).ready(function(){
     getJsonVal();
 
   })
-
     getJsonVal();
-
 });

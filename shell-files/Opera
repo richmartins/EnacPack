@@ -3,7 +3,8 @@
 mkdir ~/EnacPack_temp
 cd ~/EnacPack_temp
 
-#Installing Opera
+#
+Installing Opera
 curl -L -o Opera.dmg "http://www.opera.com/download/get/?id=41303&location=413&nothanks=yes&sub=marine"
 yes | hdiutil mount -nobrowse Opera.dmg > /dev/null
 cp -R "/Volumes/Opera/Opera.app" /Applications

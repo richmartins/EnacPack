@@ -1,0 +1,19 @@
+#!/bin/bash
+
+mkdir ~/EnacPack_temp
+cd ~/EnacPack_temp
+
+#Installing Firefox
+curl -L -o Firefox.dmg "http://download.mozilla.org/?product=firefox-latest&os=osx&lang=en-US" 
+hdiutil mount -nobrowse Firefox.dmg
+cp -R "/Volumes/Firefox/Firefox.app" /Applications
+hdiutil unmount "/Volumes/Firefox" 
+rm Firefox.dmg
+
+#Installing Spotify
+curl -L -o "http://download.spotify.com/Spotify.dmg"
+hdiutil mount -nobrowse Spotify.dmg 
+cp -R "/Volumes/Spotify/Spotify.app" /Applications
+hdiutil unmount "/Volumes/Spotify"
+rm Spotify.dmg
+

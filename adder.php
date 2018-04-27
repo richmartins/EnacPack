@@ -149,12 +149,24 @@
     }
 
     function handleDel($myPost, $json){
+      $delete = false;
       $json_dec = $json->getJSONdata();
 
-      for ($i=0; $i < count($json_dec['command']); $i++) {
-          if($json_dec['command'][$i]['id'] == $myPost['id']){
-            unset($json_dec['command'][$i]);
-          }
+      /*for ($i=0; $i < count($json_dec['command']); $i++) {
+        $json_dec['command'][$i] = $json_dec['command'][$i];
+        if($json_dec['command'][$i]['id'] == $myPost['id']){
+          unset($json_dec['command'][$i]['id']);
+          $delete = true;
+        }
+      }*/
+
+      if($delete = true){
+        $i = 0;
+        foreach(array_keys($json_dec['command']) as $k => $v){
+          echo $json_dec['command'][$k]['id'];
+          echo $k . " = > " . $v;
+        }
+        $delete = false;
       }
 
       foreach(array_keys($json_dec) as $v){
