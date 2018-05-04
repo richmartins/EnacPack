@@ -40,7 +40,7 @@
                     </div>
                     <div class="card-body custcard-body">
                       <p class="card-title">' . $name . '</p>
-                      <input class="card-text" type="checkbox" name="check_app[]" value="'. $name . '" />
+                      <input id="card-val" class="card-text" type="checkbox" name="check_app[]" value="'. $name . '" />
                     </div>
                   </div>';
           }?>
