@@ -1,0 +1,48 @@
+{
+    "header": {
+        "name": "header",
+        "shell": "#!\/bin\/bash\n\nmkdir ~\/EnacPack_temp\ncd ~\/EnacPack_temp\n\n"
+    },
+    "command": [
+        {
+            "name": "Skype",
+            "shell": "#Installing Skype\ncurl -L -o \"http:\/\/www.skype.com\/go\/getskype-macosx.dmg\"\nhdiutil mount -nobrowse getskype-macosx.dmg \ncp -R \"\/Volumes\/Skype\/Skype.app\" \/Applications\nhdiutil unmount \"\/Volumes\/Skype\"\nrm getskype-macosx.dmg\n\n"
+        },
+        {
+            "name": "Dropbox",
+            "shell": "#Installing Dropbox\ncurl -L -o Dropbox.dmg \"https:\/\/www.dropbox.com\/download?plat=mac&type=full\"\nhdiutil mount -nobrowse Dropbox.dmg \ncp -R \"\/Volumes\/Dropbox Installer\/Dropbox.app\" \/Applications\nhdiutil unmount \"\/Volumes\/Dropbox Installer\" \nrm Dropbox.dmg\n\n"
+        },
+        {
+            "name": "GoogleDrive",
+            "shell": "#Installing Google Drive\ncurl -L -o \"https:\/\/dl-ssl.google.com\/drive\/installgoogledrive.dmg\" \nhdiutil mount -nobrowse installgoogledrive.dmg \ncp -R \"\/Volumes\/Install Google Drive\/Google Drive.app\" \/Applications\nhdiutil unmount \"\/Volumes\/Install Google Drive\" \nrm installgoogledrive.dmg\n\n"
+        },
+        {
+            "name": "CCC",
+            "shell": "#Installing Carbon Copy Clone\ncurl -L -o ccc.zip \"https:\/\/bombich.com\/software\/download_ccc.php\" -H \"User-Agent: Mozilla\/5.0 (Macintosh; Intel Mac OS X 10_8_3) AppleWebKit\/537.36 (KHTML, like Gecko) Chrome\/27.0.1453.93 Safari\/537.36\" \nunzip ccc.zip \nmv \"Carbon Copy Cloner.app\" \/Applications \nrm ccc.zip\n\n"
+        },
+        {
+            "name": "Thunderbird",
+            "shell": "#Installing Thunderbird\ncurl -L -o Thunderbird.dmg \"https:\/\/download.mozilla.org\/?product=thunderbird-52.0.1-SSL&os=osx&lang=en-US\" \nhdiutil mount -nobrowse Thunderbird.dmg \ncp -R \"\/Volumes\/Thunderbird\/Thunderbird.app\" \/Applications \nhdiutil unmount \"\/Volumes\/Thunderbird\" \nrm Thunderbird.dmg\n\n"
+        },
+        {
+            "name": "Chrome",
+            "shell": "#Installing Chrome\r\ncurl -L -o \"https:\/\/dl.google.com\/chrome\/mac\/stable\/GGRO\/googlechrome.dmg\" \r\nhdiutil mount -nobrowse googlechrome.dmg \r\ncp -R \"\/Volumes\/Google Chrome\/Google Chrome.app\" \/Applications\r\nhdiutil unmount \"\/Volumes\/Google Chrome\" \r\nrm googlechrome.dmg\r\n\r\n"
+        },
+        {
+            "name": "Firefox",
+            "shell": "# Installing Firefox\r\ncurl -L -o Firefox.dmg \"http:\/\/download.mozilla.org\/?product=firefox-latest&os=osx&lang=en-US\" \r\nhdiutil mount -nobrowse Firefox.dmg\r\ncp -R \"\/Volumes\/Firefox\/Firefox.app\" \/Applications\r\nhdiutil unmount \"\/Volumes\/Firefox\" \r\nrm Firefox.dmg\r\n\r\n"
+        },
+        {
+            "name": "EnacDrive",
+            "shell": "#Installing EnacDrive\r\ncurl -L -o ENACdrives - 1.0 .6.dmg \"http:\/\/enacdrives.epfl.ch\/releases\/download?os=macosx\" \r\nhdiutil mount -nobrowse ENACdrives-1.0 .6.dmg\r\ncp -R \"\/Volumes\/ENACdrives\/ENACdrives.app\" \/Applications \r\nhdiutil unmount \"\/Volumes\/ENACdrives\/\" \r\nrm ENACdrives-1.0 .6.dmg\r\n\r\n"
+        },
+        {
+            "name": "Spotify",
+            "shell": "#Installing Spotify\r\ncurl -L -o \"http:\/\/download.spotify.com\/Spotify.dmg\"\r\nhdiutil mount -nobrowse Spotify.dmg \r\ncp -R \"\/Volumes\/Spotify\/Spotify.app\" \/Applications\r\nhdiutil unmount \"\/Volumes\/Spotify\"\r\nrm Spotify.dmg\r\n\r\n"
+        },
+        {
+            "name": "VLC",
+            "shell": "#\r\nInstalling VLC Player\r\ncurl -L -o vlc.dmg \"http:\/\/get.videolan.org\/vlc\/2.2.4\/macosx\/vlc-2.2.4.dmg\" \r\nhdiutil mount -nobrowse vlc.dmg -mountpoint \/ Volumes \/ vlc\r\ncp -R \"\/Volumes\/vlc\/VLC.app\" \/Applications\r\nhdiutil unmount \"\/Volumes\/vlc\" \r\nrm vlc.dmg\r\n\r\n"
+        }
+    ]
+}

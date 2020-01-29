@@ -1,35 +1,65 @@
-     ______                  _____        _____ _  __
-    |  ____|                |  __ \ /\   / ____| |/ /
-    | |__   _ __   __ _  ___| |__) /  \ | |    |   /
-    |  __| |  _ \ / _` |/ __|  ___/ /\ \| |    |  <
-    | |____| | | | (_| | (__| |  / ____ \ |____|   \
-    |______|_| |_|\__,_|\___|_| /_/    \_\_____|_|\_\
+# What is CodeIgniter
 
-## Description
-A site where you can download and install basics software
+CodeIgniter is an Application Development Framework - a toolkit - for
+people who build web sites using PHP. Its goal is to enable you to
+develop projects much faster than you could if you were writing code
+from scratch, by providing a rich set of libraries for commonly needed
+tasks, as well as a simple interface and logical structure to access
+these libraries. CodeIgniter lets you creatively focus on your project
+by minimizing the amount of code needed for a given task.
 
-## How ?
-Select the applications that you want to install. Then by clicking in the button [**install it**]. It will generate a shell file in the server.
-then all you need to do. It's copy past the command that the next page will give in your terminal.
+Release Information
+===================
 
-## Function
- - Generate installer shell script  in function of the application that has been selected
- - Check if the user is on a MacOS environment
- - Authentifaction with Tequila protocole from [ [EPFL](tequila.epfl.ch) ] ~
- - Update from a page, the json file with the template of all installer script
+This repo contains in-development code for future releases. To download
+the latest stable release please visit the [CodeIgniter
+Downloads](https://codeigniter.com/download) page.
 
-## OS
-This will work only in MacOS
+Changelog and New Features
+==========================
 
-## Dependencies
- - jquery -> checkout [here](https://jquery.com/)
- - bootstrap -> checkout [here](https://getbootstrap.com/)
+You can find a list of all changes for each release in the [user guide
+change
+log](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/changelog.rst).
 
+Server Requirements
+===================
 
-## Installation
-     git clone https://github.com/richmartins/EnacPack.git
-     cd EnacPack
+PHP version 5.6 or newer is recommended.
 
- In order to make everything work you might need to give permissions to your server (e.g. Apache) to write in the folder **shell-files/** and **assets/shellCom.json**. In my case I just changed the owner of these folder to **__www**, which is the user that execute the http requests on apache server.
+It should work on 5.3.7 as well, but we strongly advise you NOT to run
+such old versions of PHP, because of potential security and performance
+issues, as well as missing features.
 
-     sudo chown __www: shell-files/ assets/shellCom.json
+Installation
+============
+
+Please see the [installation
+section](https://codeigniter.com/user_guide/installation/index.html) of
+the CodeIgniter User Guide.
+
+License
+=======
+
+Please see the [license
+agreement](https://github.com/bcit-ci/CodeIgniter/blob/develop/user_guide_src/source/license.rst).
+
+Resources
+=========
+
+-   [User Guide](https://codeigniter.com/docs)
+-   [Language File
+    Translations](https://github.com/bcit-ci/codeigniter3-translations)
+-   [Community Forums](http://forum.codeigniter.com/)
+-   [Community Wiki](https://github.com/bcit-ci/CodeIgniter/wiki)
+-   [Community Slack Channel](https://codeigniterchat.slack.com)
+
+Report security issues to our [Security
+Panel](mailto:security@codeigniter.com) or via our [page on
+HackerOne](https://hackerone.com/codeigniter), thank you.
+
+Acknowledgement
+===============
+
+The CodeIgniter team would like to thank EllisLab, all the contributors
+to the CodeIgniter project and you, the CodeIgniter user.

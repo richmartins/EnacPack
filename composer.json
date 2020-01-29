@@ -1,0 +1,13 @@
+{
+	"description": "EnacPack installer",
+	"name": "richmartins/enapck",
+	"type": "project",
+	"homepage": "https://enpack.epfl.ch",
+	"license": "MIT",
+	"require": {
+		"php": ">=5.3.7"
+	},
+	"require-dev": {
+		"phpunit/phpunit": "^8.5"
+	}
+}
