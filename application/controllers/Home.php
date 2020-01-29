@@ -19,9 +19,9 @@ class Home extends CI_Controller {
                                     install and then just click [install] and 
                                     follow the lead on the next page";
 
-		$this->load->view('templates/header', $this->data);
-		$this->load->view('home', $this->data);
-		$this->load->view('templates/footer');
+        $this->load->view('templates/header', $this->data);
+        $this->load->view('home', $this->data);
+        $this->load->view('templates/footer');
     }
 
     public function process_input_home() {
@@ -48,11 +48,24 @@ class Home extends CI_Controller {
         if(fwrite($handle, $script)){
             echo 'file was written';
             //render view
+            redirect('install/?file='.$filename);
         } else {
             $error = ['error' => 'unable to write file'];
             $this->session->set_flashdata('error', $error);
             redirect('home');
         }
         fclose($handle);
+    }
+
+    public function install () {
+        $name = $this->uri->segment(2);
+        $url = base_url() . 'public/installer/' . $name;
+        $this->data['title'] = 'Install';
+        $this->data['description'] = "For easy and fast installation<br />
+                                    Now just copy the command below and follow the instructions";
+        $this->data['url'] = $url;
+        $this->load->view('templates/header', $this->data);
+        $this->load->view('install', $this->data);
+        $this->load->view('templates/footer');
     }
 }

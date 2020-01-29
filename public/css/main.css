@@ -134,6 +134,64 @@ html, body {
     color: #fff;
 }
 
+/** INSTALL **/
+
+#install-container-url{
+    padding-top: 2em;
+    display: flex;
+    flex-wrap: nowrap;
+    justify-content: center;
+}
+
+
+#install-container-url > span {
+    padding: 10px;
+    background: rgb(52, 58, 64);
+    color: #fff;
+    min-width: 50px;
+    text-align: center;
+}
+
+#install-container-url > span:hover {
+    cursor: pointer;
+}
+
+
+#install-url {
+    width: 60%;
+    padding: 10px;
+    outline: none;
+    font-size: 1.2em;
+    padding: 0.1em;
+}
+
+#install-url:focus{
+    border: 2px solid rgb(183, 28, 28);
+}
+
+#instruct {
+    background-color: rgb(85, 85, 85, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: baseline;
+    margin: 40px;
+    opacity: 0.8;
+    box-shadow: 0 0.5px 1.5px;
+
+}
+
+#instruct div img {
+   max-width: 100%;
+
+}
+
+.instruct-step {
+    color: #fff;
+    padding: 20px;
+    order: 1;
+    flex-grow: 1;
+}
+
 /** BTN **/
 
 .btn {

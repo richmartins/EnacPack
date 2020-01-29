@@ -53,4 +53,6 @@ $route['default_controller'] = 'Home';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
+# Custom routes
+$route['install'] = 'home/install';
 $route['process_input_home'] = 'home/process_input_home';
