@@ -144,25 +144,13 @@ html, body {
 }
 
 
-#install-container-url > span {
-    padding: 10px;
-    background: rgb(52, 58, 64);
-    color: #fff;
-    min-width: 50px;
-    text-align: center;
-}
-
-#install-container-url > span:hover {
-    cursor: pointer;
-}
-
-
 #install-url {
     width: 60%;
     padding: 10px;
     outline: none;
     font-size: 1.2em;
     padding: 0.1em;
+    font-family: 'Muli', sans-serif;
 }
 
 #install-url:focus{
@@ -181,7 +169,7 @@ html, body {
 }
 
 #instruct div img {
-   max-width: 100%;
+    max-width: 100%;
 
 }
 
@@ -208,4 +196,71 @@ html, body {
     background-color: #fff;
     color: rgb(52, 58, 64);
     cursor: pointer;
+}
+
+/** CLIPBOARD **/
+.tooltip {
+    position: relative;
+    display: inline-block;
+    opacity: 1;
+    min-width: 50px;
+    text-align: center;
+    padding: 10px;
+    background: rgb(52, 58, 64);
+    color: #fff;
+}
+
+.tooltip:hover{
+    cursor: pointer;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 140px;
+    background-color: #555;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -75px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.tooltip .tooltiptext::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/** ERROR DIV **/
+.custom_div_error{
+    display: flex;
+    flex-wrap: nowrap;
+    align-content: center;
+    justify-content: center;
+
+}
+
+.custom_div_error span {
+    background-color: rgb(183, 28, 28);
+    color: #FFFF;
+    border-radius: .7em;
+    padding: .7em;
+    margin-top: .7em;
+    margin-bottom: -4em;
 }

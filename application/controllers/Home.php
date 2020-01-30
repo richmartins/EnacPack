@@ -26,10 +26,14 @@ class Home extends CI_Controller {
 
     public function process_input_home() {
         $selected = $this->input->get('checked_app');
+        if(empty($selected)){
+            $error = 'You must select at least one application';
+            $this->session->set_flashdata('error', $error);
+            redirect('home');
+        }
+
         $filename = '';
         $script = '';
-
-        
         $script .= $this->applications->getApplications()->header->shell;
         
         foreach($this->applications->getApplications()->command as $command){
@@ -50,7 +54,7 @@ class Home extends CI_Controller {
             //render view
             redirect('install/?file='.$filename);
         } else {
-            $error = ['error' => 'unable to write file'];
+            $error = '⚠️ unable to write file, please try again ⚠️';
             $this->session->set_flashdata('error', $error);
             redirect('home');
         }
@@ -58,7 +62,7 @@ class Home extends CI_Controller {
     }
 
     public function install () {
-        $name = $this->uri->segment(2);
+        $name = $this->input->get('file');
         $url = base_url() . 'public/installer/' . $name;
         $this->data['title'] = 'Install';
         $this->data['description'] = "For easy and fast installation<br />
