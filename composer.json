@@ -2,7 +2,7 @@
 	"description": "EnacPack installer",
 	"name": "richmartins/enapck",
 	"type": "project",
-	"homepage": "https://enpack.epfl.ch",
+	"homepage": "https://enacpack.epfl.ch",
 	"license": "MIT",
 	"require": {
 		"php": ">=5.3.7"

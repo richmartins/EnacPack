@@ -10,7 +10,7 @@
     </head>
     <body>
     <div id="header-navbar">
-        <button id="btn-login" class="">Login</button>
+        <button id="btn-login" class=""><a href="<?= base_url(); ?>auth/login">Login</a></button>
     </div>
     <div id="header-container">
         <div id="header-title">
