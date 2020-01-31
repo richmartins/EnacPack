@@ -30,6 +30,21 @@ class Auth extends CI_Controller {
         $this->sKey = $this->tequilaClt->GetKey();
     }
 
+    function process_edit(){
+        //Check if post script or img
+        if( null !== $this->input->post('script')){
+            //update script in json file
+            $result = $this->applications->updateScript($this->input->post('id'), $this->input->post('script'));
+
+        } else if (null !== $this->input->post('img')){
+            //update image
+            echo 'do something with the image';
+        } else {
+            $status = "No change, processsed";
+            redirect('auth/');
+        }
+    }
+
     function index(){
         $this->data['title'] = 'Settings';
         $this->data['description'] = '';
@@ -55,6 +70,7 @@ class Auth extends CI_Controller {
             } else {
                 //redirect to Edit  page
                 $this->data['title'] = 'Edit ' ; # <<<< concat name of app editing
+                $this->data['command'] = $this->applications->getScript($this->input->get('id'));
 
                 $this->load->view('templates/header', $this->data);
                 $this->load->view('edit', $this->data);

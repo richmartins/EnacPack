@@ -180,16 +180,15 @@ html, body {
     flex-grow: 1;
 }
 
-/** EDIT **/
+/** SETTINGS **/
 
-.edit-container {
+.settings-container {
     display: flex;
     justify-content: center;
 }
 
-.btn-edit {
+.btn-settings {
     background-color: transparent;
-    /* border: 1px solid rgb(52, 58, 64); */
     color:  rgb(52, 58, 64);
     padding: .2em;
     text-decoration: none;
@@ -197,12 +196,12 @@ html, body {
     margin: .5em .2em;
 }
 
-.btn-edit:hover {
+.btn-settings:hover {
     background-color: rgb(52, 58, 64);
     color: #fff;
 }
 
-.edit-scripts-area {
+.settings-scripts-area {
     background-color: #e9ecef;
     color: #495057;
     background-clip: padding-box;
@@ -221,12 +220,17 @@ th, td {
     padding: 8px;
 }
 
-tr:nth-child(odd){background-color: #f2f2f2}
+tr:nth-child(odd){
+    background-color: #f2f2f2
+}
 
 th {
     background-color: rgb(52, 58, 64);
     color: white;
 }
+
+/** EDIT **/
+
 /** BTN **/
 
 .btn {

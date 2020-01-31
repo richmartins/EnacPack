@@ -114,7 +114,7 @@ class TequilaClient {
        	),
        	ERROR_SESSION_DIR_NOT_WRITEABLE => array(
        		LNG_ENGLISH => 'Error: the given sessions directory is not writeable.',
-       		 LNG_FRENCH => 'Erreur: le répertoire de sessions indiqué ne peut pas être écrit.',
+       		 LNG_FRENCH => 'Erreur: le rï¿½pertoire de sessions indiquï¿½ ne peut pas ï¿½tre ï¿½crit.',
        	),
        	ERROR_SESSION_FILE_FORMAT => array(
        		LNG_ENGLISH => 'Error: invalid session file format.',
@@ -122,15 +122,15 @@ class TequilaClient {
        	),
        	ERROR_CREATE_SESSION_FILE => array(
        		LNG_ENGLISH => 'Error: session file creation failed.',
-       		 LNG_FRENCH => 'Erreur: échec lors de la création du fichier de session.',
+       		 LNG_FRENCH => 'Erreur: ï¿½chec lors de la crï¿½ation du fichier de session.',
        	),
        	ERROR_NO_DATA => array(
        		LNG_ENGLISH => 'Error: no session data.',
-       		 LNG_FRENCH => 'Erreur: aucune donnée de session.',
+       		 LNG_FRENCH => 'Erreur: aucune donnï¿½e de session.',
        	),
        	ERROR_NO_SESSION_DIR => array(
        		LNG_ENGLISH => 'Error: inexistant or unspecified sessions directory.',
-       		 LNG_FRENCH => 'Erreur: dossier de sessions inexistant ou non spécifié.',
+       		 LNG_FRENCH => 'Erreur: dossier de sessions inexistant ou non spï¿½cifiï¿½.',
        	),
        	ERROR_NO_SERVER_DEFINED => array(
        		LNG_ENGLISH => 'Error: no authentication server available.',
@@ -138,7 +138,7 @@ class TequilaClient {
        	),
        	ERROR_UNSUPPORTED_METHOD => array(
        		LNG_ENGLISH => 'Error: unsupported request method.',
-       		 LNG_FRENCH => 'Erreur: méthode de transmission inconnue.',
+       		 LNG_FRENCH => 'Erreur: mï¿½thode de transmission inconnue.',
        	),
        	ERROR_NOT_READABLE => array(
        		LNG_ENGLISH => 'Error: unable to read session file.',
@@ -146,43 +146,43 @@ class TequilaClient {
        	),
        	ERROR_CREATE_FILE => array(
        		LNG_ENGLISH => 'Error: unable to create session file.',
-       		 LNG_FRENCH => 'Erreur: impossible de créer le fichier de sessions.',
+       		 LNG_FRENCH => 'Erreur: impossible de crï¿½er le fichier de sessions.',
        	),
        	ERROR_SESSION_TIMEOUT => array(
        		LNG_ENGLISH => 'Error: session timed out.',
-       		 LNG_FRENCH => 'Erreur: la session a expiré.',
+       		 LNG_FRENCH => 'Erreur: la session a expirï¿½.',
        	),
        	ERROR_CREATE_SESSION_DIR => array(
        		LNG_ENGLISH => 'Error: unable to create sessions directory.',
-       		 LNG_FRENCH => 'Erreur: impossible de créer le dossier de sessions défini.',
+       		 LNG_FRENCH => 'Erreur: impossible de crï¿½er le dossier de sessions dï¿½fini.',
        	),
        	ERROR_NO_MESSAGE => array(
        		LNG_ENGLISH => 'Error: no message to authenticate.',
-       		 LNG_FRENCH => 'Erreur: pas de message à vérifier.',
+       		 LNG_FRENCH => 'Erreur: pas de message ï¿½ vï¿½rifier.',
        	),
        	ERROR_NO_SERVER_KEY => array(
        		LNG_ENGLISH => 'Error: no public key defined.',
-		 LNG_FRENCH => 'Erreur: la clé publique du serveur d\'authentification n\'est pas définie ou disponible.',
+		 LNG_FRENCH => 'Erreur: la clï¿½ publique du serveur d\'authentification n\'est pas dï¿½finie ou disponible.',
 		),
        	ERROR_NO_VALID_PUBLIC_KEY => array(
        		LNG_ENGLISH => 'Error: invalid public key.',
-       		 LNG_FRENCH => 'Erreur: la clé publique fournie n\'est pas valide.',
+       		 LNG_FRENCH => 'Erreur: la clï¿½ publique fournie n\'est pas valide.',
        	),
        	ERROR_NO_SIGNATURE => array(
        		LNG_ENGLISH => 'Error: no signature for mesage authentication.',
-       		 LNG_FRENCH => 'Erreur: pas de signature pour la vérification du mesage.',
+       		 LNG_FRENCH => 'Erreur: pas de signature pour la vï¿½rification du mesage.',
        	),
        	ERROR_NO_KEY => array (
        		LNG_ENGLISH => 'Error: no session key.',
-       		 LNG_FRENCH => 'Erreur: pas de clé de session.',
+       		 LNG_FRENCH => 'Erreur: pas de clï¿½ de session.',
        	),
        	ERROR_SESSION_FILE_EXISTS => array (
        		LNG_ENGLISH => 'Error: session already created.',
-		 LNG_FRENCH => 'Erreur: session déjà créée.',
+		 LNG_FRENCH => 'Erreur: session dï¿½jï¿½ crï¿½ï¿½e.',
 	),
        	ERROR_CURL_NOT_LOADED => array (
        		LNG_ENGLISH => 'Error: CURL Extension is not loaded.',
-       		 LNG_FRENCH => 'Erreur: L\'extension CURL n\'est pas présente.',
+       		 LNG_FRENCH => 'Erreur: L\'extension CURL n\'est pas prï¿½sente.',
        	),
   );
   var      $aWantedRights = array ();
@@ -221,7 +221,7 @@ class TequilaClient {
      IN  : $sSessionsDirectory  -> (optional) The directory where to save sessions files
      IN  : $iTimeout            -> (optional) Session timeout
    */
-  function TequilaClient ($sServer = '', $iTimeout = NULL) {
+  function __construct ($sServer = '', $iTimeout = NULL) {
     $this->stderr = fopen ('php://stderr', 'w');
 
     /* If curl is not found, */
@@ -236,7 +236,7 @@ class TequilaClient {
     $aEtcConfig = $this->LoadEtcConfig ();
 
     if (empty ($sServer))    $sServer    = $aEtcConfig ['sServer'];
-    if (empty ($sServerUrl)) $sServerUrl = $aEtcConfig ['sServerUrl'];    
+    if (empty ($sServerUrl)) $sServerUrl = $aEtcConfig ['sServerUrl'];
 
     if (empty ($sServerUrl) && !empty ($sServer))
       $sServerUrl = $sServer . '/cgi-bin/tequila';

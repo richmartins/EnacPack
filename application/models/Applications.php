@@ -35,6 +35,26 @@ class Applications extends CI_Model {
     }
 
     /**
+     * give script in function of id passed
+     * @args Int id
+     * @return mixed
+     */
+    function getScript($id) {
+        foreach($this->raw->command as $k => $obj) {
+            if($id == $k){
+                return $obj;
+            }
+        }
+        return $error = 'No script was found';
+    }
+
+    function updateScript($id, $script) {
+        if(self::checkApplicationsExsits($id)){
+            echo $this->raw->command->$id->script;
+        }
+    }
+
+    /**
      * delete in installer file script the application in argument
      * @args String $name, Int $id
      * @return mixed
