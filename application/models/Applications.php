@@ -48,9 +48,25 @@ class Applications extends CI_Model {
         return $error = 'No script was found';
     }
 
-    function updateScript($id, $script) {
-        if(self::checkApplicationsExsits($id)){
-            echo $this->raw->command->$id->script;
+    /**
+     * update the bash script in json file and the name at the id passed
+     * @args String name, Int id, String script
+     * @return boolean
+     */
+    function updateScript($name, $id, $newScript) {
+        $rawArray = (array) $this->raw;
+        if(self::checkApplicationsExsits($name)){
+            $newData = [
+                'name' => $name,
+                'shell' => $newScript
+            ];
+
+            unset($rawArray['command'][$id]);
+            $rawArray['command'][$id] = $newData;
+            //encode to json to save
+            $rawArray['command'] = array_values($rawArray['command']);
+            file_put_contents(FCPATH . "public/installer_scripts.json", json_encode($rawArray));
+            return true;
         }
     }
 

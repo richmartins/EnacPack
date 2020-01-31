@@ -34,14 +34,11 @@ class Auth extends CI_Controller {
         //Check if post script or img
         if( null !== $this->input->post('script')){
             //update script in json file
-            $result = $this->applications->updateScript($this->input->post('id'), $this->input->post('script'));
-
-        } else if (null !== $this->input->post('img')){
+            $result = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
+        }
+        if (null !== $this->input->post('img')){
             //update image
             echo 'do something with the image';
-        } else {
-            $status = "No change, processsed";
-            redirect('auth/');
         }
     }
 

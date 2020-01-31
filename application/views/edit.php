@@ -12,7 +12,7 @@
                 <th>IMAGES</th>
             </tr>
             <tr>
-                <td> <?=$command->name?> </td>
+                <td> <input type="text" name="name" value="<?=$command->name?>" /></td>
                 <td><textarea class="edit-scripts-area" rows="10" cols="100" name="script" style="margin-bottom: 30px;  resize: vertical;" ><?= $command->shell ?></textarea></td>
                 <td><input class="btn btn-danger custbtn" id="input_file" type="file" name="img"></td>
             </tr>
