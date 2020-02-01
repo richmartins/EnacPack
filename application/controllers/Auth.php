@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
     }
 
     function logout() {
-        $this->tequilaClt->logout(base_url() . 'auth/login');
+        // $this->tequilaClt->logout(FCPATH . 'application/libraries/tequila/';); #<<<<<<<<<<<< wtf of url i have to put here | see later
     }
 
     function process_edit(){
