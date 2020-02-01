@@ -28,7 +28,7 @@ class Home extends CI_Controller {
         $selected = $this->input->get('checked_app');
         if(empty($selected)){
             $error = 'You must select at least one application';
-            $this->session->set_flashdata('error', $error);
+            // $this->session->set_flashdata('error', $error);
             redirect('home');
         }
 
@@ -55,7 +55,7 @@ class Home extends CI_Controller {
             redirect('install/?file='.$filename);
         } else {
             $error = '⚠️ unable to write file, please try again ⚠️';
-            $this->session->set_flashdata('error', $error);
+            // $this->session->set_flashdata('error', $error);
             redirect('home');
         }
         fclose($handle);

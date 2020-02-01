@@ -12,22 +12,30 @@ class Auth extends CI_Controller {
     function __construct(){
         parent::__construct();
         $this->load->model('applications');
+        $this->load->helper('cookie');
+        $this->tequilaClt = new TequilaClient();
     }
 
     function login(){
-        $this->tequilaClt = new TequilaClient();
-
         $this->tequilaClt->SetApplicationName('ENACPACK');
         $this->tequilaClt->SetWantedAttributes(array('ENAC-IT'));
-        $this->tequilaClt->SetApplicationURL(base_url() . 'auth/');
+        $this->tequilaClt->SetApplicationURL( base_url() . 'auth/');
+        
+        if(! $this->tequilaClt->Authenticate()){
+            echo'not logged';
+        } else {
+            // $org  = $this->tequilaClt->getValue('org');
+            $this->user = $this->tequilaClt->getValue('user');
+            // $host = $this->tequilaClt->getValue('host');
+            $this->sKey = $this->tequilaClt->GetKey();
 
+            $_COOKIE['user'] = $this->user;
+            $_COOKIE['sKey'] = $this->sKey;
+        }
+    }
 
-        $this->tequilaClt->Authenticate();
-
-        $org  = $this->tequilaClt->getValue('org');
-        $this->user = $this->tequilaClt->getValue('user');
-        $host = $this->tequilaClt->getValue('host');
-        $this->sKey = $this->tequilaClt->GetKey();
+    function logout() {
+        $this->tequilaClt->logout(base_url() . 'auth/login');
     }
 
     function process_edit(){
@@ -39,10 +47,17 @@ class Auth extends CI_Controller {
         if (null !== $this->input->post('img')){
             //update image
             echo 'do something with the image';
-        }
+        } 
     }
 
     function index(){
+        if(! isset($_COOKIE['TequilaPHP'])){
+            redirect('auth/login');
+        }
+
+        var_dump($_COOKIE);
+
+
         $this->data['title'] = 'Settings';
         $this->data['description'] = '';
         $this->data['commands'] = $this->applications->getApplications()->command;
@@ -59,7 +74,7 @@ class Auth extends CI_Controller {
                         }else {
                             
                             $error = $result;
-                            $this->session->set_flashdata('error', $error);
+                            // $this->session->set_flashdata('error', $error);
                             redirect('auth/');
                         }
                     }

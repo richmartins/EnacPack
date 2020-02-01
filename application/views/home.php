@@ -1,10 +1,10 @@
 <?php  defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
-<?php  if (null !== $this->session->flashdata('error')): ?>
+<?php  #if (null !== $this->session->flashdata('error')): ?>
     <div class="custom_div_error">
-        <span>⚠️<?= $this->session->flashdata('error') ?>⚠️</span>
+        <span>⚠️<?php #echo $this->session->flashdata('error') ?>⚠️</span>
     </div>
-<?php endif;?>
+<?php #endif;?>
 
 <div id="home-container">
     <form class="home-form" method="GET" action="<?= base_url()?>process_input_home/">

@@ -1,8 +1,8 @@
-<?php  if (null !== $this->session->flashdata('error')): ?>
+<?php  #if (null !== $this->session->flashdata('error')): ?>
     <div class="custom_div_error">
-        <span>⚠️<?= $this->session->flashdata('error') ?>⚠️</span>
+        <span>⚠️<?php # echo $this->session->flashdata('error') ?>⚠️</span>
     </div>
-<?php endif;?>
+<?php # endif;?>
 <div class="edit-container">
     <form action="<?= base_url() ?>auth/process_edit" method="post" enctype="multipart/form-data" >
         <table class="edit-table">

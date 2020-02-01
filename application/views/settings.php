@@ -1,8 +1,8 @@
-<?php  if (null !== $this->session->flashdata('error')): ?>
+<?php # if (null !== $this->session->flashdata('error')): ?>
     <div class="custom_div_error">
-        <span>⚠️<?= $this->session->flashdata('error') ?>⚠️</span>
+        <span>⚠️<?php #$this->session->flashdata('error') ?>⚠️</span>
     </div>
-<?php endif;?>
+<?php #endif;?>
 <div class="settings-container">
     <table class="settings-table">
         <tr>
