@@ -12,6 +12,8 @@ class Auth extends CI_Controller {
         $this->load->model('applications');
         $this->load->helper('cookie');
         $this->tequilaClt = new TequilaClient();
+        $this->data['logged'] = (isset($_SESSION['sKey'])) ? $_SESSION['sKey'] : null ;
+
     }
 
     function login(){
