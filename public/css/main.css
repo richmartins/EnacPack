@@ -39,6 +39,11 @@ html, body {
     text-decoration: none;
 }
 
+.fas {
+    color:white;
+    font-size: 1.7em;
+}
+
 /** HOME CONTENT **/
 
 #home-container {
@@ -154,7 +159,7 @@ html, body {
 }
 
 #install-url:focus{
-    border: 2px solid rgb(183, 28, 28);
+    border: 2px solid #00e500;
 }
 
 #instruct {

@@ -34,3 +34,7 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 ## Project
 
 public/installer/*
+
+
+# DEV env
+application/config/config.php

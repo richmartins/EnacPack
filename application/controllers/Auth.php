@@ -51,10 +51,6 @@ class Auth extends CI_Controller {
             redirect('auth/login');
         }
 
-        var_dump($_COOKIE);
-        var_dump($this->tequilaClt);
-
-
         $this->data['title'] = 'Settings';
         $this->data['description'] = '';
         $this->data['commands'] = $this->applications->getApplications()->command;
