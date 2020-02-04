@@ -8,7 +8,7 @@ class Home extends CI_Controller {
         $this->load->model('applications');
         $this->load->helper('file');
         // $this->data['logged'] = $_SESSION['sKey'];
-        $this->data['logged'] = (isset($_SESSION['sKey'])) ? $_SESSION['sKey'] : '' ;
+        $this->data['logged'] = (isset($_SESSION['sKey'])) ? $_SESSION['sKey'] : null ;
     }
 
     public function index(){

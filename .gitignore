@@ -37,4 +37,4 @@ public/installer/*
 
 
 # DEV env
-application/config/config.php
+.env.development

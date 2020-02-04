@@ -11,7 +11,7 @@
     </head>
     <body>
     <div id="header-navbar">
-        <?php if ($logged): ?>
+        <?php if ($logged !== null): ?>
             <a href="<?= base_url(); ?>auth/logout"><i class="fas fa-sign-out-alt"></i></a>
         <?php else: ?>
             <a href="<?= base_url(); ?>auth/login"><i class="fas fa-sign-in-alt"></i></a>

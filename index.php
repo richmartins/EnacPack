@@ -305,6 +305,26 @@ switch (ENVIRONMENT)
 
 	define('VIEWPATH', $view_folder.DIRECTORY_SEPARATOR);
 
+
+/*
+ * --------------------------------------------------------------------
+ *  LOAD PHP DOT ENV FILE
+ * --------------------------------------------------------------------
+ * 
+ * And away we go
+ */
+	require_once BASEPATH . 'dotenv/autoloader.php';
+	if(file_exists('.env.prod'))
+	{
+		$dotenv = new Dotenv\Dotenv(__DIR__, '.env.prod');
+	}
+	else
+	{
+		$dotenv = new Dotenv\Dotenv(__DIR__);
+	}
+
+	$dotenv->load();
+
 /*
  * --------------------------------------------------------------------
  * LOAD THE BOOTSTRAP FILE
