@@ -6,8 +6,6 @@ require FCPATH . 'application/libraries/tequila.php';
 class Auth extends CI_Controller {
     private $tequilaClt;
     private $data = [];
-    private $sKey;
-    private $user;
 
     function __construct(){
         parent::__construct();
@@ -18,20 +16,15 @@ class Auth extends CI_Controller {
 
     function login(){
         $this->tequilaClt->SetApplicationName('ENACPACK');
-        $this->tequilaClt->SetWantedAttributes(array('ENAC-IT'));
-        $this->tequilaClt->SetApplicationURL( base_url() . 'auth/');
-        
-        if(! $this->tequilaClt->Authenticate()){
-            echo'not logged';
-        } else {
-            // $org  = $this->tequilaClt->getValue('org');
-            $this->user = $this->tequilaClt->getValue('user');
-            // $host = $this->tequilaClt->getValue('host');
-            $this->sKey = $this->tequilaClt->GetKey();
+        $this->tequilaClt->SetWantedAttributes(array('uniqueid','name','firstname','unit', 'unitid', 'where', 'group'));
+        $this->tequilaClt->SetWishedAttributes(array('email', 'title'));
+        // $this->tequilaClt->SetWantedAttributes(array('ENAC-IT'));
+        $this->tequilaClt->SetCustomFilter('unit=ENAC-IT');
+        $this->tequilaClt->SetApplicationURL( base_url() . 'auth/login');
+        $this->tequilaClt->Authenticate();
 
-            $_COOKIE['user'] = $this->user;
-            $_COOKIE['sKey'] = $this->sKey;
-        }
+        $_SESSION['sKey'] = $this->tequilaClt->GetKey();
+        redirect('auth');
     }
 
     function logout() {
@@ -39,6 +32,9 @@ class Auth extends CI_Controller {
     }
 
     function process_edit(){
+        if(! isset($_SESSION['sKey'])){
+            redirect('auth/login');
+        }
         //Check if post script or img
         if( null !== $this->input->post('script')){
             //update script in json file
@@ -51,12 +47,12 @@ class Auth extends CI_Controller {
     }
 
     function index(){
-        if(! isset($_COOKIE['user'])){
-
+        if(! isset($_SESSION['sKey'])){
             redirect('auth/login');
         }
 
         var_dump($_COOKIE);
+        var_dump($this->tequilaClt);
 
 
         $this->data['title'] = 'Settings';
