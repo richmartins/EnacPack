@@ -35,7 +35,7 @@ class Auth extends CI_Controller {
     }
 
     function logout() {
-        // $this->tequilaClt->logout(FCPATH . 'application/libraries/tequila/';); #<<<<<<<<<<<< wtf of url i have to put here | see later
+        $this->tequilaClt->Logout(base_url()); #<<<<<<<<<<<< wtf of url i have to put here | see later
     }
 
     function process_edit(){
@@ -51,7 +51,8 @@ class Auth extends CI_Controller {
     }
 
     function index(){
-        if(! isset($_COOKIE['TequilaPHP'])){
+        if(! isset($_COOKIE['user'])){
+
             redirect('auth/login');
         }
 
