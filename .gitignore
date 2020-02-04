@@ -36,5 +36,6 @@ user_guide_src/cilexer/pycilexer.egg-info/*
 public/installer/*
 
 
-# DEV env
+# envs
 .env.development
+.env.prod
