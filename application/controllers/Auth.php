@@ -40,12 +40,9 @@ class Auth extends CI_Controller {
         //update script in json file
         if( !empty($this->input->post('script'))){
             $res = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
-            if($res === true){
-                redirect('auth');
-            } else {
+            if($res !== true){
                 $error = $res; # <<<<<<<<<< pass this to the next page
                 redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id'));
-            }
         }
         //update image
         if (!empty($_FILES['img'])){
@@ -63,10 +60,10 @@ class Auth extends CI_Controller {
             if ( ! $this->upload->do_upload('img')){
                 $error = array('error' => $this->upload->display_errors());
                 redirect('auth/?error=' . $error . '&name=' . $this->input->post('name') . '&id=' . $id . '&delete=0');
-            } else {
-                redirect('auth');
             }
         }
+
+        redirect('auth');
     }
 
     function index(){
