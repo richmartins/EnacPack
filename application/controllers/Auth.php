@@ -39,7 +39,13 @@ class Auth extends CI_Controller {
 
         //update script in json file
         if( !empty($this->input->post('script'))){
-            $result['script'] = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
+            $res = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
+            if($res === true){
+                redirect('auth');
+            } else {
+                $error = $res; # <<<<<<<<<< pass this to the next page
+                redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id'));
+            }
         }
         //update image
         if (!empty($_FILES['img'])){
