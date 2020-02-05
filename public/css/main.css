@@ -39,9 +39,14 @@ html, body {
     text-decoration: none;
 }
 
-.fas {
+.fas, .fa {
     color:white;
     font-size: 1.7em;
+}
+
+#header-navbar>a {
+    text-decoration: none;
+    color: #fff;
 }
 
 /** HOME CONTENT **/
@@ -235,7 +240,11 @@ th {
 }
 
 /** EDIT **/
+.edit-scripts-area {
+    font-size: 1em;
+    font-family: 'Muli', sans-serif;
 
+}
 /** BTN **/
 
 .btn {
