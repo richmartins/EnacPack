@@ -14,7 +14,8 @@
         <?php if ($logged === null): ?>
                 <a href="<?= base_url(); ?>auth/login"><i class="fa fa-user" aria-hidden="true"></i> Login</a>
             <?php else: ?>
-                <a href="<?= base_url(); ?>auth>"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                <a href="<?= base_url(); ?>auth"><i class="fa fa-cog" aria-hidden="true"></i> Settings</a>
+                    <br/>
                 <a href="<?= base_url(); ?>auth/logout"><i class="fas fa-sign-out-alt"></i> Logout</a>
         <?php endif; ?>
     </div>
