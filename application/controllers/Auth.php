@@ -32,9 +32,9 @@ class Auth extends CI_Controller {
     }
 
     function process_edit(){
-        // if(! isset($_SESSION['sKey'])){
-        //     redirect('auth/login');
-        // }
+        if(! isset($_SESSION['sKey'])){
+            redirect('auth/login');
+        }
 
         //update script in json file
         if( null !== $this->input->post('script') ) {
@@ -43,12 +43,12 @@ class Auth extends CI_Controller {
 
             if($res !== true){
                 $error = $res; # <<<<<<<<<< pass this to the next page
-                redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id'));
+                redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id') . '&delete=0' . '&error=' . $error);
             }
         }
 
         //update image
-        if (isset($_FILES['img'])){
+        if ($_FILES['img']['size'] !== 0){
             $filename  = $this->input->post('name');
             $ext       = 'png';
             $file_name = $this->input->post('name') .'.' . $ext;
@@ -70,9 +70,9 @@ class Auth extends CI_Controller {
     }
 
     function index(){
-        // if(! isset($_SESSION['sKey'])){
-        //     redirect('auth/login');
-        // }
+        if(! isset($_SESSION['sKey'])){
+            redirect('auth/login');
+        }
         $this->data['title'] = 'Settings';
         $this->data['description'] = '';
         $this->data['commands'] = $this->applications->getApplications()->command;

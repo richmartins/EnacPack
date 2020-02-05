@@ -66,7 +66,7 @@ class Applications extends CI_Model {
             $rawArray['command'] = array_values($rawArray['command']);
             //encode to json to save
             $result = file_put_contents(FCPATH . "public/installer_scripts.json", json_encode($rawArray));
-            if($result === false) {
+            if(is_bool($result)) {
                 $error = 'An error occured while updating the file, please try again, or contact the webmaster';
                 return $error;
             }else {

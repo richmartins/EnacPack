@@ -1,3 +1,8 @@
+<?php
+    if(isset($_GET['error'])){
+        echo $_GET['error'];
+    }
+?>
 <div class="edit-container">
     <a href="<?= base_url() ?>auth">back</a>
     <form action="<?= base_url() ?>auth/process_edit" method="post" enctype="multipart/form-data" >
