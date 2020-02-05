@@ -55,4 +55,5 @@ $route['translate_uri_dashes'] = FALSE;
 
 # Custom routes
 $route['install'] = 'home/install';
+$route['auth'] = 'auth';
 $route['process_input_home'] = 'home/process_input_home';

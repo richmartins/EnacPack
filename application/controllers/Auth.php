@@ -20,39 +20,53 @@ class Auth extends CI_Controller {
         $this->tequilaClt->SetApplicationName('ENACPACK');
         $this->tequilaClt->SetWantedAttributes(array('uniqueid','name','firstname','unit', 'unitid', 'where', 'group'));
         $this->tequilaClt->SetWishedAttributes(array('email', 'title'));
-        // $this->tequilaClt->SetWantedAttributes(array('ENAC-IT'));
         $this->tequilaClt->SetCustomFilter('unit=ENAC-IT');
         $this->tequilaClt->SetApplicationURL( base_url() . 'auth/login');
         $this->tequilaClt->Authenticate();
-
         $_SESSION['sKey'] = $this->tequilaClt->GetKey();
         redirect('auth');
     }
 
     function logout() {
-        $this->tequilaClt->Logout(base_url()); #<<<<<<<<<<<< wtf of url i have to put here | see later
+        $this->tequilaClt->Logout(base_url());
     }
 
     function process_edit(){
         if(! isset($_SESSION['sKey'])){
             redirect('auth/login');
         }
-        //Check if post script or img
-        if( null !== $this->input->post('script')){
-            //update script in json file
-            $result = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
+        $result = [];
+
+        //update script in json file
+        if( !empty($this->input->post('script'))){
+            $result['script'] = $this->applications->updateScript($this->input->post('name'), $this->input->post('id'), $this->input->post('script'));
         }
-        if (null !== $this->input->post('img')){
-            //update image
-            echo 'do something with the image';
-        } 
+        //update image
+        if (!empty($_FILES['img'])){
+            $filename  = $this->input->post('name');
+            $ext       = 'png';
+            $file_name = $this->input->post('name') .'.' . $ext;
+
+            $config['upload_path']          = './public/app-icons/';
+            $config['allowed_types']        = 'png';
+            $config['file_name']            = $file_name;
+            $config['overwrite']            = true;
+
+            $this->load->library('upload', $config);
+
+            if ( ! $this->upload->do_upload('img')){
+                $error = array('error' => $this->upload->display_errors());
+                redirect('auth/?error=' . $error . '&name=' . $this->input->post('name') . '&id=' . $id . '&delete=0');
+            } else {
+                redirect('auth');
+            }
+        }
     }
 
     function index(){
         if(! isset($_SESSION['sKey'])){
             redirect('auth/login');
         }
-
         $this->data['title'] = 'Settings';
         $this->data['description'] = '';
         $this->data['commands'] = $this->applications->getApplications()->command;

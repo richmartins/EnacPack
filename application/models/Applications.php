@@ -63,10 +63,15 @@ class Applications extends CI_Model {
 
             unset($rawArray['command'][$id]);
             $rawArray['command'][$id] = $newData;
-            //encode to json to save
             $rawArray['command'] = array_values($rawArray['command']);
-            file_put_contents(FCPATH . "public/installer_scripts.json", json_encode($rawArray));
-            return true;
+            //encode to json to save
+            $result = file_put_contents(FCPATH . "public/installer_scripts.json", json_encode($rawArray));
+            if($result === false) {
+                $error = 'An error occured while updating the file, please try again, or contact the webmaster';
+                return $error;
+            }else {
+                return true;
+            }
         }
     }
 
