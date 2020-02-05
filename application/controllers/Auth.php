@@ -43,6 +43,7 @@ class Auth extends CI_Controller {
             if($res !== true){
                 $error = $res; # <<<<<<<<<< pass this to the next page
                 redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id'));
+            }
         }
         //update image
         if (!empty($_FILES['img'])){
