@@ -19,12 +19,6 @@ html, body {
 
 .item-barNav {
     display: none;
-    /* transition: all 2s linear; */
-    -webkit-transition: opacity 1s ease-in-out;
-    -moz-transition: opacity 1s ease-in-out;
-    -ms-transition: opacity 1s ease-in-out;
-    -o-transition: opacity 1s ease-in-out;
-    transition: opacity 1s ease-in-out;
 }
 
 
@@ -68,13 +62,15 @@ html, body {
 /** HOME CONTENT **/
 
 #home-container {
-    padding: 6em 15em;
+    padding: 0;
+    margin: auto;
+    max-width: 1000px;
 }
 
 .home-form {
     display: flex;
     justify-content: center;
-    flex-wrap: wrap;
+    flex-direction: column;
 }
 
 .home-link-label{
@@ -89,7 +85,7 @@ html, body {
 
 #home-card-deck {
     display: flex;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     justify-content: center;
 }
 
