@@ -36,16 +36,26 @@ html, body {
 
 #header-title{
     margin: auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
 }
 
-#header-title > h4 > a{
+#header-title > a{ 
+    display: flex;
+    flex-direction: column;
+    text-decoration: none;
+    justify-content: center;
+    align-items: center;
+}
+#header-title > a > span {
     color: #fff;
     text-decoration: none;
-    font-size: 4em;
+    font-size: 1.2em;
     
 }
 
-#header-title > h4 > a:hover {
+#header-title > div > a > h4:hover {
     cursor: pointer;
     text-decoration: none;
 }
