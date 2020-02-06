@@ -77,7 +77,10 @@ class Auth extends CI_Controller {
             redirect('auth/login');
         }
         $this->data['title'] = 'Settings';
-        $this->data['description'] = '';
+        $this->data['description'] = "For easy and fast installation<br />
+                                    Check the box(es) of app's that you want to 
+                                    install and then just click [install] and 
+                                    follow the lead on the next page";
         $this->data['commands'] = $this->applications->getApplications()->command;
 
         if( null !== $this->input->get('name') && null !== $this->input->get('delete') && null !== $this->input->get('id')){
