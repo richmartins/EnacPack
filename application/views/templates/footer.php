@@ -21,4 +21,5 @@
         <span>&lt;/&gt; with &hearts; by <a href="https://www.github.com/richmartins/">richmartins</a> @ <a href="https://enacit3.epfl.ch">ENACIT3</a></span>
     </div>
 </footer>
+<script src="<?= base_url() ?>public/scripts/script.js" type="text/javascript"></script>
 </body>

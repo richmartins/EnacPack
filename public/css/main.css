@@ -10,12 +10,19 @@ html, body {
 /** HEADER **/
 
 #header-navbar {
-    height: 2em;
     display: flex;
-    padding: 1em;
+    padding: 1.2em;
     justify-content: flex-start;
     background-color: rgb(52, 58, 64);
+    flex-direction: column;
 }
+#header-navbar>a{
+    display: none;
+    transition: display 1s, opacity 0.5s linear;
+
+}
+
+
 
 #header-container {
     margin: 0;
@@ -28,10 +35,12 @@ html, body {
     color: #fff;
 }
 
+
 #header-title > h4 > a{
     color: #fff;
     text-decoration: none;
     font-size: 4em;
+    
 }
 
 #header-title > h4 > a:hover {
@@ -42,9 +51,11 @@ html, body {
 .fas, .fa {
     color:white;
     font-size: 1.7em;
+    margin-bottom: .7em;
+    cursor: pointer;
 }
 
-#header-navbar>a {
+#header-navbar > a {
     text-decoration: none;
     color: #fff;
 }
