@@ -15,7 +15,7 @@
                 <div class="edit-form-col">
                     <span class="edit-form-header-text">IMAGES</span>
                     <img src="<?= base_url() ?>public/app-icons/<?= $command->name ?>.png " alt="<?= $command->name ?>" style="width: 8em; height: 8em; align-self: center;"/>
-                    <label for="img">Click below to choose new image file to upload<br />Note that the image must be a <b>PNG</b> file and should have be <b>170px</b> by <b>170px</b></label>
+                    <label for="img">Click below to choose new image file to upload<br />Note that the image must be a <b>PNG</b> file and should be <b>512px</b> by <b>512px</b></label>
                     <input class="edit-form-upload-btn" id="input_file" type="file" name="img">
                 </div>
                 <input type="hidden" name="name" value="<?=$command->name?>"/>

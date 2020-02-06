@@ -56,6 +56,9 @@ class Auth extends CI_Controller {
             $config['upload_path']          = './public/app-icons/';
             $config['allowed_types']        = 'png';
             $config['file_name']            = $file_name;
+            $config['max_size']             = 500;
+            $config['max_width']            = 512;
+            $config['max_height']           = 512;
             $config['overwrite']            = true;
 
             $this->load->library('upload', $config);
