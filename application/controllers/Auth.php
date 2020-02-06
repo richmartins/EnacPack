@@ -98,7 +98,7 @@ class Auth extends CI_Controller {
                 //redirect to Edit  page
                 $this->data['title'] = 'Edit ' ; # <<<< concat name of app editing
                 $this->data['command'] = $this->applications->getScript($this->input->get('id'));
-
+                $this->data['description'] = "Edit page for application " . $this->input->get('name');
                 $this->load->view('templates/header', $this->data);
                 $this->load->view('edit', $this->data);
                 $this->load->view('templates/footer', $this->data);
