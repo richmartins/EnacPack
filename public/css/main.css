@@ -19,9 +19,8 @@ html, body {
 
 .item-barNav {
     display: none;
+    margin-bottom: .7em;
 }
-
-
 
 #header-container {
     margin: 0;
@@ -63,7 +62,6 @@ html, body {
 .fas, .fa {
     color:white;
     font-size: 1.2em;
-    margin-bottom: .7em;
     cursor: pointer;
 }
 

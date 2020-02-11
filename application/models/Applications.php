@@ -99,7 +99,6 @@ class Applications extends CI_Model {
             $error = 'Could not delete image file ' . $name . '.png ';
             return $error;
         }
-
         return true;
     }
 }
