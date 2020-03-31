@@ -176,7 +176,6 @@ html, body {
     justify-content: center;
 }
 
-
 #install-url {
     width: 60%;
     padding: 10px;
@@ -276,9 +275,6 @@ th {
 }
 
 #edit-form-col-script {
-
-    /* padding: 1.2em; */
-
     border-top-left-radius: 5px;
     border-top-right-radius: 5px;
     box-shadow: 0 2px 6px rgba(0, 0, 0, .2);

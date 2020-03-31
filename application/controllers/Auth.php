@@ -12,8 +12,13 @@ class Auth extends CI_Controller {
         $this->load->model('applications');
         $this->load->helper('cookie');
         $this->tequilaClt = new TequilaClient();
-        $this->data['logged'] = (isset($_SESSION['sKey'])) ? $_SESSION['sKey'] : null ;
+    }
 
+    function isLogged(){
+        if($_SESSION['user'] !== null){
+            return true;
+        }
+        redirect('auth/login');
     }
 
     function login(){
@@ -21,10 +26,10 @@ class Auth extends CI_Controller {
         $this->tequilaClt->SetWantedAttributes(array('uniqueid','name','firstname','unit', 'unitid', 'where', 'group'));
         $this->tequilaClt->SetWishedAttributes(array('email', 'title'));
         $this->tequilaClt->SetCustomFilter('unit=ENAC-IT');
-        $this->tequilaClt->SetApplicationURL( base_url() . 'auth/login');
+        $this->tequilaClt->setApplicationURL(base_url() . 'auth/login');
         $this->tequilaClt->Authenticate();
-        $_SESSION['sKey'] = $this->tequilaClt->GetKey();
-        redirect('auth');
+
+        redirect('auth/settings');
     }
 
     function logout() {
@@ -32,18 +37,18 @@ class Auth extends CI_Controller {
     }
 
     function process_edit(){
-        if(! isset($_SESSION['sKey'])){
-            redirect('auth/login');
-        }
+        self::isLogged();
+
+        $name   = $this->input->post('name');
+        $id     = $this->input->post('id');
+        $script = $this->input->post('script');
 
         //update script in json file
-        if( null !== $this->input->post('script') ) {
-
-            $res = $this->applications->updateScript( $this->input->post('name'), $this->input->post('id'), $this->input->post('script') );
-
+        if( null !== $script ) {
+            $res = $this->applications->updateScript($name, $id, $script);
             if($res !== true){
-                $error = $res; # <<<<<<<<<< pass this to the next page
-                redirect('auth/?name=' . $this->input->post('name') . '&id=' . $this->input->post('id') . '&delete=0' . '&error=' . $error);
+                $error = $res;
+                redirect('auth/?name=' . $name . '&id=' . $id . '&delete=0' . '&error=' . $error);
             }
         }
 
@@ -64,55 +69,70 @@ class Auth extends CI_Controller {
             $this->load->library('upload', $config);
 
             if ( ! $this->upload->do_upload('img')){
-                $error = array('error' => $this->upload->display_errors());
-                redirect('auth/?error=' . $error . '&name=' . $this->input->post('name') . '&id=' . $id . '&delete=0');
+                $error = ['error' => $this->upload->display_errors()];
+                redirect('auth/?error=' . $error . '&name=' . $name . '&id=' . $id . '&delete=0');
             }
         }
-
         redirect('auth');
     }
 
-    function index(){
-        if(! isset($_SESSION['sKey'])){
-            redirect('auth/login');
-        }
+    function settings(){
+        self::isLogged();
+
         $this->data['title'] = 'Settings';
         $this->data['description'] = "For easy and fast installation<br />
-                                    Check the box(es) of app's that you want to 
-                                    install and then just click [install] and 
-                                    follow the lead on the next page";
+                                      Check the box(es) of app's that you want to install and then just click [install] and follow the lead on the next page";
         $this->data['commands'] = $this->applications->getApplications()->command;
 
-        if( null !== $this->input->get('name') && null !== $this->input->get('delete') && null !== $this->input->get('id')){
-            if ($this->input->get('delete') == true) {
-                //check if name applications exists
-                foreach($this->data['commands'] as $command) { #<<<<<<<<<<<<<<< can be optimized with checkApplicationsExists
-                    if($command->name === $this->input->get('name')){
-                        // if true delete it the name
-                        $result = $this->applications->deleteApplication($this->input->get('name'), $this->input->get('id'));
-                        if($result){
-                            redirect('auth/');
-                        }else {
-                            
-                            $error = $result;
-                            // $this->session->set_flashdata('error', $error);
-                            redirect('auth/');
-                        }
-                    }
+        //render view settings page
+        $this->load->view('templates/header', $this->data);
+        $this->load->view('settings', $this->data);
+        $this->load->view('templates/footer', $this->data);
+    }
+
+    function edit(){
+        self::isLogged();
+
+        $id   = $this->input->get('id');
+        $name = $this->input->get('name');
+
+        //fetching data to render view edit page
+        $this->data['title']       = 'Edit ' . $name . ' | EnacPack';
+        $this->data['command']     = $this->applications->getScript($id);
+        $this->data['description'] = "Edit page for application " . $name;
+        
+        //render view edit page
+        $this->load->view('templates/header', $this->data);
+        $this->load->view('edit', $this->data);
+        $this->load->view('templates/footer', $this->data);
+    }
+
+    function delete(){
+        seft::isLogged();
+
+        $name   = $this->input->get('name');
+        $delete = $this->input->get('delete');
+        $id     = $this->input->get('id');
+
+        if( $name !== null && $delete !== null && $id !== null ){
+            //check if name applications exists
+            if($this->applications->checkApplicationsExsits($name)){
+                $result = $this->applications->deleteApplication($name, $id);
+                if($result){
+                    redirect('auth/settings');
+                }else{
+                    //error
+                    $error = $result;
+                    $this->session->set_flashdata('error', $error);
+                    redirect('auth/settings');
                 }
-            } else {
-                //redirect to Edit  page
-                $this->data['title'] = 'Edit ' ; # <<<< concat name of app editing
-                $this->data['command'] = $this->applications->getScript($this->input->get('id'));
-                $this->data['description'] = "Edit page for application " . $this->input->get('name');
-                $this->load->view('templates/header', $this->data);
-                $this->load->view('edit', $this->data);
-                $this->load->view('templates/footer', $this->data);
             }
-        } else {
-            $this->load->view('templates/header', $this->data);
-            $this->load->view('settings', $this->data);
-            $this->load->view('templates/footer', $this->data);
         }
+    }
+
+    function index(){
+        self::isLogged();
+
+        redirect('auth/settings');
     }
 }
