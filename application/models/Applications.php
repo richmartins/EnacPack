@@ -39,7 +39,7 @@ class Applications extends CI_Model {
      * @args Int id
      * @return mixed
      */    
-    function getScript(Int $id) {
+    function getScript($id) {
         foreach($this->raw->command as $k => $obj) {
             if($id == $k){
                 return $obj;
