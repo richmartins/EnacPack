@@ -1,6 +1,4 @@
 <?php 
-
-
 defined('BASEPATH') OR exit('No direct script access allowed');
 
 require FCPATH . 'application/libraries/tequila.php';
@@ -20,7 +18,7 @@ class Auth extends CI_Controller {
     public function __construct(){
         parent::__construct();
         $this->load->model('applications');
-        $this->load->helper('cookie');
+        // $this->load->helper('cookie');
         $this->tequilaClt = new TequilaClient();
     }
     
@@ -133,7 +131,7 @@ class Auth extends CI_Controller {
     public function edit(){
         self::isLogged();
 
-        $id   = $this->input->get('id');
+        $id   = (int) $this->input->get('id');
         $name = $this->input->get('name');
 
         //fetching data to render view edit page

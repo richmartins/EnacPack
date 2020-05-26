@@ -235,8 +235,8 @@ class TequilaClient {
     
     $aEtcConfig = $this->LoadEtcConfig ();
 
-    if (empty ($sServer))    $sServer    = $aEtcConfig ['sServer'];
-    if (empty ($sServerUrl)) $sServerUrl = $aEtcConfig ['sServerUrl'];
+    if (empty ($sServer))    $sServer    = $aEtcConfig['sServer'];
+    if (empty ($sServerUrl)) $sServerUrl = $aEtcConfig['sServerUrl'];
 
     if (empty ($sServerUrl) && !empty ($sServer))
       $sServerUrl = $sServer . '/cgi-bin/tequila';
