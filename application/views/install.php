@@ -1,4 +1,5 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <div id="install-container-url">
     <input type="text" id="install-url" value="curl -S <?= $url ?> | sh"/>
     <div class="tooltip" onclick="clipboard();" onmouseout="outFunc();">

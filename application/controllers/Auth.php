@@ -1,27 +1,47 @@
-<?php defined('BASEPATH') OR exit('No direct script access allowed');
+<?php 
+
+
+defined('BASEPATH') OR exit('No direct script access allowed');
 
 require FCPATH . 'application/libraries/tequila.php';
 
-
+/**
+ * Auth
+ */
 class Auth extends CI_Controller {
     private $tequilaClt;
     private $data = [];
-
-    function __construct(){
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
+    public function __construct(){
         parent::__construct();
         $this->load->model('applications');
         $this->load->helper('cookie');
         $this->tequilaClt = new TequilaClient();
     }
-
-    function isLogged(){
+    
+    /**
+     * isLogged
+     *
+     * @return void
+     */
+    public function isLogged(){
         if($_SESSION['user'] !== null){
             return true;
         }
         redirect('auth/login');
     }
-
-    function login(){
+    
+    /**
+     * login
+     *
+     * @return void
+     */
+    public function login(){
         $this->tequilaClt->SetApplicationName('ENACPACK');
         $this->tequilaClt->SetWantedAttributes(array('uniqueid','name','firstname','unit', 'unitid', 'where', 'group'));
         $this->tequilaClt->SetWishedAttributes(array('email', 'title'));
@@ -31,12 +51,22 @@ class Auth extends CI_Controller {
 
         redirect('auth/settings');
     }
-
-    function logout() {
+    
+    /**
+     * logout
+     *
+     * @return void
+     */
+    public function logout() {
         $this->tequilaClt->Logout(base_url());
     }
-
-    function process_edit(){
+    
+    /**
+     * process_edit
+     *
+     * @return void
+     */
+    public function process_edit(){
         self::isLogged();
 
         $name   = $this->input->post('name');
@@ -75,8 +105,13 @@ class Auth extends CI_Controller {
         }
         redirect('auth');
     }
-
-    function settings(){
+    
+    /**
+     * settings
+     *
+     * @return void
+     */
+    public function settings(){
         self::isLogged();
 
         $this->data['title'] = 'Settings';
@@ -89,8 +124,13 @@ class Auth extends CI_Controller {
         $this->load->view('settings', $this->data);
         $this->load->view('templates/footer', $this->data);
     }
-
-    function edit(){
+    
+    /**
+     * edit
+     *
+     * @return void
+     */
+    public function edit(){
         self::isLogged();
 
         $id   = $this->input->get('id');
@@ -106,8 +146,13 @@ class Auth extends CI_Controller {
         $this->load->view('edit', $this->data);
         $this->load->view('templates/footer', $this->data);
     }
-
-    function delete(){
+    
+    /**
+     * delete
+     *
+     * @return void
+     */
+    public function delete(){
         seft::isLogged();
 
         $name   = $this->input->get('name');
@@ -129,8 +174,13 @@ class Auth extends CI_Controller {
             }
         }
     }
-
-    function index(){
+    
+    /**
+     * index
+     *
+     * @return void
+     */
+    public function index(){
         self::isLogged();
 
         redirect('auth/settings');

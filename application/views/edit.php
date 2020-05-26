@@ -1,4 +1,6 @@
 <?php
+    defined('BASEPATH') OR exit('No direct script access allowed');
+
     if(isset($_GET['error'])){
         echo $_GET['error'];
     }

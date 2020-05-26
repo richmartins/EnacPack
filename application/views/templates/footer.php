@@ -1,4 +1,5 @@
 <?php  defined('BASEPATH') OR exit('No direct script access allowed'); ?>
+
 <footer id="footer-container">
     <div id="footer-info">
         <div id="footer-info-message">

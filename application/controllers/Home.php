@@ -1,16 +1,27 @@
 <?php defined('BASEPATH') OR exit('No direct script access allowed');
 
+/**
+ * Home
+ */
 class Home extends CI_Controller {
     private $data = [];
-
+    
+    /**
+     * __construct
+     *
+     * @return void
+     */
     public function __construct() {
         parent::__construct();
         $this->load->model('applications');
-        $this->load->helper('file');
-        // $this->data['logged'] = $_SESSION['sKey'];
-        $this->data['logged'] = (isset($_SESSION['sKey'])) ? $_SESSION['sKey'] : null ;
+        $this->load->helper('file');;
     }
-
+    
+    /**
+     * index
+     *
+     * @return void
+     */
     public function index(){
         $applications = $this->applications->getApplications();
 
@@ -25,8 +36,13 @@ class Home extends CI_Controller {
         $this->load->view('home', $this->data);
         $this->load->view('templates/footer');
     }
-
-    public function process_input_home() {
+    
+    /**
+     * processInputHome
+     *
+     * @return void
+     */
+    public function processInputHome() {
         $selected = $this->input->get('checked_app');
         if(empty($selected)){
             $error = 'You must select at least one application';
@@ -35,8 +51,8 @@ class Home extends CI_Controller {
         }
 
         $filename = '';
-        $script = '';
-        $script .= $this->applications->getApplications()->header->shell;
+        $script   = '';
+        $script  .= $this->applications->getApplications()->header->shell;
         
         foreach($this->applications->getApplications()->command as $command){
             foreach ($selected as $app){
@@ -46,11 +62,11 @@ class Home extends CI_Controller {
                 }
             }
         }
-        
-        print_r($script);
-        //create bash file
+
+
+        //create shell script
         $fullfilename = FCPATH . 'public/installer/' . $filename;
-        $handle = fopen($fullfilename, 'w') or die('Cannot open file:  '.$fullfilename); //implicitly creates file
+        $handle = fopen($fullfilename, 'w') or die('Cannot open file:  ' . $fullfilename); //implicitly creates file
         if(fwrite($handle, $script)){
             echo 'file was written';
             //render view
@@ -62,7 +78,12 @@ class Home extends CI_Controller {
         }
         fclose($handle);
     }
-
+    
+    /**
+     * install
+     *
+     * @return void
+     */
     public function install () {
         $name = $this->input->get('file');
         $url = base_url() . 'public/installer/' . $name;
