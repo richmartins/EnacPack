@@ -1,7 +1,7 @@
 <?php  defined('BASEPATH') OR exit('No direct script access allowed'); ?>
 
 <div id="home-container">
-    <form class="home-form" method="GET" action="<?= base_url()?>processInputHome/">
+    <form class="home-form" method="GET" action="<?= base_url()?>home/processInputHome/">
         <div id="home-card-deck">
             <?php foreach ($applications as $app): ?>
                 <label class="home-link-label">
